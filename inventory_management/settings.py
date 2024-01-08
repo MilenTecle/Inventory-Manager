@@ -42,12 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_summernote',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    'django_summernote',
     'inventory',
 ]
 
@@ -92,6 +92,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,7 +146,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://'8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io",
+    "https://8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io",
 ]
 
 
