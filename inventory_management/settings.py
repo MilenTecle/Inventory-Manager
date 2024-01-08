@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9q9w%1_^r&lk0(c=o@0r)^=fb^d@*p!a$2*&26v2fmtarr91g1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io', '.herokuapp.com',]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'accounts',
+    'inventory',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -128,6 +129,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com",
+    "https://'8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io",
+]
 
 
 # Password validation
