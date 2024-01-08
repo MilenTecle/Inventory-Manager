@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<div class="landing-page">
+        <div class="welcome-message">
+            <h1>Welcome to Inventory Manager</h1>
+            <p>
+                Discover the simplicity of organizing and managing your belongings with Inventory Manager.
+                Our platform empowers you to create and maintain detailed inventories of your possessions,
+                making it easy to track, share, and find what you need. Create an account to get started!
+            </p>
+            <a href="{ url 'signup' %}" class="btn btn-primary">Sign Up</a>
+            <a href="{ url 'login' %}" class="btn btn-primary">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
