@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io', '.herokuapp.com',]
+ALLOWED_HOSTS = ['8000-milentecle-inventoryman-5u4m9nfmq1u.ws-eu107.gitpod.io', '.herokuapp.com',]
 
 
 # Application definition
@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'django_summernote',
+    'cloudinary',
     'inventory',
 ]
 
@@ -132,7 +134,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-milentecle-inventoryman-36mqay7kejm.ws-eu107.gitpod.io",
+    "https://8000-milentecle-inventoryman-5u4m9nfmq1u.ws-eu107.gitpod.io",
 ]
 
 
