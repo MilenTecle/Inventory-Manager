@@ -180,3 +180,12 @@ body {
 .faded {
     color: rgb(172, 175, 175);
 }
+
+footer i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+footer i:hover {
+    color: #E37F4D;
+}
