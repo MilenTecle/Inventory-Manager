@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-milentecle-inventoryman-5u4m9nfmq1u.ws-eu107.gitpod.io', '.herokuapp.com',]
+ALLOWED_HOSTS = ['8000-milentecle-inventoryman-n3d9t0qtuqm.ws-eu107.gitpod.io', '.herokuapp.com',]
 
 
 # Application definition
@@ -50,9 +50,16 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'django_summernote',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'cloudinary',
     'inventory',
+    'contact',
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -134,7 +141,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-milentecle-inventoryman-5u4m9nfmq1u.ws-eu107.gitpod.io",
+    "https://8000-milentecle-inventoryman-n3d9t0qtuqm.ws-eu107.gitpod.io",
 ]
 
 

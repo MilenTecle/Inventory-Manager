@@ -21,6 +21,7 @@ from inventory.views import landing_page
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
+    path('contact/', include("contact.urls"), name="contact-urls"),
     path('', landing_page, name='landing_page'),
     path('summernote/', include('django_summernote.urls')),
 ]

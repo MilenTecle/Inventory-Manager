@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5 my5">
+            <h2>Contact Us</h2>
+            <p>
+                Have a question, suggestion, or just want to get in touch?
+                We'd love to hear from you! Please use the form below to send us a message,
+                and we'll get back to you as soon as possible.
+            </p>
+            <form method="post">
+                {{ contact_form | crispy }}
+                {% csrf_token %}
+                <button class="btn gray-btn" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

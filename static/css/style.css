@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-body {
+body .bg-image {
     background-image: url('/static/images/test-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
-/* Landingpage*/
+/* Landing page*/
 .welcome-message {
     margin-top: 15%;
     color: black;
@@ -39,6 +39,7 @@ body {
     background: #222121;
     color:white;
 }
+
 
 .brand {
     font-family: Lato, sans-serif;
