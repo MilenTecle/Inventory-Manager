@@ -1,4 +1,7 @@
 {% load static %}
+
+{% url 'home' as home_url %}
+{% url 'contact' as '/contact/' %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -85,6 +88,14 @@
             </div>
         </div>
     </nav>
+
+    {% for msg in messages %}
+    {% if message.tags %}
+        <div class="{{ message_tags }} message">
+             {{ message }}
+        </div>
+        {% endif %}
+    {% endfor %}
 
     <main class="flex-shrink-0 main-bg">
 

@@ -5,4 +5,4 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def landing_page(request):
-    return render(request, 'inventory/landing_page.html')
+    return render(request, 'landing_page.html')

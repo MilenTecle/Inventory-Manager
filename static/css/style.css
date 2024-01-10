@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body .bg-image {
+body  {
     background-image: url('/static/images/test-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;

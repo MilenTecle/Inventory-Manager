@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.contrib import messages
+from .models import Contact
 from .forms import ContactForm
 
 # Create your views here.
 def contact(request):
-    contact_form = ContactForm()
 
     if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
+        contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.save()
+            print('Before message')
             messages.add_message(request, messages.SUCCESS, "Message successfully sent!")
-            # Clears the form
-            contact_form = ContactForm()
+            print('after message')
+    # Clears the form
+    contact_form = ContactForm()
 
 
     return render(
