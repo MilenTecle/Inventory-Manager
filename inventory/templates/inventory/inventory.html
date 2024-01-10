@@ -1,2 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image:none; /* Override the background image */
+    }
+</style>
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5 my5">
+    <h2>Get started with your inventory!</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ list.as_p }}
+        <div id="items">
+        </div>
+        <button type="button" class="btn btn-success" id="add-item"><i class="fa-solid fa-plus"></i></button>
+        <button type="submit" class="btn btn-danger">Save</button>
+    </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

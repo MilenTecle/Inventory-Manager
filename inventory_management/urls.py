@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inventory.views import landing_page
+from inventory.views import landing_page, inventory_page
+
 
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
-    path('contact/', include("contact.urls"), name="contact-urls"),
+    path('contact/', include("contact.urls")),
     path('', landing_page, name='landing_page'),
+    path('inventory/', inventory_page, name='inventory'),
     path('summernote/', include('django_summernote.urls')),
 ]
