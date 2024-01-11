@@ -14,7 +14,7 @@ def inventory_page(request):
         list = InventoryForm(request.POST)
         if list.is_valid():
            inventory_list = list.save(commit=False)
-           inventory.list.save()
+           inventory_list.save()
            return redirect('inventory_detail', pk=inventory_list.pk)
     else:
         list = InventoryForm()
