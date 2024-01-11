@@ -12,7 +12,7 @@ class Category(models.Model):
 class Inventory(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name

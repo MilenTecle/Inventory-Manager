@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <style>
@@ -18,7 +18,7 @@
     <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
     <form method="POST" class="inventory-form hide">
         {% csrf_token %}
-        {{ list.as_p }}
+        {% crispy list %}
         <div id="items">
         </div>
         <button type="button" class="btn btn-success" id="add-item"><i class="fa-solid fa-plus"></i></button>

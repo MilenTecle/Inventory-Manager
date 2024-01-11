@@ -2,6 +2,7 @@
 
 {% url 'home' as home_url %}
 {% url 'contact' as '/contact/' %}
+{% url 'inventory' as '/inventory/' %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -51,8 +52,8 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == landing_url %}active{% endif %}" aria-current="page"
-                            href="#">Home</a>
+                        <a class="nav-link {% if request.path == '/inventory/' %}active{% endif %}" aria-current="page"
+                            href="{% url 'inventory' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" aria-current="page"
