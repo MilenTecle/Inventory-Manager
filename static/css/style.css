@@ -59,6 +59,25 @@ body  {
     margin-top: 10%;
 }
 
+.edit-icon, .delete-icon {
+    cursor: pointer;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+    color: #E37F4D;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    gap: 5px;
+}
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;

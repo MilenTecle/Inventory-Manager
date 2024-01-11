@@ -2,13 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('inventory-form');
 const itemsContainer = document.getElementById('items');
 const addItem = document.getElementById('add-item')
+const saveBtn = document.getElementById('save')
 
 
 
 /* Handles the click event to render the inventory form */
     document.getElementById('toggle-form').addEventListener('click', function() {
-        form.classList.toggle('hide');;
+        form.classList.toggle('hide')
         addItem.classList.toggle('hide')
+        itemsContainer.classList.toggle('hide')
+        saveBtn.classList.toggle('hide')
     });
 
 
