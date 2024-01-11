@@ -16,13 +16,17 @@
     <h2>Get started with your inventory!</h2>
     <br>
     <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
-    <form method="POST" class="inventory-form hide">
+    <form method="POST" class="items-form hide" id="inventory-form">
         {% csrf_token %}
         {% crispy list %}
         <div id="items">
+            <input type="text" name="items" class="form-control item-name" placeholder="Item name">
+            <i class="fa-solid fa-pencil edit-icon"></i>
+            <i class="fa-regular fa-trash-can delete-icon"></i>
         </div>
-        <button type="button" class="btn btn-success" id="add-item"><i class="fa-solid fa-plus"></i></button>
-        <button type="submit" class="btn btn-danger">Save</button>
+        <button type="button" class="btn btn-success hide" id="add-item"><i class="fa-solid fa-plus"></i></button>
+        <button type="submit" class="btn btn-danger hide">Save</button>
+
     </form>
         </div>
     </div>
