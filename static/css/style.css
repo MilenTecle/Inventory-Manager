@@ -67,6 +67,10 @@ body  {
     margin-top: 2rem;
 }
 
+.invalid-feedback {
+    display: block;
+}
+
 /* Inventory page/dashboard */
 .list-btn {
     color: #E37F4D;
