@@ -40,6 +40,33 @@ body  {
     color:white;
 }
 
+/* Sign up form styles */
+.form-signup {
+    margin: auto;
+    max-width: 350px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+.form-signup label {
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+
+
+.form-signup button {
+    width: 100%;
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 5px;
+    line-height: 1.5;
+    margin-top: 2rem;
+}
+
 /* Inventory page/dashboard */
 .list-btn {
     color: #E37F4D;
