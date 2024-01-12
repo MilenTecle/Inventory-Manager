@@ -72,16 +72,27 @@ body  {
     display: block;
 }
 
-/* Login styles */
-
+/* Social account login styles */
 .social-account-login li {
     list-style-type: none;
 }
 
 ul.social-account-login {
     padding-right: 10%;
-    padding-left: 0;
+    margin-top: -10%;
 }
+
+.btn.btn-facebook {
+    background: #376bb7;
+    border-color: #376bb7;
+    margin-bottom: -15px;
+}
+
+.btn.btn-google {
+    background: #cf4431;
+    border-color: #cf4431;
+}
+
 
 /* Inventory page/dashboard */
 .list-btn {
@@ -99,7 +110,49 @@ ul.social-account-login {
 }
 
 .get-started {
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+.list-items-form {
+    max-width: 400px;
+}
+
+.form-signup .btn-success {
+    background: #28a745;
+    border: #28a745;
+    border-radius: 4px;
+    width: 20%;
+    margin: 0 auto;
+}
+
+.form-signup .btn-danger {
+    background: #dc3545;
+    border: #dc3545;
+    border-radius: 4px;
+    width: 30%;
+    margin: 15% auto 0;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;;
+    justify-content: space-between;
+    margin-bottom: 10%;
+}
+
+.item-row.hide {
+    display: none;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .edit-icon, .delete-icon {
@@ -111,16 +164,7 @@ ul.social-account-login {
     color: #E37F4D;
 }
 
-.item-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.icons {
-    display: flex;
-    gap: 5px;
-}
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;

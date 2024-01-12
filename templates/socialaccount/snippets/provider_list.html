@@ -4,22 +4,18 @@
 {% get_providers as socialaccount_providers %}
 {% if socialaccount_providers %}
 <ul class="social-account-login text-center">
-    {% element provider_list %}
         {% for provider in socialaccount_providers %}
-            {% if provider.id == "openid" %}
-                {% for brand in provider.get_brands %}
+            {% if provider.id == "facebook" %}
                     {% provider_login_url provider openid=brand.openid_url process=process as href %}
                     <li>
-                        <a href="{{ href }}" class="btn btn-primary" id="f-btn">{{ provider.name }}</a>
+                        <a href="{{ href }}" class="btn btn-facebook">{{ provider.name }}</a>
                     </li>
-                {% endfor %}
-            {% else %}
+            {% elif provider.id == "google" %}
             {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
             <li>
-                <a href="{{ href }}" class="btn btn-primary" id="g-btn">{{ provider.name }}</a>
+                <a href="{{ href }}" class="btn btn-google">{{ provider.name }}</a>
             </li>
             {% endif %}
         {% endfor %}
-    {% endelement %}
 </ul>
 {% endif %}
