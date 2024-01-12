@@ -55,7 +55,8 @@ body  {
 
 
 
-.form-signup button {
+.form-signup button,
+.social-account-login li a  {
     width: 100%;
     background: #007bff;
     border-color: #007bff;
@@ -69,6 +70,17 @@ body  {
 
 .invalid-feedback {
     display: block;
+}
+
+/* Login styles */
+
+.social-account-login li {
+    list-style-type: none;
+}
+
+ul.social-account-login {
+    padding-right: 10%;
+    padding-left: 0;
 }
 
 /* Inventory page/dashboard */
