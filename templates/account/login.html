@@ -1,27 +1,55 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load allauth account %}
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block content %}
-<form method="POST" action="{% url 'account_login' %}">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
-      <a href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
-</form>
 
-{% if SOCIALACCOUNT_ENABLED %}
-<div>
+<style>
+    body {
+        background-image:none; /* Override the background image */
+    }
+</style>
 
-    <p> OR</p>
-    {% for sociallogin in socialaccount.providers %}
-        {% if sociallogin.id == "facebook" or sociallogin.id == "google" %}
-        <a href="{{ sociallogin.get.login_url }}" class="btn btn-{{ sociallogin.id }}">
-            Sign in with {{ sociallogin.name }}
-        </a>
-        {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
-{% endblock content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 offset md-3">
+            <div class="form-signup card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Sign In</h2>
+                    <form method="POST" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field|add_class:"form-control" }}
+                                {% if field.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in field.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    </form>
+                    <div class="mt-4">
+                        <a href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
+                    </div>
+                </div>
+                {% if SOCIALACCOUNT_ENABLED %}
+                <div class="text-center">
+                    <p> {% trans "OR" %}</p>
+                    {% for sociallogin in socialaccount.providers %}
+                        {% if sociallogin.id == "facebook" or sociallogin.id == "google" %}
+                        <a href="{{ sociallogin.get.login_url }}" class="btn btn-social btn-{{ sociallogin.id }} btn-block">
+                            {% trans "Sign in with" %} {{ sociallogin.name }}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endblock content %}
+            </div>
+        </div>
+
