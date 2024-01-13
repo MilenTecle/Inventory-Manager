@@ -14,7 +14,7 @@ class Category(models.Model):
 class Inventory(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    category = models.CharField(max_length=255)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     qr_code = models.URLField(max_length=500, blank=True, null=True)
 
     def save(self, *args, **kwargs):

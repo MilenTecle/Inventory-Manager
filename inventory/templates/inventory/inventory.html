@@ -18,8 +18,8 @@
                 <br>
                 <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
                 <form method="POST" class="items-form hide" id="inventory-form">
+                    {{ inventory_form | crispy }}
                     {% csrf_token %}
-                    {% crispy list %}
                     <div id="items" class="item-row hide">
                         <div class="items-label">
                         <label for="name">Item</label>
