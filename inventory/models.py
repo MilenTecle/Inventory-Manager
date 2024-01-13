@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from cloudinary.models import CloudinaryField
+from .utils import generate_qrcode
+from django.urls import reverse
 
 # Create your models here.
 class Category(models.Model):
@@ -14,6 +16,14 @@ class Inventory(models.Model):
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
     qr_code = models.URLField(max_length=500, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.qr_code:
+            self.qr_code = generate_qrcode(self.get_url())
+        super(Inventory, self).save(*args, **kwargs)
+
+    def get_url(self):
+        return reverse('inventory_detail', args=[str(self.id)])
 
     def __str__(self):
         return self.name
