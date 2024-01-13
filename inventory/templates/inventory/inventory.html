@@ -21,8 +21,10 @@
                     {% csrf_token %}
                     {% crispy list %}
                     <div id="items" class="item-row hide">
+                        <div class="items-label">
                         <label for="name">Item</label>
                         <input type="text" name="items" class="form-control item-name" placeholder="Item name">
+                        </div>
                         <div class="icons">
                             <i class="fa-solid fa-pencil edit-icon"></i>
                             <i class="fa-regular fa-trash-can delete-icon"></i>

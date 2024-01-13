@@ -95,6 +95,8 @@ ul.social-account-login {
 
 
 /* Inventory page/dashboard */
+
+/* Inventory form */
 .list-btn {
     color: #E37F4D;
     font-size: 1.5rem;
@@ -133,11 +135,19 @@ ul.social-account-login {
     margin: 15% auto 0;
 }
 
+/*
 .item-row {
     display: flex;
     align-items: center;;
     justify-content: space-between;
     margin-bottom: 10%;
+}
+*/
+
+.form-signup .item-name {
+    border: none;
+    outline: none;
+    border-bottom: 1px dashed #ccc;
 }
 
 .item-row.hide {
