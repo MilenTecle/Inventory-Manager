@@ -26,3 +26,12 @@ def inventory_page(request):
     else:
         list = InventoryForm()
     return render(request, 'inventory/inventory.html', {'list': list})
+
+
+def inventory_detail(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+
+    return render(request, 'inventory/inventory_detail.html', {'inventory': inventory})
+
+def dashboard(request):
+    inventories = Inventory.objects.filter(user==request.user)
