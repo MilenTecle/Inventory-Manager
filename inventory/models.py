@@ -18,9 +18,12 @@ class Inventory(models.Model):
     qr_code = models.URLField(max_length=500, blank=True, null=True)
 
     def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
         if not self.qr_code:
             self.qr_code = generate_qrcode(self.get_url())
-        super(Inventory, self).save(*args, **kwargs)
+
+        super().save(*args, **kwargs)
 
     def get_url(self):
         return reverse('inventory_detail', args=[str(self.id)])

@@ -11,7 +11,7 @@ def generate_qrcode(data):
         border=4,
     )
     qr.add_data(data)
-    qe.make(fit=True)
+    qr.make(fit=True)
 
     # Create an image from the QR code
     image = qr.make_image(fill_color='black', back_color='white')
