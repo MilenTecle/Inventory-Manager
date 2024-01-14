@@ -24,7 +24,7 @@ def inventory_page(request):
             inventory_list.user = request.user
             inventory_list.category = category_name
             inventory_list.save()
-            return redirect('inventory_detail', pk=inventory_list.pk)
+            return redirect('dashboard')
     else:
         inventory_form = InventoryForm()
     return render(request, 'inventory/inventory.html', {'inventory_form': inventory_form})
@@ -37,3 +37,4 @@ def inventory_detail(request, pk):
 
 def dashboard(request):
     inventories = Inventory.objects.filter(user=request.user)
+    return render(request, 'inventory/dashboard.html', {'inventories': inventories})

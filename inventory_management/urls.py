@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inventory.views import landing_page, inventory_page, inventory_detail
+from inventory.views import landing_page, inventory_page, inventory_detail, dashboard
 
 
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path('contact/', include("contact.urls")),
     path('', landing_page, name='landing_page'),
     path('inventory/', inventory_page, name='inventory'),
+    path('dasboard/', dashboard, name='dashboard'),
     path('summernote/', include('django_summernote.urls')),
     path('inventory/<int:pk>/', inventory_detail, name="inventory_detail"),
 ]

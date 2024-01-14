@@ -64,8 +64,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">My lists</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% for inventory in request.user.inventory_set_all %}
+                            {% for inventory in request.user.inventory_set.all %}
                             <a class="dropdown-item" href="{% url 'inventory_detail' inventory.pk %}">{{ inventory.name }}</a>
+                            {% empty%}
+                            <a class="dropdown-item">No lists created</a>
                             {% endfor %}
                         </ul>
                     </li>

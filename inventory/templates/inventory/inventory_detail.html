@@ -10,12 +10,12 @@
 </style>
 
 <div class="container mt-4">
-    <h1>{{ inventory.name}} </h1>
+    <h3>{{ inventory.name}} </h3>
     <p>Category: {{inventory.category }} </p>
     <img src="{{ inventory.qr_code}}" alt="QR code for {{ inventory.name }}" />
     <div class="share-download">
-        <a href="{{ inventory.qr_code }}" download ="{{ inventory.name }}.png">Download</a><i class="fa-solid fa-download"></i>
-        <i class="fa-solid fa-share-from-square">Share</i>
+        <a href="{{ inventory.qr_code }}" download ="{{ inventory.name }}.png">Download </a><i class="fa-solid fa-download"></i>
+        Share <i class="fa-solid fa-share-from-square"></i>
     </div>
 </div>
 
