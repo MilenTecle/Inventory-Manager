@@ -3,7 +3,8 @@ const form = document.getElementById('inventory-form');
 const itemsContainer = document.getElementById('items');
 const addItem = document.getElementById('add-item')
 const saveBtn = document.getElementById('save')
-
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+let deleteItem = null; // variable to keep track of which item to delete
 
 
 /* Handles the click event to render the inventory form */
@@ -37,7 +38,16 @@ const saveBtn = document.getElementById('save')
         /* Delete icon event listener */
         const deleteIcon = newItem.querySelector('.delete-icon');
         deleteIcon.addEventListener('click', function() {
-            newItem.remove();
+            deleteItem = newItem;
+            deleteModal.show();
         });
+    });
+
+    document.getElementById('deleteConfirm').addEventListener('click', function() {
+        if (deleteItem) {
+            deleteItem.remove();
+            deleteItem = null; // reset the variable
+            deleteModal.hide()
+        }
     });
 });

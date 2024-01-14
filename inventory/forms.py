@@ -5,6 +5,9 @@ class InventoryForm(forms.ModelForm):
     class Meta:
         model = Inventory
         fields = ['name', 'category']
+        labels = {
+            'name': 'List name'
+        }
 
 class ItemsForm(forms.ModelForm):
     class Meta:
