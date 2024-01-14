@@ -23,3 +23,5 @@ def generate_qrcode(data):
 
     # Upload image to Cloudinary
     response = cloudinary.uploader.upload(buffer, format='png')
+
+    return response['url']
