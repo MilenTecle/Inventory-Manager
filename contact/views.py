@@ -13,6 +13,7 @@ def contact(request):
             messages.success(request, "Message successfully sent!")
             return redirect('contact')
 
+    new_message = Contact.objects.all().order_by('-created_at').first()
     contact_form = ContactForm()
 
 
@@ -20,7 +21,7 @@ def contact(request):
         request,
         'contact/contact.html',
         {
-            'contact': contact,
+            'new_message': new_message,
             'contact_form': contact_form
          },
     )

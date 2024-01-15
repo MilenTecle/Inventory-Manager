@@ -7,6 +7,11 @@ class Contact(models.Model):
     email = models.EmailField()
     message = models.TextField()
     read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Message'
+        verbose_name_plural = 'Messages'
 
     def __str__(self):
-        return f"Message from {self.name}"
+        return f"New message from {self.name}"
