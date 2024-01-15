@@ -25,7 +25,11 @@
                         {% for field in form %}
                             <div class="form-group">
                                 {{ field.label_tag }}
-                                {{ field|add_class:"form-control" }}
+                                {% if field.name != 'remember' %}
+                                    {{ field|add_class:"form-control" }}
+                                {% else %}
+                                    {{ field }}
+                                {% endif %}
                                 {% if field.errors %}
                                     <div class="invalid-feedback">
                                         {% for error in field.errors %}

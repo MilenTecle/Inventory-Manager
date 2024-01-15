@@ -54,7 +54,6 @@ body  {
 }
 
 
-
 .form-signup button,
 .social-account-login li a  {
     width: 100%;
@@ -66,6 +65,10 @@ body  {
     padding: 5px;
     line-height: 1.5;
     margin-top: 2rem;
+}
+
+#id_remember {
+    margin-top: 10%;
 }
 
 .invalid-feedback {
