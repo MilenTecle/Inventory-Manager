@@ -122,20 +122,22 @@ ul.social-account-login {
     max-width: 400px;
 }
 
-.form-signup .btn-success {
+.form-signup #add-item {
     background: #28a745;
     border: #28a745;
     border-radius: 4px;
     width: 20%;
-    margin: 0 auto;
+    margin-left: 40%;
 }
 
-.form-signup .btn-danger {
+.form-signup #save {
     background: #dc3545;
     border: #dc3545;
     border-radius: 4px;
     width: 30%;
     margin: 15% auto 0;
+    display: flex;
+    justify-content: center;
 }
 
 /*
@@ -183,12 +185,14 @@ ul.social-account-login {
 /* QR-code image container */
 
 .qr-img {
-    width: fit-content;
+    width: 65%;
 }
 
 .card.qr-container {
     background: #E37F4D;
     width: fit-content;
+    border-radius: 0;
+    color: white;
 }
 
 .card-text.qr-category {
@@ -206,7 +210,7 @@ ul.social-account-login {
     display: flex;
     justify-content: space-between;
     margin-top: -5%;
-    padding: 0 10px 10px;
+    padding: 0 10px 5px;
 }
 .download-share i {
     color: #212529;
@@ -214,8 +218,8 @@ ul.social-account-login {
 
 .details-btn {
     font-size: 0.8rem;
-    margin: 10px 10px;
-    width: 30%;
+    margin: 15px 35px;
+    width: auto;
 }
 
 /*
