@@ -14,15 +14,18 @@
     <div class="row">
         {% for inventory in inventories %}
         <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{{ inventory.qr_code}}" class="card-img-top" alt="QR code for {{ inventory.name }}" />
-                <div class="card-body">
-                    <h4 class="card-title">{{ inventory.name }}</h4>
-                    <p class="card-text">{{ inventory.category }} </p>
-                    <a href="{{ inventory.qr_code }}" download>Download </a><i class="fa-solid fa-download"></i>
-                    <a href="{% url 'inventory_detail' inventory.pk %}" class="btn btn-secondary">View details</a>
+            <div class="card qr-container">
+                    <h6 class="card-title text-center">{{ inventory.name }}</h6>
+                    <p class="card-text text-center qr-category">Category: {{ inventory.category }} </p>
+                    <div class="qr-code-image">
+                <img src="{{ inventory.qr_code}}" class="card-img-top qr-img" alt="QR code for {{ inventory.name }}" />
+                    </div>
+                <div class="card-body download-share">
+                    <a class="link" href="{{ inventory.qr_code }}" download>Download <i class="fa-solid fa-download"></i></a>
+                    <a class="link" href="{{ inventory.qr_code }}"Share>Share <i class="fa-solid fa-share-from-square"></i></a>
                 </div>
             </div>
+            <a href="{% url 'inventory_detail' inventory.pk %}" class="btn btn-secondary details-btn details-btn">View details</a>
         </div>
         {% empty %}
         <p class="text-center">You have no inventory list yet</p>

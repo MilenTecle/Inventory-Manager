@@ -97,7 +97,7 @@ ul.social-account-login {
 }
 
 
-/* Inventory page/dashboard */
+/* Inventory page*/
 
 /* Inventory form */
 .list-btn {
@@ -178,20 +178,46 @@ ul.social-account-login {
 }
 
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+/* Dashboard */
+
+/* QR-code image container */
+
+.qr-img {
+    width: fit-content;
 }
 
-.red-o {
-    color: #E84610;
+.card.qr-container {
+    background: #E37F4D;
+    width: fit-content;
 }
 
-.thin {
-    font-weight: 300;
+.card-text.qr-category {
+    font-size: 0.8rem;
+    margin-bottom: 0;
 }
+
+.qr-code-image {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body.download-share {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -5%;
+    padding: 0 10px 10px;
+}
+.download-share i {
+    color: #212529;
+}
+
+.details-btn {
+    font-size: 0.8rem;
+    margin: 10px 10px;
+    width: 30%;
+}
+
 /*
 .bg-dark {
     background-color: #333333;
@@ -265,26 +291,6 @@ ul.social-account-login {
     z-index: 100;
 }
 
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
 .btn-signup,
 .btn-edit {
     background-color: #188181;
@@ -298,8 +304,8 @@ ul.social-account-login {
 }
 
 .link {
-    color: #23BBBB;
     text-decoration: none;
+    color: white
 }
 
 .link:hover,
@@ -314,10 +320,6 @@ ul.social-account-login {
     background: #E84610;
 }
 
-
-.faded {
-    color: rgb(172, 175, 175);
-}
 
 footer i {
     color: white;
