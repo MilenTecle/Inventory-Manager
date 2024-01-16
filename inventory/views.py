@@ -22,8 +22,9 @@ def inventory_page(request):
             # Create the inventory list and link to the category
             inventory_list = inventory_form.save(commit=False)
             inventory_list.user = request.user
-            inventory_list.category = category_name
+            inventory_list.category = category
             inventory_list.save()
+            messages.success(request, "Inventory list saved successfully!")
             return redirect('dashboard')
     else:
         inventory_form = InventoryForm()

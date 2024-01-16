@@ -7,6 +7,10 @@ from django.urls import reverse
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return self.name
 
@@ -24,6 +28,9 @@ class Inventory(models.Model):
             self.qr_code = generate_qrcode(self.get_url())
 
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Inventories'
 
     def get_url(self):
         return reverse('inventory_detail', args=[str(self.id)])

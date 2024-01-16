@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-milentecle-inventoryman-97xy5jd31d3.ws-eu107.gitpod.io', '.herokuapp.com',]
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'widget_tweaks',
     'django_summernote',
+    # 'django_select2',
     'cloudinary',
     'inventory',
     'contact',

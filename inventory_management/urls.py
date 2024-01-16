@@ -27,6 +27,7 @@ urlpatterns = [
     path('', landing_page, name='landing_page'),
     path('inventory/', inventory_page, name='inventory'),
     path('dasboard/', dashboard, name='dashboard'),
+    # path('select2/', include('django_select2.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('inventory/<int:pk>/', inventory_detail, name="inventory_detail"),
 ]
