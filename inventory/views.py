@@ -12,6 +12,9 @@ def landing_page(request):
 
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
+    inventories = Inventory.objects.filter(user=request.user)
+    inventory_form = InventoryForm()
+
     if request.method == 'POST':
         inventory_form = InventoryForm(data=request.POST)
         if inventory_form.is_valid():
@@ -25,10 +28,12 @@ def inventory_page(request):
             inventory_list.category = category
             inventory_list.save()
             messages.success(request, "Inventory list saved successfully!")
-            return redirect('dashboard')
-    else:
-        inventory_form = InventoryForm()
-    return render(request, 'inventory/inventory.html', {'inventory_form': inventory_form})
+            return redirect('inventory')
+
+    return render(request, 'inventory/inventory.html', {
+        'inventory_form': inventory_form,
+        'inventories': inventories
+    })
 
 
 def inventory_detail(request, pk):
@@ -36,6 +41,7 @@ def inventory_detail(request, pk):
 
     return render(request, 'inventory/inventory_detail.html', {'inventory': inventory})
 
+
 def dashboard(request):
-    inventories = Inventory.objects.filter(user=request.user)
-    return render(request, 'inventory/dashboard.html', {'inventories': inventories})
+
+    return render(request, 'inventory/inventory.html', {'inventories': inventories})
