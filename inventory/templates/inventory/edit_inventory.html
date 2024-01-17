@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image:none; /* Override the background image */
+    }
+</style>
+
+<h2>Edit Inventory</h2>
+<form method="POST" class="form">
+    {{ inventory_form | crispy }}
+    {% csrf_token %}
+    <button type="submit">Save changes</button>
+</form>
+{% endblock %}

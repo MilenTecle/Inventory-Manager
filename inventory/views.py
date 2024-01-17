@@ -35,13 +35,34 @@ def inventory_page(request):
         'inventories': inventories
     })
 
-
+# The view where the user can see the specific items in the inventory list
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk)
 
     return render(request, 'inventory/inventory_detail.html', {'inventory': inventory})
 
+@login_required
+def delete_inventory(request, pk):
+     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+     inventory.delete()
+     messages.success(request, "Inventory list deleted!")
+     return redirect('inventory')
+
+@login_required
+def edit_inventory(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = InventoryForm(data=request.POST, instance=inventory)
+        if form.is_valid():
+            form.save()
+            return redirect('inventory_detail', pk=inventory.pk)
+    else:
+        form = InventoryForm(instance=inventory)
+
+    return render(request, 'edit_detail.html', {'form': form})
+
+
 
 def dashboard(request):
-
     return render(request, 'inventory/inventory.html', {'inventories': inventories})
+
