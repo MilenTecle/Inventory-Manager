@@ -37,9 +37,27 @@ def inventory_page(request):
 
 # The view where the user can see the specific items in the inventory list
 def inventory_detail(request, pk):
-    inventory = get_object_or_404(Inventory, pk=pk)
+    inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+    items = inventory.items.all()
+    item_form = ItemsForm()
 
-    return render(request, 'inventory/inventory_detail.html', {'inventory': inventory})
+    if request.method == 'POST':
+        if 'add_item' in request.POST:
+            item_form = ItemsForm(request.Post)
+            if item_form.is_valid():
+                item = item_form.save(commit=False)
+                item.inventory = inventory
+                item.save()
+                messages.success(request, "Item added successfully!")
+                return redirect('inventory_detail', pk=inventory.pk)
+
+    return render(request, 'inventory/inventory_detail.html', {
+        'inventory': inventory,
+        'items': items,
+        'item_form': item_form,
+
+        })
+
 
 @login_required
 def delete_inventory(request, pk):

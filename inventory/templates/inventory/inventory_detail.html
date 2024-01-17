@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -12,11 +13,22 @@
 <div class="container mt-4">
     <h3>{{ inventory.name}} </h3>
     <p>Category: {{inventory.category }} </p>
-    <img src="{{ inventory.qr_code}}" alt="QR code for {{ inventory.name }}" />
-    <div class="share-download">
-        <a href="{{ inventory.qr_code }}" download ="{{ inventory.name }}.png">Download </a><i class="fa-solid fa-download"></i>
-        Share <i class="fa-solid fa-share-from-square"></i>
+    <div class="inventory-items-list">
+        <h4>Items</h4>
+        <ul>
+            {% for item in inventory.items.all %}
+            <li>
+                <div class="inventory-items">
+                <p> {{ item.name }} </p>
+            </li>
+        </ul>
+            {% endfor %}
+
+        <form method="POST" action="{ % url 'inventory_detail' inventory.pk %}">
+            {% csrf_token %}
+            {{ item_form | crispy }}
+            <input type="submit" value="Add Item"/>
+        </div>
     </div>
 </div>
-
 {% endblock %}

@@ -69,7 +69,7 @@
                             {% for inventory in request.user.inventory_set.all %}
                             <a class="dropdown-item" href="{% url 'inventory_detail' inventory.pk %}">{{ inventory.name }}</a>
                             {% empty%}
-                            <a class="dropdown-item">No lists created</a>
+                            <a class="dropdown-item">No lists created yet</a>
                             {% endfor %}
                         </ul>
                     </li>
