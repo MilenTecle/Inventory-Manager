@@ -12,9 +12,10 @@
 
 
 
-<div class="container mt-4">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-5 my5">
+            <div class="form-signup card list-items-form">
             <h3>{{ inventory.name}} </h3>
             <p>Category: {{inventory.category }} </p>
             <ul>
@@ -30,15 +31,20 @@
                     {% for form in formset %}
                         <div class="form-row">
                         {{ form.id }}
-                        {{ form.as_p }}
-                            <i class="fa-solid fa-pencil edit-icon"></i>
+                        {{ form | crispy }}
+                        <div class="icons">
+                        <i class="fa-solid fa-pencil edit-icon"></i>
+                        <a href="{% url 'edit_item' form.instance.id % }" class="edit-icon"></a>
                             <i class="fa-regular fa-trash-can delete-icon"></i>
+                            <a href="#" class="delete-icon" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"></a>
+                            </div>
                         </div>
                     {% endfor %}
                     <button type="submit" class="btn btn-danger" id="save">Save</button>
                 </form>
                 <button type="button" class="btn btn-success" id="add-item" name="add_item">Add <i class="fa-solid fa-plus"></i></button>
             </div>
+        </div>
         </div>
     </div>
 

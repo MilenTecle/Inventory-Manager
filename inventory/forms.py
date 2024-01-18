@@ -14,6 +14,9 @@ class ItemsForm(forms.ModelForm):
     class Meta:
         model = Items
         fields = ['name']
+        labels = {
+            'name': 'Item'
+        }
 
 
 ItemFormset = inlineformset_factory(

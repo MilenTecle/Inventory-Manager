@@ -27,8 +27,8 @@ def inventory_page(request):
             inventory_list.user = request.user
             inventory_list.category = category
             inventory_list.save()
-            messages.success(request, "Inventory list saved successfully!")
-            return redirect('inventory')
+            messages.success(request, "Inventory created successfully !")
+            return redirect('inventory_detail', pk=inventory_list.pk)
 
     return render(request, 'inventory/inventory.html', {
         'inventory_form': inventory_form,
