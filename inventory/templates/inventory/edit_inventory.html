@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -9,10 +10,11 @@
     }
 </style>
 
-<h2>Edit Inventory</h2>
-<form method="POST" class="form">
-    {{ inventory_form | crispy }}
-    {% csrf_token %}
-    <button type="submit">Save changes</button>
-</form>
+<div class="modal-body">
+    <form method="POST" action="{% url 'edit_item' item.id %}">
+        {{ form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Update item</button>
+    </form>
+</div>
 {% endblock %}

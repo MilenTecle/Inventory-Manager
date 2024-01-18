@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import inlineformset_factory
 from .models import Inventory, Items, Category
 
 class InventoryForm(forms.ModelForm):
@@ -12,4 +13,14 @@ class InventoryForm(forms.ModelForm):
 class ItemsForm(forms.ModelForm):
     class Meta:
         model = Items
-        fields = ['name', 'inventory']
+        fields = ['name']
+
+
+ItemFormset = inlineformset_factory(
+    Inventory,
+    Items,
+    form=ItemsForm,
+    fields=['name'],
+    extra=1,
+    can_delete=False
+)

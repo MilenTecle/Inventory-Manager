@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
-from .forms import InventoryForm, ItemsForm
+from .forms import InventoryForm, ItemsForm, ItemFormset
 from .models import Inventory, Items, Category
 from django.http import HttpResponseRedirect
 
@@ -38,46 +38,45 @@ def inventory_page(request):
 # The view where the user can see the specific items in the inventory list
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
-    items = inventory.items.all()
-    item_form = ItemsForm()
-
     if request.method == 'POST':
-        if 'add_item' in request.POST:
-            item_form = ItemsForm(request.Post)
-            if item_form.is_valid():
-                item = item_form.save(commit=False)
-                item.inventory = inventory
-                item.save()
-                messages.success(request, "Item added successfully!")
-                return redirect('inventory_detail', pk=inventory.pk)
+        formset = ItemFormset(request.POST, instance=inventory)
+        if formset.is_valid():
+            formset.save()
+            messages.success(request, "Item added successfully!")
+            return redirect('inventory_detail', pk=inventory.pk)
+
+    else:
+            formset = ItemFormset(instance=inventory)
 
     return render(request, 'inventory/inventory_detail.html', {
         'inventory': inventory,
-        'items': items,
-        'item_form': item_form,
-
-        })
+        'formset': formset
+    })
 
 
 @login_required
-def delete_inventory(request, pk):
-     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
-     inventory.delete()
-     messages.success(request, "Inventory list deleted!")
-     return redirect('inventory')
+def delete_item(request, item_id):
+     item = get_object_or_404(Items, id=item_id, user=request.user)
+     if request.method == 'POST':
+        item.delete()
+        messages.success(request, "Item deleted successfully")
+        return redirect('inventory_detail', pk=item.inventory.pk)
+
 
 @login_required
-def edit_inventory(request, pk):
-    inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+def edit_item(request, item_id):
+    item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
+
     if request.method == 'POST':
-        form = InventoryForm(data=request.POST, instance=inventory)
+        form = ItemsForm(data=request.POST, instance=items)
         if form.is_valid():
             form.save()
-            return redirect('inventory_detail', pk=inventory.pk)
+            messages.success(request, "Item updated successfully")
+            return redirect('inventory_detail', pk=item.inventory.pk)
     else:
-        form = InventoryForm(instance=inventory)
+        form = ItemsForm(instance=item)
 
-    return render(request, 'edit_detail.html', {'form': form})
+    return render(request, 'inventory/edit_inventory.html', {'form': form, 'item': item})
 
 
 
