@@ -11,6 +11,7 @@ class InventoryForm(forms.ModelForm):
         }
 
 class ItemsForm(forms.ModelForm):
+
     class Meta:
         model = Items
         fields = ['name']
@@ -18,6 +19,10 @@ class ItemsForm(forms.ModelForm):
             'name': 'Item'
         }
 
+    def  __init__(self, *args, **kwargs):
+        super(ItemsForm, self).__init__(*args, **kwargs)
+        if self.instance.pk:
+            self.fields['name'].widget.attrs['readonly'] = 'readonly'
 
 ItemFormset = inlineformset_factory(
     Inventory,

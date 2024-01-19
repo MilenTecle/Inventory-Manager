@@ -33,10 +33,8 @@
                         {{ form.id }}
                         {{ form | crispy }}
                         <div class="icons">
-                        <i class="fa-solid fa-pencil edit-icon"></i>
-                        <a href="{% url 'edit_item' form.instance.id % }" class="edit-icon"></a>
-                            <i class="fa-regular fa-trash-can delete-icon"></i>
-                            <a href="#" class="delete-icon" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"></a>
+                        <a href="#" class="edit-icon"><i class="fa-solid fa-pencil edit-icon"></i></a>
+                        <a href="#" class="delete-icon" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></a>
                             </div>
                         </div>
                     {% endfor %}

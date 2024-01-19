@@ -43,6 +43,9 @@ class Items(models.Model):
     name = models.CharField(max_length=255)
     inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, related_name='items')
 
+    class Meta:
+        verbose_name_plural = 'Items'
+
     def __str__(self):
         return self.name
 
