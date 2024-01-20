@@ -21,6 +21,7 @@ class ItemsForm(forms.ModelForm):
 
     def  __init__(self, *args, **kwargs):
         super(ItemsForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class': 'item-name'})
         if self.instance.pk:
             self.fields['name'].widget.attrs['readonly'] = 'readonly'
 

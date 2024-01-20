@@ -33,14 +33,17 @@
                         {{ form.id }}
                         {{ form | crispy }}
                         <div class="icons">
-                        <a href="#" class="edit-icon"><i class="fa-solid fa-pencil edit-icon"></i></a>
-                        <a href="#" class="delete-icon" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></a>
+                            {% if form.instance.id %}
+                                <a href="#" class="edit-link"><i class="fa-solid fa-pencil edit-icon"></i></a>
+                                <a href="#" class="delete-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></a>
+                            {% endif %}
                             </div>
                         </div>
                     {% endfor %}
-                    <button type="submit" class="btn btn-danger" id="save">Save</button>
+                    <button type="submit" class="btn btn-success" id="add-item">Add item <i class="fa-solid fa-plus"></i></button>
+                    <button type="submit" class="btn btn-danger" id="save">Save list</button>
                 </form>
-                <button type="button" class="btn btn-success" id="add-item" name="add_item">Add <i class="fa-solid fa-plus"></i></button>
+                <!--<button type="button" class="btn btn-success" id="add-item" name="add_item">Add <i class="fa-solid fa-plus"></i></button>-->
             </div>
         </div>
         </div>

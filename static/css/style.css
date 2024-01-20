@@ -126,15 +126,15 @@ ul.social-account-login {
     background: #28a745;
     border: #28a745;
     border-radius: 4px;
-    width: 20%;
-    margin-left: 40%;
+    width: 30%;
+    margin-left: 35%;
 }
 
 .form-signup #save {
     background: #dc3545;
     border: #dc3545;
     border-radius: 4px;
-    width: 30%;
+    width: 40%;
     margin: 15% auto 0;
     display: flex;
     justify-content: center;
@@ -149,11 +149,11 @@ ul.social-account-login {
 }
 */
 
-.form-signup .item-name {
+/* .form-signup .item-name {
     border: none;
     outline: none;
     border-bottom: 1px dashed #ccc;
-}
+}*/
 
 .item-row.hide {
     display: none;

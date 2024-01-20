@@ -68,7 +68,7 @@ def edit_item(request, item_id):
     item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
 
     if request.method == 'POST':
-        form = ItemsForm(data=request.POST, instance=items)
+        form = ItemsForm(data=request.POST, instance=item)
         if form.is_valid():
             form.save()
             messages.success(request, "Item updated successfully")
