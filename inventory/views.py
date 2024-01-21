@@ -86,10 +86,7 @@ def edit_item(request, item_id):
             form.save()
             messages.success(request, "Item updated successfully")
             return redirect('inventory_detail', pk=item.inventory.pk)
-    else:
-        form = ItemsForm(instance=item)
-
-    # return render(request, 'inventory/edit_inventory.html', {'form': form, 'item': item})
+    return redirect('inventory_detail', pk=item.inventory.pk)
 
 
 def saved_list(request, pk):
