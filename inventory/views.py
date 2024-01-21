@@ -42,8 +42,12 @@ def inventory_detail(request, pk):
         formset = ItemFormset(request.POST, instance=inventory)
         if formset.is_valid():
             formset.save()
-            messages.success(request, "Item added successfully!")
-            return redirect('inventory_detail', pk=inventory.pk)
+            if 'add_item' in request.POST:
+                messages.success(request, "Item added successfully!")
+                return redirect('inventory_detail', pk=inventory.pk)
+            elif 'save' in request.POST:
+                messages.success(request, "List saved successfully!")
+                return redirect('saved_list', pk=inventory.pk)
 
     else:
             formset = ItemFormset(instance=inventory)
@@ -61,6 +65,15 @@ def delete_item(request, item_id):
         item.delete()
         messages.success(request, "Item deleted successfully")
         return redirect('inventory_detail', pk=item.inventory.pk)
+
+
+@login_required
+def delete_list(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+    if request.method == 'POST':
+     inventory.delete()
+     messages.success(request, "Inventory list deleted successfully")
+     return redirect('inventory/inventory.html')
 
 
 @login_required

@@ -5,6 +5,7 @@ const addItem = document.getElementById('add-item')
 const saveBtn = document.getElementById('save')*/
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 let deleteItem = null; // variable to keep track of which item to delete
+let deleteInventory = null
 
 
 /* Handles the click event to render the inventory form */
@@ -49,11 +50,26 @@ let deleteItem = null; // variable to keep track of which item to delete
         });
     });
 
+        /* Delete entire list event listener */
+        const deleteList = document.querySelector('.delete-list');
+        if (deleteList) {
+            deleteList.addEventListener('click', function() {
+                deleteInventory = this.closest('.saved-list');
+                deleteModal.show()
+        });
+    }
+
     document.getElementById('deleteConfirm').addEventListener('click', function() {
         if (deleteItem) {
             deleteItem.remove();
             deleteItem = null; // reset the variable
-            deleteModal.hide()
+
         }
+        if (deleteInventory) {
+            deleteInventory.remove();
+            deleteInventory = null;
+        }
+
+        deleteModal.hide()
      });
 });
