@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-milentecle-inventoryman-vr8xxv0dfhj.ws-eu107.gitpod.io', '.herokuapp.com',]
+ALLOWED_HOSTS = ['8000-milentecle-inventoryman-gtktdi8x6zi.ws-eu107.gitpod.io', '.herokuapp.com',]
 
 
 # Application definition
@@ -86,16 +86,16 @@ AUTHENTICATION_BACKENDS = [
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = ("EMAIL_HOST_USER")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -166,7 +166,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-milentecle-inventoryman-vr8xxv0dfhj.ws-eu107.gitpod.io",
+    "https://8000-milentecle-inventoryman-gtktdi8x6zi.ws-eu107.gitpod.io",
 ]
 
 

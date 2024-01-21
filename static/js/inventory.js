@@ -8,12 +8,12 @@ let deleteItem = null; // variable to keep track of which item to delete
 
 
 /* Handles the click event to render the inventory form */
-    document.getElementById('toggle-form').addEventListener('click', function() {
+    /*document.getElementById('toggle-form').addEventListener('click', function() {
         form.classList.toggle('hide')
         /* addItem.classList.toggle('hide')
         itemsContainer.classList.toggle('hide')
-        saveBtn.classList.toggle('hide') */
-    });
+        saveBtn.classList.toggle('hide')
+    })*/
 
 
     /* Adding items when clicking on icon
@@ -31,7 +31,6 @@ let deleteItem = null; // variable to keep track of which item to delete
         const editIcons = document.querySelectorAll('.edit-icon');
         editIcons.forEach(editIcon => {
             editIcon.addEventListener('click', function(event) {
-            console.log('Edit icon clicked');
             event.preventDefault();
             const formRow = this.closest('.form-row');
             const inputField = formRow.querySelector('.item-name');

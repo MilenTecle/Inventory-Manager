@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inventory.views import landing_page, inventory_page, inventory_detail, edit_item, delete_item
+from inventory.views import landing_page, inventory_page, inventory_detail, edit_item, delete_item, saved_list
 from contact.views import send_contact_email
 
 
@@ -32,4 +32,5 @@ urlpatterns = [
     path('inventory/<int:pk>/', inventory_detail, name="inventory_detail"),
     path('edit_item/<int:item_id>/', edit_item, name="edit_item"),
     path('delete_item/<int:item_id>/', delete_item, name="delete_item"),
+    path('inventory/<int:pk>/saved/', saved_list, name="saved_list")
 ]

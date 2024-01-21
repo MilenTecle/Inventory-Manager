@@ -25,7 +25,7 @@
                 </li>
                 {% endfor %}
                 </ul>
-                <form method="POST" action="">
+                <form method="POST" action="{% url 'saved_list' pk=inventory.id %}">
                     {% csrf_token %}
                     {{ formset.management_form }}
                     {% for form in formset %}

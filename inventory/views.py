@@ -76,8 +76,12 @@ def edit_item(request, item_id):
     else:
         form = ItemsForm(instance=item)
 
-    return render(request, 'inventory/edit_inventory.html', {'form': form, 'item': item})
+    # return render(request, 'inventory/edit_inventory.html', {'form': form, 'item': item})
 
+
+def saved_list(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+    return render(request, 'inventory/saved_list.html', {'inventory': inventory})
 
 
 def dashboard(request):
