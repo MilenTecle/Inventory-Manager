@@ -30,6 +30,6 @@ ItemFormset = inlineformset_factory(
     Items,
     form=ItemsForm,
     fields=['name'],
-    extra=1,
+    extra=0,
     can_delete=False
 )

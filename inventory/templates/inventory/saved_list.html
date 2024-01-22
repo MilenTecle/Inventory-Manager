@@ -18,17 +18,20 @@
                 <h3>{{ inventory.name }}</h3>
                 <p>Category: {{ inventory.category }}</p>
                 <p><strong>Items</strong></p>
-                        {% for item in inventory.items.all %}
-                        <p>{{ item.name }} </p>
-                        {% endfor %}
-
+                    {% for item in inventory.items.all %}
+                    <p>{{ item.name }} </p>
+                    {% endfor %}
                     <div class="action-buttons">
-                        <a href="{% url 'inventory_detail' pk=inventory.id %}" class="btn btn-primary">Edit List</a>
+                        {% if can_edit %}
+                            <a href="{% url 'inventory_detail' pk=inventory.id %}" class="btn btn-primary">Edit List</a>
+                        {% endif %}
+                        {% if can_delete %}
                             <a href="#" class="btn btn-danger delete-list" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-list-id="{{ inventory.id }}">Delete List</a>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

@@ -60,11 +60,13 @@ def inventory_detail(request, pk):
 
 @login_required
 def delete_item(request, item_id):
-     item = get_object_or_404(Items, id=item_id, user=request.user)
+     item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
+
+     inventory_id = item.inventory.pk
      if request.method == 'POST':
         item.delete()
         messages.success(request, "Item deleted successfully")
-        return redirect('inventory_detail', pk=item.inventory.pk)
+        return redirect('inventory_detail', pk=inventory_id)
 
 
 @login_required
@@ -89,9 +91,15 @@ def edit_item(request, item_id):
     return redirect('inventory_detail', pk=item.inventory.pk)
 
 
+@login_required
 def saved_list(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk)
-    return render(request, 'inventory/saved_list.html', {'inventory': inventory})
+    context = {
+        'inventory': inventory,
+        'can_edit': request.user.has_perm('inventory.change_inventory'),
+        'can_delete': request.user.has_perm('inventory.delete_inventory')
+    }
+    return render(request, 'inventory/saved_list.html', context)
 
 
 def dashboard(request):

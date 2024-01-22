@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.conf import settings
 from cloudinary.models import CloudinaryField
 from .utils import generate_qrcode
 from django.urls import reverse
@@ -16,7 +17,7 @@ class Category(models.Model):
 
 
 class Inventory(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     qr_code = models.URLField(max_length=500, blank=True, null=True)

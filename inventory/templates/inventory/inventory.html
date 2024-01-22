@@ -52,8 +52,8 @@
                 <img src="{{ inventory.qr_code}}" class="card-img-top qr-img" alt="QR code for {{ inventory.name }}" />
                     </div>
                 <div class="card-body download-share">
-                    <a class="link" href="{{ inventory.qr_code }}" download>Download <i class="fa-solid fa-download"></i></a>
-                    <a class="link" href="{{ inventory.qr_code }}"Share>Share <i class="fa-solid fa-share-from-square"></i></a>
+                    <a class="link" href="{{ inventory.qr_code }}" target="_blank" download>Download <i class="fa-solid fa-download"></i></a>
+                    <a class="link" href="{{ inventory.qr_code }}" target="_blank" Share>Share <i class="fa-solid fa-share-from-square"></i></a>
                 </div>
             </div>
             <a href="{% url 'saved_list' pk=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
