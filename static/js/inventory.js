@@ -9,7 +9,7 @@ let deleteInventory = null
 
 
 /* Handles the click event to render the inventory form */
-    /*document.getElementById('toggle-form').addEventListener('click', function() {
+    document.getElementById('toggle-form').addEventListener('click', function() {
         form.classList.toggle('hide')
         /* addItem.classList.toggle('hide')
         itemsContainer.classList.toggle('hide')
