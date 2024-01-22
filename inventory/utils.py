@@ -1,11 +1,8 @@
-from django.conf import settings
-from django.urls import reverse
 import qrcode
 import cloudinary.uploader
 from io import BytesIO
 
-def generate_qrcode(data, inventory_id):
-    inventory_url = f"{settings.SITE_URL}{reverse('saved_list', kwargs={'pk': inventory_id})}"
+def generate_qrcode(data):
     # Generate the QR code
     qr = qrcode.QRCode (
         version=1,
@@ -13,7 +10,7 @@ def generate_qrcode(data, inventory_id):
         box_size=6,
         border=4,
     )
-    qr.add_data(inventory_url)
+    qr.add_data(data)
     qr.make(fit=True)
 
     # Create an image from the QR code
@@ -27,7 +24,4 @@ def generate_qrcode(data, inventory_id):
     # Upload image to Cloudinary
     response = cloudinary.uploader.upload(buffer, format='png')
 
-    print(f"Generated URL: {inventory_url}")
     return response['url']
-    print(f"Cloudinary response: {response['url']}")
-

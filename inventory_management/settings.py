@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-milentecle-inventoryman-xkb1b1cc0wm.ws-eu107.gitpod.io', '.herokuapp.com',]
 
@@ -62,7 +62,6 @@ INSTALLED_APPS = [
 
 
 SITE_ID = 1
-SITE_URL = 'https://inventory-manager-milen-aa94458871b4.herokuapp.com/'
 LOGIN_REDIRECT_URL = '/inventory/'
 LOGOUT_REDIRECT_URL = '/'
 
