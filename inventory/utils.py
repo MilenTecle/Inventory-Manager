@@ -27,5 +27,7 @@ def generate_qrcode(data, inventory_id):
     # Upload image to Cloudinary
     response = cloudinary.uploader.upload(buffer, format='png')
 
+    print(f"Generated URL: {inventory_url}")
     return response['url']
+    print(f"Cloudinary response: {response['url']}")
 

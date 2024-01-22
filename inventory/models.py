@@ -27,6 +27,7 @@ class Inventory(models.Model):
 
         if not self.qr_code and not kwargs.get('update_fields'):
             self.qr_code = generate_qrcode(self.id)
+            print(f"QR code save: {self.qr_code}")
             super().save(update_fields=['qr_code'])
 
     class Meta:
