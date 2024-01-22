@@ -25,10 +25,9 @@ class Inventory(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        if not self.qr_code:
-            self.qr_code = generate_qrcode(self.get_url())
-
-        super().save(*args, **kwargs)
+        if not self.qr_code and not kwargs.get('update_fields'):
+            self.qr_code = generate_qrcode(self.id)
+            super().save(update_fields=['qr_code'])
 
     class Meta:
         verbose_name_plural = 'Inventories'

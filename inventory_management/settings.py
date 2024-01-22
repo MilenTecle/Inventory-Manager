@@ -62,6 +62,7 @@ INSTALLED_APPS = [
 
 
 SITE_ID = 1
+SITE_URL = 'https://inventory-manager-milen-aa94458871b4.herokuapp.com/'
 LOGIN_REDIRECT_URL = '/inventory/'
 LOGOUT_REDIRECT_URL = '/'
 
