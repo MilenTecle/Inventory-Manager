@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('inventory-form');
-/*const itemsContainer = document.getElementById('items');
+/*const itemsContainer = document.getElementById('items-container');
 const addItem = document.getElementById('add-item')
 const saveBtn = document.getElementById('save')*/
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -9,13 +9,15 @@ let deleteInventory = null
 
 
 /* Handles the click event to render the inventory form */
-    /*document.getElementById('toggle-form').addEventListener('click', function() {
-        form.classList.toggle('hide')
-        /* addItem.classList.toggle('hide')
-        itemsContainer.classList.toggle('hide')
-        saveBtn.classList.toggle('hide')
-    })*/
-
+    const toggleForm = document.getElementById('toggle-form');
+    if (toggleForm) {
+        toggleForm.addEventListener('click', function() {
+            form.classList.toggle('hide')
+            /* addItem.classList.toggle('hide')
+            itemsContainer.classList.toggle('hide')
+            saveBtn.classList.toggle('hide')*/
+        });
+    }
 
     /* Adding items when clicking on icon
     addItem.addEventListener('click', function() {
