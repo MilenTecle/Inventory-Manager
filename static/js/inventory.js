@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('inventory-form');
-/*const itemsContainer = document.getElementById('items');
+/*const itemsContainer = document.getElementById('items-container');
 const addItem = document.getElementById('add-item')
 const saveBtn = document.getElementById('save')*/
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));

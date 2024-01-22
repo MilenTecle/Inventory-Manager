@@ -24,4 +24,6 @@ def generate_qrcode(data):
     # Upload image to Cloudinary
     response = cloudinary.uploader.upload(buffer, format='png')
 
-    return response['url']
+    secure_url = cloudinary.CloudinaryImage(response['public_id']).build_url(secure=True)
+
+    return secure_url
