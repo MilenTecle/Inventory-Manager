@@ -29,5 +29,3 @@ def generate_qrcode(data):
 
     return secure_url
 
-def get_absolute_url(inventory):
-    return reverse('saved_list', args=[str(inventory.id)])
