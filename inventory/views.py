@@ -95,17 +95,17 @@ def edit_item(request, item_id):
 def saved_list(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk)
 
-    can_edit = request.user == inventory.user
-    can_delete = request.user == inventory.user
+    # can_edit = request.user == inventory.user
+    # can_delete = request.user == inventory.user
 
 
-    context = {
-        'inventory': inventory,
-        'can_edit': can_edit,
-        'can_delete': can_delete
-    }
+    # context = {
+    #    'inventory': inventory,
+    #   'can_edit': can_edit,
+    #    'can_delete': can_delete
+    # }
 
-    return render(request, 'inventory/saved_list.html', context)
+    return render(request, 'inventory/saved_list.html')#, context)
 
 
 def dashboard(request):
