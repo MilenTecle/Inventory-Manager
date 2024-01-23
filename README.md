@@ -1,110 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Inventory Manager
 
-Welcome Milen Tecle,
+The Inventory Manager app is built using Django and is designed to help users efficiently manage their inventories and promote sustainable living. The Inventory Manager
+app provides a user-friendly interface for creating, organizing and sharing lists of items. Each list is associated with a unique QR code for easy access and sharing.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The live link can be found here - [Inventory Manager]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Inventory Manager Am I Responsive Image]()
 
-## Gitpod Reminders
+## Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [UI/UX](#)
 
-`python3 -m http.server`
+    - [Agile](#)
+    - [Site Owner Goals](#site-owner-goals)
+    - [5 planes of UX](#)
+    - [User Stories](#user-stories)
+      - [First time user](#first-time-user)
 
-A blue button should appear to click: _Make Public_,
+    - [Design](#design)
+        - [Images](#images)
+        - [Colours](#colours)
+        - [Fonts](#fonts)
+        - [Wireframes](#wireframes)
 
-Another blue button should appear to click: _Open Browser_.
+- [Features](#features)
+  - [Navigation](#navigation)
+  - [The Landing Page]()
+  - [Footer](#footer)
+  - []()
+  - []()
+  - [Features left to implement](#features-left-to-implement)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- [Database design](#)
+    - [Database Models](#)
+    - [CRUD](#)
 
-A blue button should appear to click: _Make Public_,
+- [Technologies used](#technologies-used)
 
-Another blue button should appear to click: _Open Browser_.
+- [Languages](#languages)
+- [Frameworks, Libraries and Programs](#frameworks-libraries-programs)
+- [Known bugs](#know-bugs)
+- [Testing](#testing)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- [Validator Testing](#validator-testing)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [Accessibility](#accessibility)
+- [Testing]()
+  - []()
+  - []()
+- [Links Testing](#links-testing)
+- [Browser Testing](#browser-testing)
+- [Device Testing](#device-testing)
+- [User Stories Testing](#user-stories-testing)
+- [Friends and Family](#friends-and-family)
+- [Deployment](#deployment)
+    - [Heroku](#)
+    - [Github](#)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## UX/UI
 
-------
 
-## Release History
+## Agile
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Site Owner Goals
+The primary goals of the Inventory Manager app are to provide users with an efficient and user-friendly platform for organizing and managing their belongings.
+The Inventory Manager app is also intended to promote awarness of possesions to encourage suistanable and mindful consumption.
+Main goals include optimizing inventory management, user engagement and integrating QR code functionality. Through a visually appealing and accessible interface,
+delivering a high level of user satisfaction. Using QR codes to share inventories is designed to simplify daily life and encourage sharing or exchanging of items left unused. These goals aim to create a reliable and simple application with focus usability, security and innovation.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## 5 planes of UX
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## User Stories
+- ### First time user
+  - As a first time user I want to.....
+  -
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- ### Returning User
+  - As a returning visitor I...
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Design
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Images
+The background image on the site reflects the purpose of the quiz and the appealing image invites the user to further explore the website.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Colours
+The colour scheme used for the website blends well with the background image with a consistent look for the user. The dark colour breaks off the orange....
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Colour scheme]()
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Fonts
+The is the font used on the website. The font was imported via [Google Fonts](https//:fonts.google.com). is the backup font....
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Wireframes
+The wireframes were produced via Balsamiq.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Features
+ - ### Navigation
 
-------
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+![Navigation bar]()
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+- ### The Landing Page
+  - The landing page is intuitive and it invites the user....
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Landing-page]()
 
-**So….?**
+ ### Footer
+ - The footer contains social media links which takes the user to my LinkedIn profile and my Github repo page for the Human Body Quiz.
+ - The links opens in a new tab which allows for the user to navigate easy.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![Footer]()
 
-**Can I opt out?**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Features left to implement
+  - A highscore board where the user can save their score and follow their own progress.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+## Technologies used
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Languages
+  - HTML5
+  - CSS
+  - Javascript
 
----
+  ## Frameworks, Libraries and Programs
+   - [Am I Responsive](https://ui.dev/amiresponsive) - Was used to ensure that the website is responsive on diffrerent devices.
+   - [Balsamiq](https://balsamiq.com/) - Was used to create the wireframes before starting the project.
+   - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Was used on a daily basis throughout the project to make changes and to test the responsivness.
+   - [Font Awesome](https://fontawesome.com/) - Was used for Social Media icons in footer and for Contact information on the contact page.
+   - [Gitpod](https://gitpod.io/) - Was the Codespace used for this project.
+   - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
+   - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
+   - [Google Fonts](https://fonts.google.com/) - Was used to import fonts to the page.
+   - [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
+   - [TinyPNG](https://tinypng.com/) - Was used to reduce the file size and keep the image quality.
+   - [WEBP Converter](https://cloudconvert.com/webp-converter) - Also used to reduce the file size and keep the image quality.
+   - [W3C](https://www.w3.org/) - Was used for HTML and CSS Validation.
+   - [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
+   - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
 
-Happy coding!
+## Known bugs
+No known bugs.
+
+## Testing
+
+### Validator Testing
+ - ### HTML
+    - No errors were returned when running the page of the code through the [W3C Markup Validator](https://validator.w3.org/)
+     - [W3C Markup Validator Results]()
+ - ### CSS
+  - No errors were returned when running the CSS through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator)
+     - [W3C CSS Validator Results]()
+
+ - ### JS Hint
+  - No errors were returned when running the Javascript code through [JS Hint](https://jshint.com/)
+    - [JS Hint result]()
+
+ - ### Accessibility
+  - The site achieved a Lighthouse accessibility score of 100%, a confirmation that the fonts and colours chosen are accessible and easy to read.
+    - [Lighthouse result]()
+
+
+### Testing
+ - ###
+    -
+
+  - ###
+
+
+### Links Testing
+ - All navigation links on the site has been tested manually to ensure that they are working, and takes the user to the right page.
+ - All the buttons were tested to ensure that the the links are working correctly.
+ - The social media links were tested separately to make sure they function, and opens in a new tab.
+
+
+### Browser Testing
+ - The Website was tested on Microsoft Edge, Google Chrome, Firefox and Safari browsers and no issues were noted.
+
+### Device Testing
+  - The website was tested and on different devices such as: Iphone 8, Iphone mini 12 and Pro, Samsung Galaxy S21, Samsung Galaxy Tab S6 lite, Ipad Mini, Laptop and Desktop to see that the website is responsive on different devices. Chrome developer tools was used to test and to check the responsivness on multiple devices.
+  - I also used the following websites to test the responsivness:
+  - [Responsinator]()
+  - [Am I responsive]()
+
+### User Stories Testing
+   #### First time user
+ 1. The home page with the welcome container wil green...
+
+   #### Returning user
+ 1. As a returning I am already familiar with th....
+
+
+  ## Friends and Family
+   - Family members and friends were asked to test the website for bugs and overall experience.
+
+## Deployment
+
+The project was deployed using Github pages with the following steps:
+1. Go to the repository on Github.com.
+2. Select 'Settings' towards the top of the page.
+3. Select 'Pages' from the left menu bar.
+4. Under 'Source', choose the preselected 'Branch' from the dropdown menu and then select the main branch.
+5. Deployment is confirmed after a couple of minutes by the following message "Your site is published at" and there is a link to the web address.
+
+The live link can be found here - [Inventory Manager]()
+
+## Credits
+
+### Code
+ - I used code from here to create the playSound function:
+   - [Stackoverflow play sound on click](https://stackoverflow.com/questions/33663740/play-sound-and-change-play-icon-to-stop-icon-on-click)
+
+ - I used some of this code to create a modal box and to make it work accordingly:
+   - [w3schools](https://www.w3schools.com/howto/howto_css_modals.asp)
+
+ - I used these as inspiration to better understand how to use existing code when connecting the logic for the difficulty buttons and questions:
+
+ - I used parts of this code to create the overlay effect:
+   -
+ - I used these guides to setup the functionality for EmailJS along with quidance from my mentor:
+
+
+- I used these videos in general to understand the full concept
+   - [Youtube](https://www.youtube.com/watch?v=PBcqGxrr9g8)
+   - [Youtube](https://www.youtube.com/watch?v=riDzcEQbX6k)
+
+
+
+### Content
+The contentwere written by the developer.
+
+
+### Media
+Images were taken from:
+ - []()
+
+
+### Acknowledgements
+- Antonio, my mentor, for guiding med throughout the project with important suggestions to improve the quiz and funcionality.
+- To my husband and family, for all the support and patience throughout this project.
