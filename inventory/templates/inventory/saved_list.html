@@ -22,11 +22,8 @@
                     <p>{{ item.name }} </p>
                     {% endfor %}
                     <div class="action-buttons">
-
                             <a href="{% url 'inventory_detail' pk=inventory.id %}" class="btn btn-primary">Edit List</a>
-
                             <a href="#" class="btn btn-danger delete-list" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-list-id="{{ inventory.id }}">Delete List</a>
-
                     </div>
                 </div>
             </div>

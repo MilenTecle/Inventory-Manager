@@ -26,12 +26,15 @@ class Inventory(models.Model):
         super().save(*args, **kwargs)
 
         if not self.qr_code:
-            self.qr_code = generate_qrcode(self.name, self.pk, request)
+            self.qr_code = generate_qrcode(self.get_url())
 
         super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Inventories'
+
+    def get_url(self):
+        return reverse('inventory_detail', args=[str(self.id)])
 
     def __str__(self):
         return self.name
