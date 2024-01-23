@@ -1,6 +1,7 @@
 import qrcode
 import cloudinary.uploader
 from io import BytesIO
+from django.urls import reverse
 
 def generate_qrcode(data):
     # Generate the QR code
@@ -27,3 +28,6 @@ def generate_qrcode(data):
     secure_url = cloudinary.CloudinaryImage(response['public_id']).build_url(secure=True)
 
     return secure_url
+
+def get_absolute_url(inventory):
+    return reverse('saved_list', args=[str(inventory.id)])

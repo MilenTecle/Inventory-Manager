@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from cloudinary.models import CloudinaryField
-from .utils import generate_qrcode
+from .utils import generate_qrcode, get_absolute_url
 from django.urls import reverse
 
 # Create your models here.
@@ -26,15 +26,14 @@ class Inventory(models.Model):
         super().save(*args, **kwargs)
 
         if not self.qr_code:
-            self.qr_code = generate_qrcode(self.get_url())
+            self.qr_code = generate_qrcode(get_absolute_url(self))
 
         super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Inventories'
 
-    def get_url(self):
-        return reverse('inventory_detail', args=[str(self.id)])
+
 
     def __str__(self):
         return self.name
