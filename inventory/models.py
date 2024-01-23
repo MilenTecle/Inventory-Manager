@@ -26,7 +26,7 @@ class Inventory(models.Model):
         super().save(*args, **kwargs)
 
         if not self.qr_code:
-            self.qr_code = generate_qrcode(self.name, self.pk)
+            self.qr_code = generate_qrcode(self.name, self.pk, request)
 
         super().save(*args, **kwargs)
 
