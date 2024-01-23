@@ -6,6 +6,8 @@ from io import BytesIO
 def generate_qrcode(data):
 
     saved_list_url = reverse('saved_list', kwargs={'pk': inventory_pk})
+    absolute_url = request.build_absolute_uri(saved_list_url)
+
 
     # Generate the QR code
     qr = qrcode.QRCode (
