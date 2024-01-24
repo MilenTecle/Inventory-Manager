@@ -35,7 +35,7 @@ class Inventory(models.Model):
         verbose_name_plural = 'Inventories'
 
     def get_url(self):
-        domain = get_current_site(None).domain.rstrip('/')
+        domain = get_current_site(None).domain
         inventory_id = self.id
         return '{domain}{path}'.format(domain=domain, path=reverse('saved_list', args=[str(inventory_id)]))
 

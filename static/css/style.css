@@ -140,6 +140,10 @@ ul.social-account-login {
     justify-content: center;
 }
 
+.items-input {
+    width: 100%;
+}
+
 /*
 .item-row {
     display: flex;
@@ -162,6 +166,7 @@ ul.social-account-login {
 .icons {
     display: flex;
     gap: 10px;
+    margin-left: 5%;
 }
 
 .form-buttons {
@@ -172,6 +177,7 @@ ul.social-account-login {
 
 .edit-icon, .delete-icon {
     cursor: pointer;
+    color: #333333;
 }
 
 .edit-icon:hover,
