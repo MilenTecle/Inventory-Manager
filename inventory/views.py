@@ -47,7 +47,7 @@ def inventory_detail(request, pk):
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 messages.success(request, "List saved successfully!")
-                return redirect('saved_list', pk=inventory.pk)
+                return redirect('saved_list', inventory_id=inventory.pk)
 
     else:
             formset = ItemFormset(instance=inventory)
@@ -92,8 +92,10 @@ def edit_item(request, item_id):
 
 
 @login_required
-def saved_list(request, pk):
-    inventory = get_object_or_404(Inventory, pk=pk)
+def saved_list(request, inventory_id):
+    inventory = get_object_or_404(Inventory, id=inventory_id)
+
+    is_owner = request.user == inventory.user
     return render(request, 'inventory/saved_list.html', {'inventory': inventory})
 
 

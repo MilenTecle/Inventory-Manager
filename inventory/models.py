@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
 from cloudinary.models import CloudinaryField
 from .utils import generate_qrcode
@@ -34,7 +35,9 @@ class Inventory(models.Model):
         verbose_name_plural = 'Inventories'
 
     def get_url(self):
-        return reverse('saved_list', args=[str(self.id)])
+        domain = get_current_site(None).domain
+        inventory_id = self.id
+        return 'https://{domain}{path}'.format(domain=domain, path=reverse('saved_list', args=[str(inventory_id)]))
 
     def __str__(self):
         return self.name

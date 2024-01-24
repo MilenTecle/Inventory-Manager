@@ -56,7 +56,7 @@
                     <a class="link" href="{{ inventory.qr_code }}" target="_blank" Share>Share <i class="fa-solid fa-share-from-square"></i></a>
                 </div>
             </div>
-            <a href="{% url 'saved_list' pk=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
+            <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
         </div>
         {% empty %}
         <p class="text-center">You have no inventory list yet</p>
