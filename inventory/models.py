@@ -37,7 +37,7 @@ class Inventory(models.Model):
     def get_url(self):
         domain = get_current_site(None).domain
         inventory_id = self.id
-        return 'https://{domain}{path}'.format(domain=domain, path=reverse('saved_list', args=[str(inventory_id)]))
+        return '{domain}{path}'.format(domain=domain, path=reverse('saved_list', args=[str(inventory_id)]))
 
     def __str__(self):
         return self.name
