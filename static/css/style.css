@@ -40,6 +40,25 @@ body  {
     color:white;
 }
 
+.navbar-icon {
+    color: white;
+}
+
+/* Remove the white background */
+.dropdown-item,
+.dropdown-menu {
+    background: #212529;
+    color: white;
+    border:none;
+}
+
+.dropdown-item:hover,
+.dropdown-menu:hover {
+    background: #212529;
+    color: #E37F4D;;
+}
+
+
 /* Sign up form styles */
 .form-signup {
     margin: auto;
@@ -141,7 +160,7 @@ ul.social-account-login {
 }
 
 .items-input {
-    width: 100%;
+    width: 80%;
 }
 
 /*
