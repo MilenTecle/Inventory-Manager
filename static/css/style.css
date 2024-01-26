@@ -263,6 +263,12 @@ ul.social-account-login {
     background-color: transparent;
 }
 
+/* Contact form */
+
+.contact-btn {
+    margin-top: 5%;
+}
+
 .image-container {
     position: relative;
 }

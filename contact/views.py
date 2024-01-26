@@ -33,7 +33,7 @@ def send_contact_email(contact_instance):
     )
 
     # To automatically mark the message as read in django admin
-    contact.instance.read = True
+    contact_instance.read = True
     contact_instance.save()
 
 
