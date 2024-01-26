@@ -1,4 +1,4 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load account %}
 {% load allauth %}
@@ -6,9 +6,16 @@
     {% trans "Confirm Email Address" %}
 {% endblock head_title %}
 {% block content %}
-    {% element h1 %}
+
+<style>
+    body {
+        background-image:none; /* Override the background image */
+    }
+</style>
+
+    <h1>
         {% trans "Confirm Email Address" %}
-    {% endelement %}
+    </h1>
     {% if confirmation %}
         {% user_display confirmation.email_address.user as user_display %}
         {% if can_confirm %}
@@ -19,9 +26,9 @@
             {% element form method="post" action=action_url %}
                 {% slot actions %}
                     {% csrf_token %}
-                    {% element button type="submit" %}
+                    <button class="btn btn-primary btn-block mt-4" type="submit">
                         {% trans 'Confirm' %}
-                    {% endelement %}
+                    </button>
                 {% endslot %}
             {% endelement %}
         {% else %}

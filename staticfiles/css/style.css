@@ -40,6 +40,25 @@ body  {
     color:white;
 }
 
+.navbar-icon {
+    color: white;
+}
+
+/* Remove the white background */
+.dropdown-item,
+.dropdown-menu {
+    background: #212529;
+    color: white;
+    border:none;
+}
+
+.dropdown-item:hover,
+.dropdown-menu:hover {
+    background: #212529;
+    color: #E37F4D;;
+}
+
+
 /* Sign up form styles */
 .form-signup {
     margin: auto;
@@ -140,6 +159,10 @@ ul.social-account-login {
     justify-content: center;
 }
 
+.items-input {
+    width: 80%;
+}
+
 /*
 .item-row {
     display: flex;
@@ -162,6 +185,7 @@ ul.social-account-login {
 .icons {
     display: flex;
     gap: 10px;
+    margin-left: 5%;
 }
 
 .form-buttons {
@@ -172,6 +196,7 @@ ul.social-account-login {
 
 .edit-icon, .delete-icon {
     cursor: pointer;
+    color: #333333;
 }
 
 .edit-icon:hover,

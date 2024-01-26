@@ -40,11 +40,13 @@ def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
 
+
     if request.method == 'POST':
         if formset.is_valid():
             formset.save()
             if 'add_item' in request.POST:
                 messages.success(request, "Item added successfully!")
+                return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 messages.success(request, "List saved successfully!")
                 return redirect('saved_list', inventory_id=inventory.pk)

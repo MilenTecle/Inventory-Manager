@@ -1,26 +1,42 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from .models import Contact
 from .forms import ContactForm
 from django.conf import settings
 
-# Create your views here.
+
+# Email to admin mail
 def send_contact_email(contact_instance):
-    subject = f"New submission from {contact_instance.name}"
-    email_message = f"Name: {contact_instance.name}\nEmail: {contact_instance.email}\nMessage: {contact_instance.message}"
-    from_email = settings.EMAIL_HOST_USER
-    recipient_email = settings.EMAIL_HOST_USER
+    admin_subject = f"New submission from {contact_instance.name}"
+    admin_body = f"Name: {contact_instance.name}\nEmail: {contact_instance.email}\nMessage: {contact_instance.message}"
 
 
-    email = EmailMessage(
-        subject,
-        email_message,
-        from_email,
-        [recipient_email],
-        reply_to=[contact_instance.email]
+    send_mail(
+        admin_subject,
+        admin_body,
+        settings.EMAIL_HOST_USER, # From email
+        [settings.EMAIL_HOST_USER],# Admins email
+        fail_silently=False
     )
-    email.send(fail_silently=False,)
+
+    # Automated reply to sender
+    sender_subject = "Thank you for your message"
+    sender_body = " Thank you for your email, we will get back to you as soon as possible."
+
+    send_mail(
+        sender_subject,
+        sender_body,
+        settings.EMAIL_HOST_USER, # From email
+        [contact_instance.email], # Senders email
+        fail_silently=False
+    )
+
+    # To automatically mark the message as read in django admin
+    contact.instance.read = True
+    contact_instance.save()
+
+
 
 
 def contact(request):
