@@ -30,9 +30,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-milentecle-inventoryman-sxefcjvzgep.ws-eu107.gitpod.io', '.herokuapp.com',]
+ALLOWED_HOSTS = ['8000-milentecle-inventoryman-wtplp66bbvm.ws-eu107.gitpod.io', '.herokuapp.com',
+                'inventory-manager-milen-aa94458871b4.herokuapp.com',]
 
 
 # Application definition
@@ -86,13 +87,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = ("EMAIL_HOST_USER")
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = ("EMAIL_HOST_USER")
+
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = ("EMAIL_HOST_USER")
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
 
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -167,7 +173,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-milentecle-inventoryman-sxefcjvzgep.ws-eu107.gitpod.io",
+    "https://8000-milentecle-inventoryman-wtplp66bbvm.ws-eu107.gitpod.io",
 ]
 
 
