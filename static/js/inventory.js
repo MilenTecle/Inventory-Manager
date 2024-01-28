@@ -34,6 +34,7 @@ let deleteInventory = null
         const editIcons = document.querySelectorAll('.edit-icon');
         editIcons.forEach(editIcon => {
             editIcon.addEventListener('click', function(event) {
+            console.log("edit clicked")
             event.preventDefault();
             const formRow = this.closest('.form-row');
             const inputField = formRow.querySelector('.item-name');
@@ -47,6 +48,7 @@ let deleteInventory = null
         const deleteIcons = document.querySelectorAll('.delete-icon');
         deleteIcons.forEach(deleteIcon => {
         deleteIcon.addEventListener('click', function() {
+            console.log('delete-icon clicked')
             deleteItem = this.closest('.form-row');
             deleteModal.show();
         });
@@ -62,6 +64,7 @@ let deleteInventory = null
     }
 
     document.getElementById('deleteConfirm').addEventListener('click', function() {
+        console.log('confirmed');
         if (deleteItem) {
             deleteItem.remove();
             deleteItem = null; // reset the variable

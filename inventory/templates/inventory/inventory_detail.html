@@ -4,6 +4,10 @@
 
 {% block content %}
 
+<form id="delete-item-form" method="POST" class="hide">
+    {% csrf_token %}
+</form>
+
 <style>
     body {
         background-image:none; /* Override the background image */
@@ -28,9 +32,6 @@
                 <form method="POST" action="{% url 'inventory_detail' pk=inventory.id %}">
                     {% csrf_token %}
                     {{ formset.management_form }}
-                    <form id="delete-item-form" method="POST" class="hide">
-                        {% csrf_token %}
-                    </form>
                     {% for form in formset %}
                         <div class="form-row d-flex align-items-center">
                         {{ form.id }}

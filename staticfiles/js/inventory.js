@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+console.log("script loaded");
 const form = document.getElementById('inventory-form');
 /*const itemsContainer = document.getElementById('items-container');
 const addItem = document.getElementById('add-item')
@@ -68,7 +69,8 @@ let deleteInventory = null;
             document.getElementById('delete-item-form').action = `/delete_item/${deleteItem}/`;
             document.getElementById('delete-item-form').submit();
 
-        } else if (deleteInventory) {
+        }
+        if (deleteInventory) {
             document.getElementById('delete-list-form').action = `/delete_list/${deleteInventory}/`;
             document.getElementById('delete-list-form').submit();
         }
