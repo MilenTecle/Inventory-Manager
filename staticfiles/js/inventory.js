@@ -5,14 +5,14 @@ const addItem = document.getElementById('add-item')
 const saveBtn = document.getElementById('save')*/
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 let deleteItem = null; // variable to keep track of which item to delete
-let deleteInventory = null
+let deleteInventory = null;
 
 
 /* Handles the click event to render the inventory form */
     const toggleForm = document.getElementById('toggle-form');
     if (toggleForm) {
         toggleForm.addEventListener('click', function() {
-            form.classList.toggle('hide')
+            form.classList.toggle('hide');
             /* addItem.classList.toggle('hide')
             itemsContainer.classList.toggle('hide')
             saveBtn.classList.toggle('hide')*/
@@ -47,7 +47,8 @@ let deleteInventory = null
         const deleteIcons = document.querySelectorAll('.delete-icon');
         deleteIcons.forEach(deleteIcon => {
         deleteIcon.addEventListener('click', function() {
-            deleteItem = this.closest('.form-row');
+            deleteItem = this.dataset.itemId;
+            deleteInventory = null;
             deleteModal.show();
         });
     });
@@ -56,22 +57,21 @@ let deleteInventory = null
         const deleteList = document.querySelector('.delete-list');
         if (deleteList) {
             deleteList.addEventListener('click', function() {
-                deleteInventory = this.closest('.saved-list');
-                deleteModal.show()
+                deleteInventory = this.dataset.listId;
+                deleteItem = null; // reset the variable
+                deleteModal.show();
         });
     }
 
     document.getElementById('deleteConfirm').addEventListener('click', function() {
         if (deleteItem) {
-            deleteItem.remove();
-            deleteItem = null; // reset the variable
+            document.getElementById('delete-item-form').action = `/delete_item/${deleteItem}/`;
+            document.getElementById('delete-item-form').submit();
 
+        } else if (deleteInventory) {
+            document.getElementById('delete-list-form').action = `/delete_list/${deleteInventory}/`;
+            document.getElementById('delete-list-form').submit();
         }
-        if (deleteInventory) {
-            deleteInventory.remove();
-            deleteInventory = null;
-        }
-
-        deleteModal.hide()
+        deleteModal.hide();
      });
 });
