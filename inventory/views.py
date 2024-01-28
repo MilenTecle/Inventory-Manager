@@ -76,7 +76,7 @@ def delete_list(request, pk):
     if request.method == 'POST':
      inventory.delete()
      messages.success(request, "Inventory list deleted successfully")
-     return redirect('inventory/inventory.html')
+     return redirect('inventory')
 
 
 @login_required

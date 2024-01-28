@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-console.log("script loaded");
 const form = document.getElementById('inventory-form');
 /*const itemsContainer = document.getElementById('items-container');
 const addItem = document.getElementById('add-item')
