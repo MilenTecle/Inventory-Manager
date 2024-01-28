@@ -61,7 +61,7 @@ def inventory_detail(request, pk):
 
 
 @login_required
-def delete_item(request, item_id):
+def delete_item(request, pk, item_id):
     if request.method == 'POST':
         item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
         inventory_id = item.inventory.pk

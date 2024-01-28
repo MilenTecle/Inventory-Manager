@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const editIcons = document.querySelectorAll('.edit-icon');
             editIcons.forEach(editIcon => {
                 editIcon.addEventListener('click', function(event) {
-                ('edit clicked')
                 event.preventDefault();
                 const formRow = this.closest('.form-row');
                 const inputField = formRow.querySelector('.item-name');
@@ -47,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
             /* Delete icon event listener */
             const deleteIcons = document.querySelectorAll('.delete-icon');
             deleteIcons.forEach(deleteIcon => {
-            deleteIcon.addEventListener('click', function() {
-                ("delete-icon clicked")
+            deleteIcon.addEventListener('click', function(event) {
+                event.preventDefault();
                 deleteItem = this.dataset.itemId;
                 deleteInventory = null;
                 deleteModal.show();
@@ -67,8 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('deleteConfirm').addEventListener('click', function() {
             if (deleteItem) {
-                document.getElementById('delete-item-form').action = `/delete_item/${deleteItem}/`;
-                console.log('confirmed')
+                document.getElementById('delete-item-form').action = `/delete_item/${deleteInventory}/${deleteItem}/`;
                 document.getElementById('delete-item-form').submit();
 
             }
