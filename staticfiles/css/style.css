@@ -204,6 +204,15 @@ ul.social-account-login {
     color: #E37F4D;
 }
 
+button.edit-link,
+button.delete-link {
+    background: none;
+    border: none;
+}
+
+button.edit-link {
+    margin-right: -10px;
+}
 
 /* Dashboard */
 
