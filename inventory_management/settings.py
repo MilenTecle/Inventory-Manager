@@ -108,9 +108,10 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
+        'EMAIL_AUTHENTICATION': True,
         'APP': {
-            'client_id': os.environ.get('GOOGLE_OAUTH_CLIENT_ID'),
-            'secret': os.environ.get('GOOGLE_OAUTH_CLIENT_SECRET'),
+            'client_id': os.environ.get('GOOGLE_ID'),
+            'secret': os.environ.get('GOOGLE_SECRET'),
     }
 },
   'facebook': {
@@ -121,6 +122,8 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
