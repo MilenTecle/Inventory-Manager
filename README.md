@@ -79,6 +79,22 @@ delivering a high level of user satisfaction. Using QR codes to share inventorie
 
 ## 5 planes of UX
 
+### Strategy
+The strategy for the Inventory Manager app centers around meeting user needs by providing an efficient and user-friendly platform for organizing belongings.
+The focus is on optimizing inventory management and creating awareness for sustainable and mindful consumption.
+
+### Scope
+The project prioritizes essential functionality, ensuring features like user registration, login, efficient inventory creation, adding items, QR code integration and secure data handling. Future features are considered based on upcoming needs and user feedback.
+
+### Structure
+The app's structure includes user-friendly navigation, seamless QR code integration, and sharing features. The design emphazises on accessibility, inclusivity and
+intuitive use for a positive user experience.
+
+### Skeleton
+The Inventory Manager app is designed for easy navigation with clear interface and user flows. QR code generation, inventory sharing and secure user authentication are well integrated to enhance the overall user experience.
+
+### Surface
+The visual design of the app prioritizes clarity, accessiblity and an appealing interface. The emphasis is on creating a visually appealing and user-centric experience while maintaining focus on sustainability and awareness.
 
 ## User Stories
 - ### First time user

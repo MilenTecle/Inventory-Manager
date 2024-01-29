@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             /* Edit icon event listener */
-            const editIcons = document.querySelectorAll('.edit-icon');
+            const editIcons = document.querySelectorAll('.edit-link');
             editIcons.forEach(editIcon => {
                 editIcon.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             /* Delete icon event listener */
-            const deleteIcons = document.querySelectorAll('.delete-icon');
+            const deleteIcons = document.querySelectorAll('.delete-link');
             deleteIcons.forEach(deleteIcon => {
             deleteIcon.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('deleteConfirm').addEventListener('click', function() {
             if (deleteItem) {
-                document.getElementById('delete-item-form').action = `/delete_item/${deleteInventory}/${deleteItem}/`;
+                document.getElementById('delete-item-form').action = `/delete_item/${deleteItem}/`;
                 document.getElementById('delete-item-form').submit();
 
             }

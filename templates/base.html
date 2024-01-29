@@ -161,5 +161,18 @@
 
 <!--Custom Javascript file-->
 <script src="{% static 'js/inventory.js' %}"></script>
+
+<!--Javascript code to automatically close the alert message-->
+<script>
+   setTimeout(function() {
+    let messages = document.querySelectorAll('.alert-dismissible');
+    messages.forEach(function(message) {
+        let alert = new bootstrap.Alert(message);
+        alert.close();
+    });
+}, 3000);
+
+</script>
+
 </body>
 </html>

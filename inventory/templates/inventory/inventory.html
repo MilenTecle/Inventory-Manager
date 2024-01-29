@@ -46,7 +46,7 @@
         {% for inventory in inventories %}
         <div class="col-md-4 mb-4">
             <div class="card qr-container">
-                    <h6 class="card-title text-center">{{ inventory.name }}</h6>
+                    <h6 class="card-title text-center">{{ forloop.counter }}. {{ inventory.name }}</h6>
                     <p class="card-text text-center qr-category">Category: {{ inventory.category }} </p>
                     <div class="qr-code-image">
                 <img src="{{ inventory.qr_code}}" class="card-img-top qr-img" alt="QR code for {{ inventory.name }}" />

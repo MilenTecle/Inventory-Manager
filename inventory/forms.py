@@ -25,6 +25,11 @@ class ItemsForm(forms.ModelForm):
         if self.instance.pk:
             self.fields['name'].widget.attrs['readonly'] = 'readonly'
 
+        if self.instance.pk is None:
+            self.fields['name'].required = True
+
+
+
 ItemFormset = inlineformset_factory(
     Inventory,
     Items,

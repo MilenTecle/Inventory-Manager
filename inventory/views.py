@@ -49,7 +49,7 @@ def inventory_detail(request, pk):
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 messages.success(request, "List saved successfully!")
-                return redirect('saved_list', inventory_id=inventory.pk)
+                return redirect('inventory')
 
     else:
             formset = ItemFormset(instance=inventory)
@@ -61,7 +61,7 @@ def inventory_detail(request, pk):
 
 
 @login_required
-def delete_item(request, pk, item_id):
+def delete_item(request, item_id):
     if request.method == 'POST':
         item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
         inventory_id = item.inventory.pk
@@ -87,7 +87,7 @@ def edit_item(request, item_id):
         form = ItemsForm(data=request.POST, instance=item)
         if form.is_valid():
             form.save()
-            messages.success(request, "Item updated successfully")
+            messages.success(request, "List updated successfully")
             return redirect('inventory_detail', pk=item.inventory.pk)
     return redirect('inventory_detail', pk=item.inventory.pk)
 

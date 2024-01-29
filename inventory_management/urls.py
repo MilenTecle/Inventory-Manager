@@ -31,7 +31,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('inventory/<int:pk>/', inventory_detail, name="inventory_detail"),
     path('edit_item/<int:item_id>/', edit_item, name="edit_item"),
-    path('delete_item/<int:pk>/<int:item_id>/', delete_item, name="delete_item"),
+    path('delete_item/<int:item_id>/', delete_item, name="delete_item"),
     path('inventory/<int:inventory_id>/saved/', saved_list, name="saved_list"),
     path('delete_list/<int:pk>/', delete_list, name="delete_list")
 ]
