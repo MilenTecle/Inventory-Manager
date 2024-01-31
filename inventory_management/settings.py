@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-milentecle-inventoryman-s7jme208s7t.ws-eu107.gitpod.io', '.herokuapp.com',
+ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com',
                 'inventory-manager-milen-aa94458871b4.herokuapp.com',]
 
 
@@ -176,7 +176,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
-    "https://8000-milentecle-inventoryman-s7jme208s7t.ws-eu107.gitpod.io",
+    "https://*.gitpod.io",
 ]
 
 

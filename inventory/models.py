@@ -33,6 +33,7 @@ class Inventory(models.Model):
 
     class Meta:
         verbose_name_plural = 'Inventories'
+        unique_together = ('user', 'name')
 
     def get_url(self):
         domain = get_current_site(None).domain
