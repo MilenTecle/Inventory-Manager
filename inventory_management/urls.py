@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from inventory.views import landing_page, inventory_page, inventory_detail, edit_item, delete_item, saved_list, delete_list
-# from contact.views import send_contact_email
+
 
 
 urlpatterns = [

@@ -2,6 +2,7 @@
 {% load allauth %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -20,10 +21,9 @@
                     <h2 class="card-title text-center mb-4">Sign Up</h2>
                     <form method="POST" action="{% url 'account_signup' %}">
                         {% csrf_token %}
-                        {% for field in form %}
+                        {{ form|crispy }}
                             <div class="form-group">
                                 {{ field.label_tag }}
-                                {{ field|add_class:"form-control" }}
                                 {% if field.errors %}
                                     <div class="invalid-feedback">
                                         {% for error in field.errors %}
@@ -32,7 +32,6 @@
                                     </div>
                                 {% endif %}
                             </div>
-                        {% endfor %}
                         <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
                     </form>
                 </div>

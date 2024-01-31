@@ -95,6 +95,10 @@ body  {
     display: block;
 }
 
+#id_password1_helptext {
+    display: none
+}
+
 /* Social account login styles */
 .social-account-login li {
     list-style-type: none;
