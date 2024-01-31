@@ -55,7 +55,8 @@ body  {
 .dropdown-item:hover,
 .dropdown-menu:hover {
     background: #212529;
-    color: #E37F4D;;
+    color: #E37F4D;
+    border: none;
 }
 
 

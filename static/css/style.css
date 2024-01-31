@@ -37,7 +37,7 @@ body  {
 
 .gray-btn:hover {
     background: #222121;
-    color:white;
+    color:#E37F4D;
 }
 
 .navbar-icon {
@@ -55,7 +55,8 @@ body  {
 .dropdown-item:hover,
 .dropdown-menu:hover {
     background: #212529;
-    color: #E37F4D;;
+    color: #E37F4D;
+    border: none;
 }
 
 
@@ -276,6 +277,7 @@ button.edit-link {
 
 .contact-btn {
     margin-top: 5%;
+    padding: 5px 10%;
 }
 
 .image-container {
