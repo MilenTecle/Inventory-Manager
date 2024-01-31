@@ -50,7 +50,10 @@ def inventory_detail(request, pk):
         if formset.is_valid():
             formset.save()
             if 'add_item' in request.POST:
-                messages.success(request, "Item added successfully!")
+                if not inventory.items.exists():
+                    messages.error(request, "You need to add at least one item before saving list.")
+                else:
+                    messages.success(request, "Item added successfully!")
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 messages.success(request, "List saved successfully!")

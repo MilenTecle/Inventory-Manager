@@ -177,11 +177,15 @@ ul.social-account-login {
 }
 */
 
-/* .form-signup .item-name {
-    border: none;
-    outline: none;
-    border-bottom: 1px dashed #ccc;
-}*/
+ .form-signup .saved-list p {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    color: black;
+}
+
+.saved-list h5 {
+    margin-top: 12%;
+}
 
 .item-row.hide {
     display: none;

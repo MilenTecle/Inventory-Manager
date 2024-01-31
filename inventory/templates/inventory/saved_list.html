@@ -20,8 +20,8 @@
             <div class="form-signup card list-items-form">
             <div class="saved-list">
                 <h3>{{ inventory.name }}</h3>
-                <p>Category: {{ inventory.category }}</p>
-                <p><strong>Items</strong></p>
+                <h6>Category: {{ inventory.category }}</h6>
+                <h5><strong>Items</strong></h5>
                     {% for item in inventory.items.all %}
                     <p>{{ item.name }} </p>
                     {% endfor %}
