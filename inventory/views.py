@@ -56,8 +56,11 @@ def inventory_detail(request, pk):
                     messages.success(request, "Item added successfully!")
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
-                messages.success(request, "List saved successfully!")
-                return redirect('inventory')
+                if not inventory.items.exists():
+                    messages.error(request, "You cannot save an empty list.")
+                else:
+                    messages.success(request, "List saved successfully!")
+                    return redirect('inventory')
 
     else:
             formset = ItemFormset(instance=inventory)

@@ -59,6 +59,10 @@ body  {
     border: none;
 }
 
+#navbarDropdown {
+    border: none;
+}
+
 
 /* Sign up form styles */
 .form-signup {
