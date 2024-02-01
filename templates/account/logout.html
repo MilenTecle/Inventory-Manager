@@ -17,9 +17,9 @@
         <div class="col-md-6 offset md-3">
             <div class="card-body">
                 <h1 class="mb-4 mt-5">
-                    {% trans "Sign out" %}
+                    {% trans "Log out" %}
                 </h1>
-                <p>{% trans 'Are you sure you want to sign out?' %}</p>
+                <p>{% trans 'Are you sure you want to log out?' %}</p>
                 {% url 'account_logout' as action_url %}
                 {% element form method="post" action=action_url no_visible_fields=True %}
                 {% slot body %}
@@ -30,7 +30,7 @@
                 {% endslot %}
                 {% slot actions %}
                 <button class="btn btn-primary btn-block mt-4" type="submit">
-                    {% trans 'Sign out' %}
+                    {% trans 'Log out' %}
                 </button>
                 <a href="{% url 'inventory' %}" class="btn btn-danger btn-block mt-4">Cancel</a>
                 {% endslot %}

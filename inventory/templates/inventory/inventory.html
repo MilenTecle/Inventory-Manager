@@ -53,7 +53,15 @@
                     </div>
                 <div class="card-body download-share">
                     <a class="link" href="{{ inventory.qr_code }}" target="_blank" download>Download <i class="fa-solid fa-download"></i></a>
-                    <a class="link" href="{{ inventory.qr_code }}" target="_blank" Share>Share <i class="fa-solid fa-share-from-square"></i></a>
+
+                    <!--Share via Email-->
+                    <a class="link" href="mailto:?subject=Check out my QR code&body=Here's my QR code that I want to share:%0D{{ inventory.qr_code }}" target="_blank" >Share via Email
+                        <i class="fa-solid fa-envelope"></i></a>
+
+                    <!--Share on Facebook-->
+                    <a class="link" href="{{ inventory.qr_code }}" target="_blank" >Share
+                        <i class="fa-solid fa-share-from-square"></i></a>
+
                 </div>
             </div>
             <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
