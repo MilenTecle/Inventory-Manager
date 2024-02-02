@@ -1,21 +1,18 @@
 {% load allauth socialaccount %}
 
-
-{% get_providers as socialaccount_providers %}
-{% if socialaccount_providers %}
 <ul class="social-account-login text-center">
         {% for provider in socialaccount_providers %}
             {% if provider.id == "facebook" %}
-                    {% provider_login_url provider openid=brand.openid_url process=process as href %}
+                    {% provider_login_url provider process="login" as href %}
                     <li>
                         <a href="{{ href }}" class="btn btn-facebook">{{ provider.name }}</a>
                     </li>
             {% elif provider.id == "google" %}
-            {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
+            {% provider_login_url provider process="login" as href %}
             <li>
                 <a href="{{ href }}" class="btn btn-google">{{ provider.name }}</a>
             </li>
             {% endif %}
         {% endfor %}
 </ul>
-{% endif %}
+

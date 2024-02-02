@@ -114,12 +114,19 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': os.environ.get('GOOGLE_ID'),
             'secret': os.environ.get('GOOGLE_SECRET'),
             'key': ''
-    }
+    },
+     "SCOPE": [
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        }
 },
   'facebook': {
         'APP': {
-            'client_id': 'Client ID',
-            'secret': 'Client secret',
+            'client_id': os.environ.get('APP_ID'),
+            'secret':  os.environ.get('APP_SECRET'),
             'key': ''
         }
     }
