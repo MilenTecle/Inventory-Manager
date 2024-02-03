@@ -19,8 +19,14 @@
             <div class="form-signup card list-items-form">
                 <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
                 <form method="POST" class="items-form hide" id="inventory-form">
-                    {{ inventory_form | crispy }}
                     {% csrf_token %}
+                    {{ inventory_form.name|as_crispy_field }}
+                    {% if category_dropdown %}
+                        {{ inventory_form.category|as_crispy_field}}
+                    {% else %}
+                        <label for="id_new_category">Category*</label>
+                        {{ inventory_form.new_category|as_crispy_field}}
+                    {% endif %}
                     <button type="submit" class="btn btn danger">Create Inventory</button>
                     <!--<div id="items" class="item-row hide">
                         <div class="items-label">

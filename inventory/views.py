@@ -15,22 +15,24 @@ def landing_page(request):
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
     inventories = Inventory.objects.filter(user=request.user)
-    inventory_form = InventoryForm()
+    category_dropdown = Category.objects.exists()
+
 
     if request.method == 'POST':
         inventory_form = InventoryForm(data=request.POST)
         if inventory_form.is_valid():
             # Check if a new category name has been provided
-            new_category = inventory_form.cleaned_data.get('new_category')
+            new_category_name = inventory_form.cleaned_data.get('new_category')
             category = None
 
             try:
                 # User can create new category
-                if new_category:
-                    category, created = Category.objects.get_or_create(name=category_name)
+                if new_category_name:
+                    category, created = Category.objects.get_or_create(name=new_category_name)
                 else:
                 # Use the existing category
-                    category = inventory_form.cleaned_data['category']
+                    category_id = inventory_form.cleaned_data['category']
+                    category = Category.objects.get(id=category_id)
 
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)
@@ -42,10 +44,13 @@ def inventory_page(request):
                 return redirect('inventory_detail', pk=inventory_list.pk)
             except IntegrityError:
                 messages.error(request, "An inventory with that name already exists. Please choose a different name")
+    else:
+        inventory_form = InventoryForm()
 
     return render(request, 'inventory/inventory.html', {
         'inventory_form': inventory_form,
-        'inventories': inventories
+        'inventories': inventories,
+        'category_dropdown': category_dropdown
     })
 
 # The view where the user can see the specific items in the inventory list

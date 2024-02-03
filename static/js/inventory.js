@@ -79,16 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        const Category = document.querySelector("#id_category");
+        const CategoryOption = document.querySelector("#id_category");
         const newCategory = document.querySelector("#id_new_category");
 
-        Category.addEventListener('change', function() {
-            if (this.value === 'new') {
-                newCategory.style.display = 'block';
-                newCategory.required = true;
-            } else {
-                newCategory.style.display = 'none';
-                newCategory.required = false;
-            }
-        });
+        if(CategoryOption) {
+            CategoryOption.addEventListener('change', function() {
+                if (this.value === 'new') {
+                    newCategory.style.display = 'block';
+                    newCategory.required = true;
+                } else {
+                    newCategory.style.display = 'none';
+                    newCategory.required = false;
+                }
+            });
+        } else {
+            newCategory.style.display = 'block';
+            newCategory.required = true;
+        }
     });
