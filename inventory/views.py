@@ -7,6 +7,7 @@ from .forms import InventoryForm, ItemsForm, ItemFormset
 from .models import Inventory, Items, Category
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 def landing_page(request):
     return render(request, 'landing_page.html')
@@ -19,10 +20,17 @@ def inventory_page(request):
     if request.method == 'POST':
         inventory_form = InventoryForm(data=request.POST)
         if inventory_form.is_valid():
+            # Check if a new category name has been provided
+            new_category = inventory_form.cleaned_data.get('new_category')
+            category = None
+
             try:
-            # User can create category
-                category_name = inventory_form.cleaned_data['category']
-                category, created = Category.objects.get_or_create(name=category_name)
+                # User can create new category
+                if new_category:
+                    category, created = Category.objects.get_or_create(name=category_name)
+                else:
+                # Use the existing category
+                    category = inventory_form.cleaned_data['category']
 
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)

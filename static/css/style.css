@@ -91,10 +91,6 @@ body  {
     margin-top: 2rem;
 }
 
-#id_remember {
-    margin-top: 10%;
-}
-
 .invalid-feedback {
     display: block;
 }
