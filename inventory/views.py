@@ -15,7 +15,9 @@ def landing_page(request):
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
     inventories = Inventory.objects.filter(user=request.user)
-    category_dropdown = Category.objects.exists()
+    inventory_form = InventoryForm()
+
+    list_exist = not inventories.exists()
 
 
     if request.method == 'POST':
@@ -29,10 +31,9 @@ def inventory_page(request):
                 # User can create new category
                 if new_category_name:
                     category, created = Category.objects.get_or_create(name=new_category_name)
-                else:
-                # Use the existing category
-                    category_id = inventory_form.cleaned_data['category']
-                    category = Category.objects.get(id=category_id)
+                    inventory_form.fields['category'].choices += [(category.id, category.name)]
+                    inventory_form.cleaned_data['category'] = category
+
 
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)
@@ -44,13 +45,12 @@ def inventory_page(request):
                 return redirect('inventory_detail', pk=inventory_list.pk)
             except IntegrityError:
                 messages.error(request, "An inventory with that name already exists. Please choose a different name")
-    else:
-        inventory_form = InventoryForm()
 
     return render(request, 'inventory/inventory.html', {
         'inventory_form': inventory_form,
         'inventories': inventories,
-        'category_dropdown': category_dropdown
+        'list_exist': list_exist
+
     })
 
 # The view where the user can see the specific items in the inventory list

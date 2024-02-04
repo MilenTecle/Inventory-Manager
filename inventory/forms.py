@@ -20,7 +20,7 @@ class InventoryForm(forms.ModelForm):
 
     def  __init__(self, *args, **kwargs):
         super(InventoryForm, self).__init__(*args, **kwargs)
-        self.fields['category'].choices = [(category.id, category.name) for category in Category.objects.all()] + [('new', 'Add new category...')]
+        self.fields['category'].choices = [(c.id, c.name) for c in Category.objects.all()] + [('new', 'Add new category...')]
         self.fields['category'].widget.attrs.update({'id': 'id_category'})
 
 
