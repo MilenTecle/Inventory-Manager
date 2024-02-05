@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('inventory-form');
-    /*const itemsContainer = document.getElementById('items-container');
-    const addItem = document.getElementById('add-item')
-    const saveBtn = document.getElementById('save')*/
+    const categoryForm = document.getElementById('category-form');
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
     let deleteItem = null; // variable to keep track of which item to delete
     let deleteInventory = null;
@@ -13,22 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (toggleForm) {
             toggleForm.addEventListener('click', function() {
                 form.classList.toggle('hide');
-                /* addItem.classList.toggle('hide')
-                itemsContainer.classList.toggle('hide')
-                saveBtn.classList.toggle('hide')*/
             });
         }
 
-        /* Adding items when clicking on icon
-        addItem.addEventListener('click', function() {
-            const newItem = document.createElement('div');
-            newItem.classList.add('item');
-            newItem.innerHTML = `
-                    <input type="text" name="items" class="form-control item-name" placeholder="Item name">
-                    <i class="fa-solid fa-pencil edit-icon"></i>
-                    <i class="fa-regular fa-trash-can delete-icon"></i>`;
-            itemsContainer.appendChild(newItem); */
-
+          /* Handles the click event to render the category form */
+          const toggleCategory = document.getElementById('toggle-category');
+          if (toggleCategory ) {
+              toggleCategory.addEventListener('click', function() {
+                categoryForm.classList.toggle('hide');
+              });
+          }
 
             /* Edit icon event listener */
             const editIcons = document.querySelectorAll('.edit-link');

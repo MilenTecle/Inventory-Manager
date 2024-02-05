@@ -30,7 +30,7 @@
                 </li>
                 {% endfor %}
                 </ul>
-                <form method="POST" action="{% url 'clone_item' item_id=inventory.id %}">
+                <form method="POST" action="{% url 'clone_list' item_id=inventory.id %}">
                     {% csrf_token %}
                     {{ formset.management_form }}
                     {% for form in formset %}

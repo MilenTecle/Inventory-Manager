@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
-from .forms import InventoryForm, ItemsForm, ItemFormset
+from .forms import InventoryForm, ItemsForm, ItemFormset, CategoryForm
 from .models import Inventory, Items, Category
 from django.http import HttpResponseRedirect
 
@@ -11,6 +11,31 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 def landing_page(request):
     return render(request, 'landing_page.html')
+
+
+@login_required(login_url='/accounts/login/')
+def add_category(request):
+    category_form = CategoryForm()
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        category_form = CategoryForm(request.POST)
+
+        if category_form.is_valid():
+            category = category_form.save(commit=False)
+            messages.success(request, "Category added successfully")
+            return redirect("add_category")
+        else:
+            messages.error(request, "The category couldn't be added")
+    else:
+        category_form = CategoryForm()
+
+    return render(request, 'inventory/categories.html', {
+    'category_form': category_form,
+    'categories': categories
+    })
+
+
 
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
@@ -22,10 +47,6 @@ def inventory_page(request):
         inventory_form = InventoryForm(data=request.POST)
         if inventory_form.is_valid():
             try:
-                # User can create new category
-                category_name = inventory_form.cleaned_data['category']
-                category, created = Category.objects.get_or_create(name=category_name)
-
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)
                 inventory_list.user = request.user
@@ -107,12 +128,10 @@ def edit_item(request, item_id):
 
 
 @login_required
-def clone_item(request, item_id):
-    print(f"serch id {item_id} --")
+def clone_list(request, item_id):
     inventory = get_object_or_404(Inventory, pk=item_id, user=request.user)
     if request.method == 'POST':
         formset = ItemFormset(request.POST, instance=inventory)
-        print(f'show post {formset}')
         if formset.is_valid():
             item_list = formset.save(commit=False)
             inventory = item_list[0].inventory
@@ -125,7 +144,7 @@ def clone_item(request, item_id):
                 new_item = Items(name=item.name, inventory=new_inventory)
                 new_item.save()
             messages.success(request, "List cloned successfully")
-            return redirect('inventory_detail', pk=new_inventory.pk)
+            return redirect('inventory')
         else:
             print(formset.errors)
     else:

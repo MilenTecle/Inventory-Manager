@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+    body {
+        background-image:none; /* Override the background image */
+    }
+</style>
+
+
+<div class="container get-started">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5 my5">
+            {% if categories|length == 0 %}
+                <h2 class="text-center mb-4 mt-4">Categories</h2>
+            {% endif %}
+            <div class="form-signup card list-items-form">
+                <h4>Add Category<i class="fa-solid fa-plus btn list-btn" id="toggle-category"></i></h4>
+                <form method="POST" class="items-form hide" id="category-form">
+                    {% csrf_token %}
+                    {{ category_form|crispy }}
+                    <button type="submit" class="btn btn danger">Add Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">My Categories</h3>
+        <div class="row">
+        {% for category in categories %}
+            <div class="col-md-4 mb-4">
+                <div class="card qr-container">
+                    <h6 class="card-title text-center"> {{ category.name }}</h6>
+                        <div class="card-body download-share">
+                        <div class="icons ml-auto">
+                                <button type="button" class="edit-link"><i class="fa-solid fa-pencil edit-icon"></i></button>
+                                <button type="button" class="delete-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">You have no inventory list yet</p>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
