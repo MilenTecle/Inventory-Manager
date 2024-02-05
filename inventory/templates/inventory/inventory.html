@@ -20,11 +20,7 @@
                 <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
                 <form method="POST" class="items-form hide" id="inventory-form">
                     {% csrf_token %}
-                    {{ inventory_form.name|as_crispy_field }}
-
-                        {{ inventory_form.category|as_crispy_field}}
-                        {{ inventory_form.new_category|as_crispy_field}}
-
+                    {{ inventory_form|crispy }}
                     <button type="submit" class="btn btn danger">Create Inventory</button>
                     <!--<div id="items" class="item-row hide">
                         <div class="items-label">
@@ -64,6 +60,7 @@
                 </div>
             </div>
             <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
+            <a href="{% url 'clone_item' item_id=inventory.pk %}" class="btn btn-secondary details-btn details-btn">Clone it!</a>
         </div>
         {% empty %}
         <p class="text-center">You have no inventory list yet</p>

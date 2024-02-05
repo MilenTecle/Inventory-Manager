@@ -76,24 +76,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             deleteModal.hide();
          });
-
-
-
-        const CategoryOption = document.querySelector("#id_category");
-        const newCategory = document.querySelector("#id_new_category");
-
-        if(CategoryOption) {
-            CategoryOption.addEventListener('change', function() {
-                if (this.value === 'new') {
-                    newCategory.style.display = 'block';
-                    newCategory.required = true;
-                } else {
-                    newCategory.style.display = 'none';
-                    newCategory.required = false;
-                }
-            });
-        } else {
-            newCategory.style.display = 'block';
-            newCategory.required = true;
-        }
     });

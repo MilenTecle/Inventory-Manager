@@ -17,23 +17,14 @@ def inventory_page(request):
     inventories = Inventory.objects.filter(user=request.user)
     inventory_form = InventoryForm()
 
-    list_exist = not inventories.exists()
-
 
     if request.method == 'POST':
         inventory_form = InventoryForm(data=request.POST)
         if inventory_form.is_valid():
-            # Check if a new category name has been provided
-            new_category_name = inventory_form.cleaned_data.get('new_category')
-            category = None
-
             try:
                 # User can create new category
-                if new_category_name:
-                    category, created = Category.objects.get_or_create(name=new_category_name)
-                    inventory_form.fields['category'].choices += [(category.id, category.name)]
-                    inventory_form.cleaned_data['category'] = category
-
+                category_name = inventory_form.cleaned_data['category']
+                category, created = Category.objects.get_or_create(name=category_name)
 
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)
@@ -48,9 +39,7 @@ def inventory_page(request):
 
     return render(request, 'inventory/inventory.html', {
         'inventory_form': inventory_form,
-        'inventories': inventories,
-        'list_exist': list_exist
-
+        'inventories': inventories
     })
 
 # The view where the user can see the specific items in the inventory list
@@ -114,6 +103,39 @@ def edit_item(request, item_id):
             messages.success(request, "List updated successfully")
             return redirect('inventory_detail', pk=item.inventory.pk)
     return redirect('inventory_detail', pk=item.inventory.pk)
+
+
+
+@login_required
+def clone_item(request, item_id):
+    print(f"serch id {item_id} --")
+    inventory = get_object_or_404(Inventory, pk=item_id, user=request.user)
+    if request.method == 'POST':
+        formset = ItemFormset(request.POST, instance=inventory)
+        print(f'show post {formset}')
+        if formset.is_valid():
+            item_list = formset.save(commit=False)
+            inventory = item_list[0].inventory
+            new_inventory = Inventory(user=request.user, name=inventory.name + ' cloned', category=inventory.category)
+            new_inventory.save()
+            for item in item_list:
+                new_item = Items(name=item.name, inventory=new_inventory)
+                new_item.save()
+            for item in inventory.items.all():
+                new_item = Items(name=item.name, inventory=new_inventory)
+                new_item.save()
+            messages.success(request, "List cloned successfully")
+            return redirect('inventory_detail', pk=new_inventory.pk)
+        else:
+            print(formset.errors)
+    else:
+        formset = ItemFormset(instance=inventory)
+    return render(request, 'inventory/inventory_clone.html', {
+        'inventory': inventory,
+        'formset': formset
+    })
+
+
 
 
 def saved_list(request, inventory_id):
