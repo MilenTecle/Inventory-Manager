@@ -18,7 +18,7 @@
             {% endif %}
             <div class="form-signup card list-items-form">
                 <h4>Add Category<i class="fa-solid fa-plus btn list-btn" id="toggle-category"></i></h4>
-                <form method="POST" class="items-form hide" id="category-form">
+                <form method="POST" class="items-form hide" id="category-form" action="{% url 'add_category' %}">
                     {% csrf_token %}
                     {{ category_form|crispy }}
                     <button type="submit" class="btn btn danger">Add Category</button>
@@ -44,7 +44,7 @@
             </div>
         </div>
         {% empty %}
-        <p class="text-center">You have no inventory list yet</p>
+        <p class="text-center">You have no categories yet</p>
         {% endfor %}
         </div>
     </div>

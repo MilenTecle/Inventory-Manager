@@ -24,6 +24,7 @@ def add_category(request):
         if category_form.is_valid():
             category = category_form.save(commit=False)
             messages.success(request, "Category added successfully")
+            category.save()
             return redirect("add_category")
         else:
             messages.error(request, "The category couldn't be added")
@@ -50,7 +51,6 @@ def inventory_page(request):
                 # Create the inventory list and link to the category
                 inventory_list = inventory_form.save(commit=False)
                 inventory_list.user = request.user
-                inventory_list.category = category
 
                 inventory_list.save()
                 messages.success(request, "Inventory created successfully!")
