@@ -168,6 +168,15 @@ items-form
     width: 80%;
 }
 
+
+.category-container {
+    background: #E37F4D;
+    width: 40%;
+    border-radius: 0;
+    height: 100px;
+    color: white;
+}
+
 /*
 .item-row {
     display: flex;

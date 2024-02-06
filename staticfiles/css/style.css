@@ -37,7 +37,7 @@ body  {
 
 .gray-btn:hover {
     background: #222121;
-    color:white;
+    color:#E37F4D;
 }
 
 .navbar-icon {
@@ -56,6 +56,10 @@ body  {
 .dropdown-menu:hover {
     background: #212529;
     color: #E37F4D;
+    border: none;
+}
+
+#navbarDropdown {
     border: none;
 }
 
@@ -87,12 +91,12 @@ body  {
     margin-top: 2rem;
 }
 
-#id_remember {
-    margin-top: 10%;
-}
-
 .invalid-feedback {
     display: block;
+}
+
+#id_password1_helptext {
+    display: none
 }
 
 /* Social account login styles */
@@ -118,7 +122,7 @@ ul.social-account-login {
 
 
 /* Inventory page*/
-
+items-form
 /* Inventory form */
 .list-btn {
     color: #E37F4D;
@@ -164,6 +168,15 @@ ul.social-account-login {
     width: 80%;
 }
 
+
+.category-container {
+    background: #E37F4D;
+    width: 40%;
+    border-radius: 0;
+    height: 100px;
+    color: white;
+}
+
 /*
 .item-row {
     display: flex;
@@ -173,11 +186,15 @@ ul.social-account-login {
 }
 */
 
-/* .form-signup .item-name {
-    border: none;
-    outline: none;
-    border-bottom: 1px dashed #ccc;
-}*/
+ .form-signup .saved-list p {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    color: black;
+}
+
+.saved-list h5 {
+    margin-top: 12%;
+}
 
 .item-row.hide {
     display: none;
@@ -277,6 +294,7 @@ button.edit-link {
 
 .contact-btn {
     margin-top: 5%;
+    padding: 5px 10%;
 }
 
 .image-container {
