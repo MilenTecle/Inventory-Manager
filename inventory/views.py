@@ -55,9 +55,12 @@ def edit_category(request, category_id):
     if request.method == 'POST':
         form = CategoryForm(data=request.POST, instance=category)
         if form.is_valid():
-            form.save()
-            messages.success(request, "Category updated successfully")
-            return redirect("add_category")
+            try:
+                form.save()
+                messages.success(request, "Category updated successfully")
+                return redirect("add_category")
+            except IntegrityError:
+                messages.error(request, "The category name already exists, please choose another name.")
         else:
             messages.error(request, "The category could not be edited")
     return redirect("add_category")
@@ -92,8 +95,6 @@ def inventory_page(request):
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
-
-
     if request.method == 'POST':
         if formset.is_valid():
             formset.save()
@@ -141,14 +142,18 @@ def delete_list(request, pk):
 @login_required
 def edit_item(request, item_id):
     item = get_object_or_404(Items, id=item_id, inventory__user=request.user)
+    inventory_id = item.inventory.pk
 
     if request.method == 'POST':
         form = ItemsForm(data=request.POST, instance=item)
         if form.is_valid():
             form.save()
             messages.success(request, "List updated successfully")
-            return redirect('inventory_detail', pk=item.inventory.pk)
-    return redirect('inventory_detail', pk=item.inventory.pk)
+        else:
+            messages.error(request, "There was an error updating the item")
+        return redirect('inventory_detail', pk=item.inventory.pk)
+
+    return redirect('inventory_detail', pk=inventory_id)
 
 
 

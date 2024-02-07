@@ -22,7 +22,7 @@
             {% if categories|length == 0 %}
                 <h2 class="text-center mb-4 mt-4">Categories</h2>
             {% endif %}
-            <div class="form-signup card list-items-form">
+            <div class="form-signup card list-items-form mb-5">
                 <h4>Add Category<i class="fa-solid fa-plus btn list-btn" id="toggle-category"></i></h4>
                 <form method="POST" class="items-form hide" id="category-form" action="{% url 'add_category' %}">
                     {% csrf_token %}
@@ -38,28 +38,27 @@
     <h3 class="text-center mb-4">My Categories</h3>
         <div class="row">
         {% for category in categories %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-5 text-center">
                 <div class="category-container">
-                    <div class="card-body download-share">
                         <form method="POST" action="{% url 'edit_category' category.id %}">
                             {% csrf_token %}
                             <div class="category-input">
-                                <input type="text" name="name" class="form-control category-name" value="{{ category.name }}" readonly>
+                                <input type="text" name="name" class="form-control category-name text-center" value="{{ category.name }}" readonly>
                             </div>
-                            <div class="icons ml-auto">
-                                <button type="button" class="edit-category-link"><i class="fa-solid fa-pencil edit-icon"></i></button>
-                                <button type="button" class="delete-category-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-category-id="{{ category.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></button>
+                            <hr>
+                            <div class="icons ms-0 justify-content-center mt-3">
+                                <button type="button" class="edit-category-link mb-2">Edit <i class="fa-solid fa-pencil edit-icon"></i></button>
+                                <button type="button" class="delete-category-link mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal" data-category-id="{{ category.id }}">Delete <i class="fa-regular fa-trash-can delete-icon"></i></button>
                             </div>
                             <div class="save-button">
-                                <button type="submit" name="name" class="btn btn-danger hide save-link">Save</button>
+                                <button type="submit" name="name" class="btn btn-success hide save-link mt-4">Save</button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
-        </div>
         {% empty %}
         <p class="text-center">You have no categories yet</p>
         {% endfor %}
-    </div>
+        </div>
+</div>
 {% endblock %}

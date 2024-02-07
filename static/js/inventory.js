@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
            /* Save button event listener */
            document.querySelectorAll('.save-link').forEach(saveBtn => {
-            saveBtn.addEventListener('click', function() {
+            saveBtn.addEventListener('click', function(event) {
+                event.preventDefault();
                 const form = this.closest('form');
                 form.submit();
        });

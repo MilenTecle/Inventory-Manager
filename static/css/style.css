@@ -172,15 +172,16 @@ items-form
 
 .category-container {
     background: #E37F4D;
-    width: 40%;
+    max-width: fit-content;
     border-radius: 0;
-    height: 100px;
     color: white;
 }
 
 .form-control.category-name {
     background: #E37F4D;
     border: none;
+    font-size: 1.5rem;
+    color: white;
 }
 
 /*
@@ -218,7 +219,7 @@ items-form
     margin-top: 10px;
 }
 
-.edit-icon, .delete-icon {
+.edit-icon, .delete-icon{
     cursor: pointer;
     color: #333333;
 }
@@ -228,8 +229,27 @@ items-form
     color: #E37F4D;
 }
 
+.edit-category-link i:hover,
+.delete-category-link i:hover {
+    color: #333333;
+}
+
+.edit-category-link i,
+.delete-category-link i {
+    color: black;
+}
+
+
+button.edit-category-link,
+button.delete-category-link {
+    font-size: 1rem;
+}
+
+
 button.edit-link,
-button.delete-link {
+button.delete-link,
+button.delete-category-link,
+button.edit-category-link {
     background: none;
     border: none;
 }
