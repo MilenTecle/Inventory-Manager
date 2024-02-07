@@ -16,7 +16,7 @@
             {% if inventories|length == 0 %}
                 <h2 class="text-center mb-4 mt-4">Get started with your inventory!</h2>
             {% endif %}
-            <div class="form-signup card list-items-form">
+            <div class="form-signup card list-items-form mb-5">
                 <h4>New list<i class="fa-solid fa-plus btn list-btn" id="toggle-form"></i></h4>
                 <form method="POST" class="items-form hide" id="inventory-form">
                     {% csrf_token %}
@@ -47,8 +47,8 @@
                         <i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
-            <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn">View details</a>
-            <a href="{% url 'clone_list' item_id=inventory.pk %}" class="btn btn-secondary details-btn details-btn">Clone it!</a>
+            <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn mt-3">View details</a>
+            <a href="{% url 'clone_list' item_id=inventory.pk %}" class="btn btn-secondary details-btn details-btn mt-3" id="clone-btn">Clone list</a>
         </div>
         {% empty %}
         <p class="text-center">You have no inventory list yet</p>

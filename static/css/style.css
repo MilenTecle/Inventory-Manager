@@ -30,6 +30,10 @@ body  {
     color: #E37F4D;
 }
 
+.navbar .nav-link.active {
+    color: #E37F4D;
+}
+
 .gray-btn {
     background: #333333;
     color:white;
@@ -181,7 +185,7 @@ items-form
     background: #E37F4D;
     border: none;
     font-size: 1.5rem;
-    color: white;
+    color: black;
 }
 
 /*
@@ -296,8 +300,10 @@ button.edit-link {
 
 .details-btn {
     font-size: 0.8rem;
-    margin: 15px 35px;
-    width: auto;
+}
+
+#clone-btn {
+    margin-left: 10px;
 }
 
 /*

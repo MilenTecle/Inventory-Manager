@@ -10,6 +10,8 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def landing_page(request):
+    if request.user.is_authenticated:
+        return redirect('inventory')
     return render(request, 'landing_page.html')
 
 

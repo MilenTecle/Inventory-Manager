@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
             if (deleteInventory) {
-                document.getElementById('delete-list-form').action = `/delete_category/${deleteCategory}/`;
+                document.getElementById('delete-list-form').action = `/delete_list/${deleteInventory}/`;
                 document.getElementById('delete-list-form').submit();
             }
 

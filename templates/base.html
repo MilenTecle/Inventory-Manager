@@ -1,6 +1,5 @@
 {% load static %}
 
-{% url 'home' as home_url %}
 {% url 'contact' as '/contact/' %}
 {% url 'inventory' as '/inventory/' %}
 {% url 'categories' as '/categories/' %}
@@ -51,13 +50,8 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/inventory/' %}active{% endif %}" aria-current="page"
-                            href="{% url 'inventory' %}">Home</a>
+                            href="{% url 'inventory' %}">Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" aria-current="page"
-                            href="{% url 'contact' %}">Contact us</a>
-                    </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">My lists</a>
@@ -72,8 +66,10 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/categories/' %}active{% endif %}" aria-current="page" href="{% url 'add_category' %}">Categories</a>
                     </li>
-
-
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" aria-current="page"
+                            href="{% url 'contact' %}">Contact us</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                     </li>

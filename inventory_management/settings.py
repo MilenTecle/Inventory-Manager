@@ -115,13 +115,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': os.environ.get('GOOGLE_SECRET'),
             'key': ''
     },
-     "SCOPE": [
-            "profile",
-            "email"
-        ],
-        "AUTH_PARAMS": {
-            "access_type": "online",
-        }
+
 },
   'facebook': {
         'APP': {
