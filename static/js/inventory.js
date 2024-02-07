@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
     let deleteItem = null; // variable to keep track of which item to delete
     let deleteInventory = null;
+    let deleteCategory = null;
 
 
     /* Handles the click event to render the inventory form */
@@ -46,6 +47,44 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+
+
+            /* Delete categories event listener */
+            const deleteCategories = document.querySelectorAll('.delete-category-link');
+            deleteCategories.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                deleteCategory = this.getAttribute('data-category-id');
+                deleteItem = null;
+                deleteModal.show();
+            });
+        });
+
+
+           /* Edit categories event listener with inline editing and display the save button*/
+           const editCategories = document.querySelectorAll('.edit-category-link');
+           editCategories.forEach(button => {
+               button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const categoryContainer = this.closest('.category-container');
+                const inputField = categoryContainer.querySelector('.category-name');
+                const saveBtn = categoryContainer.querySelector('.save-link');
+                inputField.removeAttribute('readonly');
+                inputField.focus();
+                saveBtn.classList.remove('hide');
+                });
+            });
+
+
+           /* Save button event listener */
+           document.querySelectorAll('.save-link').forEach(saveBtn => {
+            saveBtn.addEventListener('click', function() {
+                const form = this.closest('form');
+                form.submit();
+       });
+    });
+
+
             /* Delete entire list event listener */
             const deleteList = document.querySelector('.delete-list');
             if (deleteList) {
@@ -63,9 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
             if (deleteInventory) {
-                document.getElementById('delete-list-form').action = `/delete_list/${deleteInventory}/`;
+                document.getElementById('delete-list-form').action = `/delete_category/${deleteCategory}/`;
                 document.getElementById('delete-list-form').submit();
+            }
+
+            if(deleteCategory) {
+                document.getElementById('delete-category-form').action = `/delete_category/${deleteCategory}/`;
+                document.getElementById('delete-category-form').submit();
             }
             deleteModal.hide();
          });
     });
+

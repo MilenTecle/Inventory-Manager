@@ -17,7 +17,14 @@ class InventoryForm(forms.ModelForm):
         fields = ['name', 'category']
         labels = {
             'name': 'List name',
+            'category': 'Category'
         }
+
+
+    def  __init__(self, *args, **kwargs):
+            super(InventoryForm, self).__init__(*args, **kwargs)
+            self.fields['category'].empty_label = "Choose category"
+
 
 
 class ItemsForm(forms.ModelForm):

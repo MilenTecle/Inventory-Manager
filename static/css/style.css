@@ -168,6 +168,7 @@ items-form
     width: 80%;
 }
 
+/* Category page */
 
 .category-container {
     background: #E37F4D;
@@ -175,6 +176,11 @@ items-form
     border-radius: 0;
     height: 100px;
     color: white;
+}
+
+.form-control.category-name {
+    background: #E37F4D;
+    border: none;
 }
 
 /*

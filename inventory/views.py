@@ -37,6 +37,31 @@ def add_category(request):
     })
 
 
+@login_required
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == 'POST':
+        category.delete()
+        messages.success(request, "Category deleted successfully")
+        return redirect("add_category")
+    else:
+        messages.error(request, "The category could not be deleted")
+    return redirect("add_category")
+
+
+@login_required
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == 'POST':
+        form = CategoryForm(data=request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Category updated successfully")
+            return redirect("add_category")
+        else:
+            messages.error(request, "The category could not be edited")
+    return redirect("add_category")
+
 
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
