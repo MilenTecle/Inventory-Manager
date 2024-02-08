@@ -57,14 +57,13 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'widget_tweaks',
     'django_summernote',
-    # 'django_select2',
     'cloudinary',
     'inventory',
     'contact',
 ]
 
 
-SITE_ID = 1
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/inventory/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -118,6 +117,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 },
   'facebook': {
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'APP': {
             'client_id': os.environ.get('APP_ID'),
             'secret':  os.environ.get('APP_SECRET'),

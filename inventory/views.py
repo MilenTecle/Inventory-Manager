@@ -97,6 +97,7 @@ def inventory_page(request):
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
+
     if request.method == 'POST':
         if formset.is_valid():
             formset.save()
@@ -114,11 +115,12 @@ def inventory_detail(request, pk):
                     return redirect('inventory')
 
     else:
-            formset = ItemFormset(instance=inventory)
+        formset = ItemFormset(instance=inventory)
 
     return render(request, 'inventory/inventory_detail.html', {
         'inventory': inventory,
-        'formset': formset
+        'formset': formset,
+
     })
 
 
