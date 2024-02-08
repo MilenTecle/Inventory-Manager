@@ -31,6 +31,9 @@
                 </ul>
                 <form method="POST" action="{% url 'inventory_detail' pk=inventory.id %}">
                     {% csrf_token %}
+                    <div class="form-group">
+                        {{ inventory_form.category }}
+                    </div>
                     {{ formset.management_form }}
                     {% for form in formset %}
                         <div class="form-row d-flex align-items-center">
