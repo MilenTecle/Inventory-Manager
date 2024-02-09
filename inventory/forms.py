@@ -23,7 +23,7 @@ class InventoryForm(forms.ModelForm):
 
     def  __init__(self, *args, **kwargs):
             super(InventoryForm, self).__init__(*args, **kwargs)
-            self.fields['category'].empty_label = "Choose category"
+            self.fields['category'].empty_label = "--Select category--"
 
 
 

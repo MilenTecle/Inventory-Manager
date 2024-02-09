@@ -27,7 +27,7 @@
                     {% endfor %}
                     <div class="action-buttons">
                         {% if is_owner %}
-                            <a href="{% url 'inventory_detail' pk=inventory.id %}" class="btn btn-primary">Edit List</a>
+                            <a href="{% url 'inventory_detail' pk=inventory.id %}?edit=true" class="btn btn-primary">Edit List</a>
                             <a href="{% url 'delete_list' pk=inventory.id %}" class="btn btn-danger delete-list" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-list-id="{{ inventory.id }}">Delete List</a>
                         {% endif %}
                     </div>

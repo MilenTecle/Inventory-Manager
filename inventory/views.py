@@ -97,8 +97,13 @@ def inventory_page(request):
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
+    inventory_form = InventoryForm(request.POST, instance=inventory)
+    category_dropdown = 'edit' in request.GET
 
     if request.method == 'POST':
+        if inventory_form.is_valid():
+            inventory_form.save()
+
         if formset.is_valid():
             formset.save()
             if 'add_item' in request.POST:
@@ -116,11 +121,13 @@ def inventory_detail(request, pk):
 
     else:
         formset = ItemFormset(instance=inventory)
+        inventory_form = InventoryForm(instance=inventory)
 
     return render(request, 'inventory/inventory_detail.html', {
         'inventory': inventory,
         'formset': formset,
-
+        'category_dropdown': category_dropdown,
+        'inventory_form': inventory_form,
     })
 
 
