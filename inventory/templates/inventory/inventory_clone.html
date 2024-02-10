@@ -22,7 +22,9 @@
         <div class="col-12 col-md-5 my5">
             <div class="form-signup card list-items-form">
             <h3>{{ inventory.name}} </h3>
-            <p>Category: {{inventory.category }} </p>
+            {% if not category_dropdown %}
+                <p>Category: {{ inventory.category }}</p>
+            {% endif %}
             <ul>
                 {% for item in inventory.item.all %}
                 <li>
@@ -32,6 +34,10 @@
                 </ul>
                 <form method="POST" action="{% url 'clone_list' item_id=inventory.id %}">
                     {% csrf_token %}
+                    {% if category_dropdown %}
+                        <input type="hidden" name="name" value="{{ inventory.name}}">
+                        {{ inventory_form.category| as_crispy_field }}
+                    {% endif %}
                     {{ formset.management_form }}
                     {% for form in formset %}
                         <div class="form-row d-flex align-items-center">

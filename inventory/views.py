@@ -171,9 +171,12 @@ def edit_item(request, item_id):
 @login_required
 def clone_list(request, item_id):
     inventory = get_object_or_404(Inventory, pk=item_id, user=request.user)
+    category_dropdown = True
+
     if request.method == 'POST':
         formset = ItemFormset(request.POST, instance=inventory)
-        if formset.is_valid():
+        inventory_form = InventoryForm(request.POST, instance=inventory)
+        if inventory_form.is_valid() and formset.is_valid:
             item_list = formset.save(commit=False)
             inventory = item_list[0].inventory
             new_inventory = Inventory(user=request.user, name=inventory.name + ' cloned', category=inventory.category)
@@ -190,9 +193,13 @@ def clone_list(request, item_id):
             print(formset.errors)
     else:
         formset = ItemFormset(instance=inventory)
+        inventory_form = InventoryForm(instance=inventory)
+
     return render(request, 'inventory/inventory_clone.html', {
         'inventory': inventory,
-        'formset': formset
+        'formset': formset,
+        'inventory_form': inventory_form,
+        'category_dropdown': category_dropdown,
     })
 
 
