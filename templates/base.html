@@ -3,6 +3,7 @@
 {% url 'contact' as '/contact/' %}
 {% url 'inventory' as '/inventory/' %}
 {% url 'categories' as '/categories/' %}
+{% url 'privacy_policy' as '/privacy_policy/' %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -121,6 +122,9 @@
         <p class="m-2 text-center text-white">
             <a href="https://linkedin.com/in/milen-tecle" target="_blank" rel="noopener" aria-label="Visit my LinkedIn page (opens in new tab)"><i class="fa-brands fa-linkedin ms-2"></i></a>
             <a href="https://github.com/MilenTecle/Inventory-Manager" target="_blank" rel="noopener" aria-label="Visit my Github repo (opens in new tab)"><i class="fa-brands fa-square-github ms-2"></i></a>
+        </p>
+        <p class="m-2 text-center text-white">
+            <a href="{% url 'privacy_policy' %}" class="link" target="_blank" rel="noopener" aria-label="Privacy policy (opens in new tab)">Privacy policy</a>
         </p>
     </footer>
 

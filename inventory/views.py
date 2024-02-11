@@ -9,6 +9,10 @@ from django.http import HttpResponseRedirect
 
 
 # Create your views here.
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+
 def landing_page(request):
     if request.user.is_authenticated:
         return redirect('inventory')
