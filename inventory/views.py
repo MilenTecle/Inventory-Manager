@@ -180,7 +180,7 @@ def clone_list(request, item_id):
     if request.method == 'POST':
         formset = ItemFormset(request.POST, instance=inventory)
         inventory_form = InventoryForm(request.POST, instance=inventory)
-        if inventory_form.is_valid() and formset.is_valid:
+        if inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
             inventory = item_list[0].inventory
             new_inventory = Inventory(user=request.user, name=inventory.name + ' cloned', category=inventory.category)

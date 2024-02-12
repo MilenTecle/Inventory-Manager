@@ -19,7 +19,7 @@ class TestInventoryView(TestCase):
 
         inventory_name ="Test Inventory"
         try:
-            with transaction_atomic():
+            with transaction.atomic():
                 self.inventory = Inventory.objects.create(name="Test Inventory", category=self.category, user=self.user)
         except Exception as e:
             self.inventory = None
@@ -42,6 +42,20 @@ class TestInventoryView(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Inventory.objects.filter(name=new_list).exists())
 
+
+        # Create a uniqe inventory specifically for this test
+        # Use the new inventory lists's pk for the deletion test
+        # Check that the inventory was deleted
+    def test_delete_list(self):
+         try:
+            with transaction.atomic():
+                new_inventory = "Test inventory to delete"
+                test_inventory = inventory = Inventory.objects.create(name="Test inventory to delete", category=self.category, user=self.user)
+                response = self.client.post(f'/delete_list/{test_inventory.pk}/')
+                self.assertEqual(response.status_code, 302)
+                self.assertFalse(Inventory.objects.filter(pk=test_inventory.pk).exists())
+         except Exception as e:
+            self.inventory = None
 
         # Called after each test to delete the test data from the database to avoid conflicts
     def tearDown(self):
