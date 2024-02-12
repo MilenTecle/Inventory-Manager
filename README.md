@@ -69,7 +69,9 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 
 
 ## Agile
-
+The development of this project followed an agile approach, emphasizing flexibility from initial planning to final implemenation. To facilitate the management of tasks
+and user stories, a GitHub project was created, using the Kanban board method. To gain insights to the project's progress and detailed user stories, including their
+associated tasks, please see link to the project board [here](https://github.com/users/MilenTecle/projects/5). Each user story has been categorized with labels indicating its importance and relevance to the overall functionality and usability of the application.
 
 ### Site Owner Goals
 The primary goals of the Inventory Manager app are to provide users with an efficient and user-friendly platform for organizing and managing their belongings.
@@ -122,28 +124,84 @@ The is the font used on the website. The font was imported via [Google Fonts](ht
 ## Wireframes
 The wireframes were produced via Balsamiq.
 
+<details>
+  <summary>Landing Page</summary>
+
+  ![Landing Page](docs/wireframes/landing_page.png)
+</details>
+
+<details>
+  <summary>Logged In</summary>
+
+  ![Logged In](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>My Inventory</summary>
+
+  ![My Inventory](docs/wireframes/my_inventory.png)
+</details>
+
+<details>
+  <summary>Contact Form</summary>
+
+  ![Contact Form](docs/wireframes/contact_form.png)
+</details>
 
 ## Features
- - ### Navigation
+ ### Navigation
+
+<details>
+  <summary>Navigation Bar</summary>
+- Example of nav bar
+
+  ![Navigation Bar](docs/wireframes/logged_in.png)
+</details>
 
 
+### The Landing Page
 
-![Navigation bar]()
+  <details>
+  <summary>Landing Page</summary>
+- The landing page is intuitive and it invites the user....
+
+  ![Landing Page](docs/wireframes/logged_in.png)
+</details>
 
 
-- ### The Landing Page
-  - The landing page is intuitive and it invites the user....
-
-
-
-![Landing-page]()
 
  ### Footer
- - The footer contains social media links which takes the user to my LinkedIn profile and my Github repo page for the Human Body Quiz.
+
+   <details>
+  <summary>Footer</summary>
+   - The footer contains social media links which takes the user to my LinkedIn profile and my Github repo page for the Inventory Manager.
  - The links opens in a new tab which allows for the user to navigate easy.
 
-![Footer]()
+  ![Landing Page](docs/wireframes/logged_in.png)
+</details>
 
+ ### User Account
+
+   <details>
+  <summary>Sign up</summary>
+   -
+
+  ![Sign Up](docs/wireframes/logged_in.png)
+</details>
+
+ <details>
+  <summary>Log in</summary>
+   -
+
+  ![Log in](docs/wireframes/logged_in.png)
+</details>
+
+ <details>
+  <summary>Log out</summary>
+   -
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
 
 ### Features left to implement
   - A highscore board where the user can save their score and follow their own progress.
