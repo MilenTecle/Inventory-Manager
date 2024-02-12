@@ -153,7 +153,7 @@ The wireframes were produced via Balsamiq.
 
 <details>
   <summary>Navigation Bar</summary>
-- Example of nav bar
+- Logo
 
   ![Navigation Bar](docs/wireframes/logged_in.png)
 </details>
@@ -182,16 +182,30 @@ The wireframes were produced via Balsamiq.
 
  ### User Account
 
-   <details>
+  <details>
   <summary>Sign up</summary>
-   -
+   <details>
+   <summary>Email verification</summary>
+   </details>
+
 
   ![Sign Up](docs/wireframes/logged_in.png)
 </details>
 
  <details>
   <summary>Log in</summary>
-   -
+  <details>
+
+  <summary>Password reset</summary>
+   </details>
+
+   <details>
+   <summary>Facebook</summary>
+   </details>
+
+   <details>
+   <summary>Google</summary>
+   </details>
 
   ![Log in](docs/wireframes/logged_in.png)
 </details>
@@ -203,8 +217,84 @@ The wireframes were produced via Balsamiq.
   ![Log out](docs/wireframes/logged_in.png)
 </details>
 
+
+## My Inventory
+
+<details>
+  <summary>Create Inventory List</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Add Items</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Scan QR-code</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Download QR-code</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Share QR-code</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Clone list</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Edit or delete list</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+## Categories
+
+<details>
+  <summary>Add Categories</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Edit or delete categories</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+
+## Contact
+
+<details>
+  <summary>Contact form</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+<details>
+  <summary>Automated email</summary>
+
+  ![Log out](docs/wireframes/logged_in.png)
+</details>
+
+
 ### Features left to implement
-  - A highscore board where the user can save their score and follow their own progress.
+  - When a user shares an inventory list, the user can choose if it's only read permisson or edit and/or delete permission.
+
 
 
 ## Technologies used
@@ -213,19 +303,26 @@ The wireframes were produced via Balsamiq.
   - HTML5
   - CSS
   - Javascript
+  - Python
 
   ## Frameworks, Libraries and Programs
    - [Am I Responsive](https://ui.dev/amiresponsive) - Was used to ensure that the website is responsive on diffrerent devices.
    - [Balsamiq](https://balsamiq.com/) - Was used to create the wireframes before starting the project.
+   - [Boostrap 5]() - Was used to style the app and make it responsive.
    - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Was used on a daily basis throughout the project to make changes and to test the responsivness.
+  -  [Cloudinary]() - Used to upload the QR-code images.
+   - [Django]() - Main python framwork for development of this project.
+   - [Django-allauth]() - Authentication library used to create the user accounts.
+   - [Django-crispy-forms]() - Used to render the forms.
+   - [ElephantSQL]() - PostgreSQL database hosting for this project.
    - [Font Awesome](https://fontawesome.com/) - Was used for Social Media icons in footer and for Contact information on the contact page.
    - [Gitpod](https://gitpod.io/) - Was the Codespace used for this project.
    - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
    - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
    - [Google Fonts](https://fonts.google.com/) - Was used to import fonts to the page.
+  -  [Lucid charts]() - Was used to create the ERD diagrams.
+   - [PEP-8]() - Was used for Python Validation.
    - [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
-   - [TinyPNG](https://tinypng.com/) - Was used to reduce the file size and keep the image quality.
-   - [WEBP Converter](https://cloudconvert.com/webp-converter) - Also used to reduce the file size and keep the image quality.
    - [W3C](https://www.w3.org/) - Was used for HTML and CSS Validation.
    - [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
    - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.

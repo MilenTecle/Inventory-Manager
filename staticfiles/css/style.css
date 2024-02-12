@@ -168,7 +168,8 @@ ul.social-account-login {
     justify-content: center;
 }
 
-.items-input {
+.items-input,
+.inventory-items #id_category {
     width: 80%;
 }
 
@@ -291,10 +292,6 @@ button.edit-link {
 
 .details-btn {
     font-size: 0.8rem;
-}
-
-#clone-btn {
-    margin-left: 10px;
 }
 
 
