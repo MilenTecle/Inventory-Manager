@@ -100,7 +100,6 @@ def inventory_page(request):
 # The view where the user can see the specific items in the inventory list
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
-    print(f"Inventory: {inventory.name}, {inventory.items}")
     formset = ItemFormset(request.POST, instance=inventory)
     inventory_form = InventoryForm(request.POST, instance=inventory)
     category_dropdown = True
@@ -108,7 +107,6 @@ def inventory_detail(request, pk):
     if request.method == 'POST':
         if inventory_form.is_valid():
             inventory_form.save()
-            print("Inventory form saved")
 
         item_count = inventory.items.count()
 
@@ -120,7 +118,7 @@ def inventory_detail(request, pk):
                 if new_item_count > item_count:
                     messages.success(request, "Item added successfully!")
                 else:
-                    messages.error(request, "You need to add at least one item before saving list.")
+                    messages.error(request, "No item added.")
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 if not inventory.items.exists():
@@ -190,12 +188,17 @@ def clone_list(request, item_id):
         inventory_form = InventoryForm(request.POST, instance=inventory)
         if inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
+            cloned_inventory_name = f"{inventory.name} cloned"
 
-            if not item_list:
+            if Inventory.objects.filter(user=request.user, name=cloned_inventory_name).exists():
+                messages.error(request, "This inventory has already been cloned.")
+                return redirect('inventory')
+
+            if not item_list and 'add_item' in request.POST:
                 messages.error(request, "No new item was added.")
                 return redirect('clone_list', item_id=item_id)
 
-            new_inventory = Inventory(user=request.user, name=inventory.name + ' cloned', category=inventory.category)
+            new_inventory = Inventory(user=request.user, name=cloned_inventory_name, category=inventory.category)
             new_inventory.save()
             for item in item_list:
                 new_item = Items(name=item.name, inventory=new_inventory)

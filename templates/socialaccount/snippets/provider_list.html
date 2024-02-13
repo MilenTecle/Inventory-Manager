@@ -2,16 +2,11 @@
 
 <ul class="social-account-login text-center">
         {% for provider in socialaccount_providers %}
-            {% if provider.id == "facebook" %}
-                    {% provider_login_url provider process="login" as href %}
-                    <li>
-                        <a href="{{ href }}" class="btn btn-facebook">{{ provider.name }}</a>
-                    </li>
-            {% elif provider.id == "google" %}
-            {% provider_login_url provider process="login" as href %}
-            <li>
-                <a href="{{ href }}" class="btn btn-google">{{ provider.name }}</a>
-            </li>
+            {% if provider.id == "google" %}
+                {% provider_login_url provider process="login" as href %}
+                <li>
+                    <a href="{{ href }}" class="btn btn-google"><i class="fa-brands fa-google"></i>Sign in with {{ provider.name }}</a>
+                </li>
             {% endif %}
         {% endfor %}
 </ul>
