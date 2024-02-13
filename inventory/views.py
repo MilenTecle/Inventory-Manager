@@ -100,28 +100,36 @@ def inventory_page(request):
 # The view where the user can see the specific items in the inventory list
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
+    print(f"Inventory: {inventory.name}, {inventory.items}")
     formset = ItemFormset(request.POST, instance=inventory)
     inventory_form = InventoryForm(request.POST, instance=inventory)
-    category_dropdown = 'edit' in request.GET
+    category_dropdown = True
 
     if request.method == 'POST':
         if inventory_form.is_valid():
             inventory_form.save()
+            print("Inventory form saved")
+
+        item_count = inventory.items.count()
 
         if formset.is_valid():
-            formset.save()
+            instances = formset.save()
+
             if 'add_item' in request.POST:
-                if not inventory.items.exists():
-                    messages.error(request, "You need to add at least one item before saving list.")
-                else:
+                new_item_count = inventory.items.count()
+                if new_item_count > item_count:
                     messages.success(request, "Item added successfully!")
+                else:
+                    messages.error(request, "You need to add at least one item before saving list.")
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 if not inventory.items.exists():
                     messages.error(request, "You cannot save an empty list.")
+                    return redirect('inventory_detail', pk=inventory.pk)
                 else:
+                    formset.save()
                     messages.success(request, "List saved successfully!")
-                    return redirect('inventory')
+                return redirect('inventory')
 
     else:
         formset = ItemFormset(instance=inventory)
@@ -182,7 +190,11 @@ def clone_list(request, item_id):
         inventory_form = InventoryForm(request.POST, instance=inventory)
         if inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
-            inventory = item_list[0].inventory
+
+            if not item_list:
+                messages.error(request, "No new item was added.")
+                return redirect('clone_list', item_id=item_id)
+
             new_inventory = Inventory(user=request.user, name=inventory.name + ' cloned', category=inventory.category)
             new_inventory.save()
             for item in item_list:
