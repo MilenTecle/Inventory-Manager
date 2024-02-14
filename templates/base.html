@@ -12,43 +12,50 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <meta name="Description" content="Enter your description here" />
 
-        <!-- Google Fonts CSS -->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here">
 
-        <!--Bootstrap CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- Google Fonts CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 
-        <!--Custom CSS-->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        <title>Inventory Manager</title>
-    </head>
-    <body class="d-flex flex-column main-bg bg-image">
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% if user.is_authenticated %}{% url 'inventory' %}{% else %}{% url 'landing_page' %}{% endif %}">
-                    <img src="{% static 'images/logo.jpg' %}" alt="Logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars navbar-icon"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/inventory/' %}active{% endif %}" aria-current="page" href="{% url 'inventory' %}">Dashboard</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My lists</a>
-                        </li>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Inventory Manager</title>
+
+
+</head>
+<body class="d-flex flex-column main-bg bg-image">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% if user.is_authenticated %}{% url 'inventory' %}{% else %}{% url 'landing_page' %}{% endif %}">
+                <img src="{% static 'images/logo.jpg' %}" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars navbar-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/inventory/' %}active{% endif %}" aria-current="page"
+                            href="{% url 'inventory' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">My lists</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for inventory in request.user.inventory_set.all %}
                             <a class="dropdown-item" href="{% url 'inventory_detail' inventory.pk %}">{{ inventory.name }}</a>
@@ -56,99 +63,117 @@
                             <a class="dropdown-item">No lists created yet</a>
                             {% endfor %}
                         </ul>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/categories/' %}active{% endif %}" aria-current="page" href="{% url 'add_category' %}">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" aria-current="page" href="{% url 'contact' %}">Contact us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- displaying Django messages -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    {% for message in messages %}
-                    <div
-                        class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% endfor %}
-                </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/categories/' %}active{% endif %}" aria-current="page" href="{% url 'add_category' %}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" aria-current="page"
+                            href="{% url 'contact' %}">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
             </div>
         </div>
-
-        <main class="flex-shrink-0 main-bg">
-            {% block content %} {% if user.is_authenticated %}
-            <p class="text-end m-3">You are logged in as {{ user }}</p>
-            {% else %}
-            <p class="text-end m-3">You are not logged in</p>
-            {% endif %} {% endblock content %}
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer mt-auto bg-dark">
-            <p class="m-2 text-center text-white">Made by Milen Tecle</p>
-            <p class="m-2 text-center text-white">
-                <a href="https://linkedin.com/in/milen-tecle" target="_blank" rel="noopener" aria-label="Visit my LinkedIn page (opens in new tab)"><i class="fa-brands fa-linkedin ms-2"></i></a>
-                <a href="https://github.com/MilenTecle/Inventory-Manager" target="_blank" rel="noopener" aria-label="Visit my Github repo (opens in new tab)"><i class="fa-brands fa-square-github ms-2"></i></a>
-            </p>
-            <p class="m-2 text-center text-white">
-                <a href="{% url 'privacy_policy' %}" class="link" target="_blank" rel="noopener" aria-label="Privacy policy (opens in new tab)">Privacy policy</a>
-            </p>
-        </footer>
-
-        <!-- Bootstrap Delete Confirmation Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this? This action cannot be undone.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
-                    </div>
-                </div>
+    </nav>
+    <!-- displaying Django messages -->
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible
+            fade show" id="msg" role="alert">
+            {{ message | safe }}
+            <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            {% endfor %}
         </div>
+        </div>
+    </div>
 
-        <!--Font Awesome script-->
-        <script src="https://kit.fontawesome.com/55f1def7cd.js" crossorigin="anonymous"></script>
+    <main class="flex-shrink-0 main-bg">
 
-        <!--Bootstrap Javascript-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        {% block content %}
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+        {% endblock content %}
 
-        <!--Custom Javascript file-->
-        <script src="{% static 'js/inventory.js' %}"></script>
+    </main>
 
-        <!--Javascript code to automatically close the alert message-->
-        <script>
-            setTimeout(function () {
-                let messages = document.querySelectorAll(".alert-dismissible");
-                messages.forEach(function (message) {
-                    let alert = new bootstrap.Alert(message);
-                    alert.close();
-                });
-            }, 1500);
-        </script>
-    </body>
+    <!-- Footer -->
+    <footer class="footer mt-auto bg-dark">
+        <p class="m-2 text-center text-white">Made by Milen Tecle</p>
+        <p class="m-2 text-center text-white">
+            <a href="https://linkedin.com/in/milen-tecle" target="_blank" rel="noopener" aria-label="Visit my LinkedIn page (opens in new tab)"><i class="fa-brands fa-linkedin ms-2"></i></a>
+            <a href="https://github.com/MilenTecle/Inventory-Manager" target="_blank" rel="noopener" aria-label="Visit my Github repo (opens in new tab)"><i class="fa-brands fa-square-github ms-2"></i></a>
+        </p>
+        <p class="m-2 text-center text-white">
+            <a href="{% url 'privacy_policy' %}" class="link" target="_blank" rel="noopener" aria-label="Privacy policy (opens in new tab)">Privacy policy</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1"
+    aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"
+            id="deleteModalLabel">Confirm Deletion</h5>
+            <button type="button" class="btn-close"
+            data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this?
+            This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+            data-bs-dismiss="modal">Close</button>
+            <a id="deleteConfirm" href="#" class="btn
+            btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Font Awesome script-->
+<script src="https://kit.fontawesome.com/55f1def7cd.js" crossorigin="anonymous"></script>
+
+<!--Bootstrap Javascript-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<!--Custom Javascript file-->
+<script src="{% static 'js/inventory.js' %}"></script>
+
+<!--Javascript code to automatically close the alert message-->
+<script>
+   setTimeout(function() {
+    let messages = document.querySelectorAll('.alert-dismissible');
+    messages.forEach(function(message) {
+        let alert = new bootstrap.Alert(message);
+        alert.close();
+    });
+}, 1500);
+
+</script>
+
+</body>
 </html>
