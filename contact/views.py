@@ -6,7 +6,13 @@ from .forms import ContactForm
 from django.conf import settings
 
 
-# Email to admin mail
+""""
+Sends an email notification to the site admin and an automated reply to the user.
+The function constructs and sends an email to:
+the site admin, with the details of the contact form message.
+the user, with an automated reply for confirmation of recieving the message.
+It also marks the contact message as read in the Django admin by setting the 'read' attribute to True.
+"""
 def send_contact_email(contact_instance):
     admin_subject = f"New submission from {contact_instance.name}"
     admin_body = f"Name: {contact_instance.name}\nEmail: {contact_instance.email}\nMessage: {contact_instance.message}"
@@ -38,7 +44,14 @@ def send_contact_email(contact_instance):
 
 
 
-
+"""
+Handles the display and submission of the contact form.
+Processes the submitted data in the form and validates it.
+Upon successful submission, email notifications to both the site admin
+and the sender are sent. A success message is then displayed and redirects
+to the contact form with a cleaned form. The messages are also displayed in
+order, by latest creation at the top.
+"""
 def contact(request):
 
     if request.method == 'POST':

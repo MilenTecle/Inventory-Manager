@@ -3,13 +3,21 @@ from django.forms import inlineformset_factory
 from .models import Inventory, Items, Category
 
 
-
+"""
+A form for creating and editing Categories. The form is linked to the Category model
+and allows users to specify the name of a category.
+"""
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields =['name']
 
 
+"""
+A form for creating and editing Inventories. The form is associated with the Inventory Model.
+It allow users to specify the name of the inventory list and its category using a dropdown menu, including
+a placeholder.
+"""
 class InventoryForm(forms.ModelForm):
 
     class Meta:
@@ -26,7 +34,11 @@ class InventoryForm(forms.ModelForm):
             self.fields['category'].empty_label = "--Select category--"
 
 
-
+"""
+A form for creating and editing Items.
+The form is linked to the Items model and allows users to add the name of an item. The name
+field is set to read-only once an item already exist.
+"""
 class ItemsForm(forms.ModelForm):
 
     class Meta:
@@ -46,7 +58,11 @@ class ItemsForm(forms.ModelForm):
             self.fields['name'].required = True
 
 
+"""
+Inline formset factory is used to handle creating multiple items in the inventory
+list at the same time, and adding or editing items.
 
+"""
 ItemFormset = inlineformset_factory(
     Inventory,
     Items,
