@@ -33,7 +33,7 @@ Redirects to category page where the category along with existing ones will be d
 @login_required(login_url='/accounts/login/')
 def add_category(request):
     category_form = CategoryForm()
-    categories = Category.objects.all()
+    categories = Category.objects.filter(user=request.user).order_by('name')
 
     if request.method == 'POST':
         category_form = CategoryForm(request.POST)
@@ -103,7 +103,7 @@ re-renders with an error message.
 """
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
-    inventories = Inventory.objects.filter(user=request.user)
+    inventories = Inventory.objects.filter(user=request.user).order_by('name')
     inventory_form = InventoryForm()
 
 
