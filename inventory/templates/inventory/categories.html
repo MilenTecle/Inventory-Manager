@@ -39,7 +39,7 @@
         <div class="row">
         {% for category in categories %}
             <div class="col-md-4 mb-5 text-center">
-                <div class="category-container">
+                <div class="category-container text-center mx-auto">
                         <form method="POST" action="{% url 'edit_category' category.id %}">
                             {% csrf_token %}
                             <div class="category-input">

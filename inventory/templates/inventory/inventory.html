@@ -30,10 +30,10 @@
 
 <div class="container mt-5">
     <h3 class="text-center mb-4">My Inventory</h3>
-    <div class="row">
+    <div class="row text-center">
         {% for inventory in inventories %}
         <div class="col-md-4 mb-4">
-            <div class="card qr-container">
+            <div class="card qr-container text-center mx-auto">
                     <h6 class="card-title text-center">{{ forloop.counter }}. {{ inventory.name }}</h6>
                     <p class="card-text text-center qr-category">Category: {{ inventory.category }} </p>
                     <div class="qr-code-image">
@@ -47,8 +47,8 @@
                         <i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
-            <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn details-btn mt-3">View details</a>
-            <a href="{% url 'clone_list' item_id=inventory.pk %}" class="btn btn-secondary details-btn details-btn mt-3">Clone list</a>
+            <a href="{% url 'saved_list' inventory_id=inventory.id %}" class="btn btn-secondary details-btn mt-3">View details</a>
+            <a href="{% url 'clone_list' item_id=inventory.pk %}" class="btn btn-secondary details-btn mt-3">Clone list</a>
         </div>
         {% empty %}
         <p class="text-center">You have no inventory list yet</p>

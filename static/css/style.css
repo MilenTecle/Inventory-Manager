@@ -191,6 +191,11 @@ ul.social-account-login {
     max-width: fit-content;
     border-radius: 0;
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+.category-container hr {
+    margin-top: 0;
 }
 
 .form-control.category-name {
@@ -284,6 +289,7 @@ button.edit-link {
     width: fit-content;
     border-radius: 0;
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
 }
 
 .card-text.qr-category {

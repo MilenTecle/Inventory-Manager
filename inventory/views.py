@@ -40,8 +40,9 @@ def add_category(request):
 
         if category_form.is_valid():
             category = category_form.save(commit=False)
-            messages.success(request, "Category added successfully")
+            category.user = request.user
             category.save()
+            messages.success(request, "Category added successfully")
             return redirect("add_category")
         else:
             messages.error(request, "The category couldn't be added")

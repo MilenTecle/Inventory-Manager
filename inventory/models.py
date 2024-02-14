@@ -9,6 +9,7 @@ from django.urls import reverse
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     class Meta:
         verbose_name_plural = 'Categories'
