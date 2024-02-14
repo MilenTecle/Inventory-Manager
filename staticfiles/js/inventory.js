@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const categoryForm = document.getElementById('category-form');
     const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
     let deleteItem = null; // variable to keep track of which item to delete
-    let deleteInventory = null;
-    let deleteCategory = null;
+    let deleteInventory = null; // variable to keep track of which inventory to delete
+    let deleteCategory = null; // variable to keep track of which category to delete
 
 
-    /* Handles the click event to render the inventory form */
+    /* Toggles the visibility of the inventory form by clicking on the icon */
         const toggleForm = document.getElementById('toggle-form');
         if (toggleForm) {
             toggleForm.addEventListener('click', function() {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-          /* Handles the click event to render the category form */
+          /* Toggles the visibility of the category form by clicking on the icon */
           const toggleCategory = document.getElementById('toggle-category');
           if (toggleCategory ) {
               toggleCategory.addEventListener('click', function() {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
               });
           }
 
-            /* Edit icon event listener */
+            /* Edit icon event listener. Enables inline editing of items by remonving the 'readonly' attribute */
             const editIcons = document.querySelectorAll('.edit-link');
             editIcons.forEach(editIcon => {
                 editIcon.addEventListener('click', function(event) {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
-            /* Delete icon event listener */
+            /* Delete icon event listener. Prepares deletion of items by setting up the delete modal with item-specific data */
             const deleteIcons = document.querySelectorAll('.delete-link');
             deleteIcons.forEach(deleteIcon => {
             deleteIcon.addEventListener('click', function(event) {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-            /* Delete categories event listener */
+            /* Delete categories event listener. Prepares deletion of categories by setting up the delete modal with category-specific data */
             const deleteCategories = document.querySelectorAll('.delete-category-link');
             deleteCategories.forEach(button => {
             button.addEventListener('click', function(event) {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
-           /* Edit categories event listener with inline editing and display the save button*/
+           /* Edit categories event listener with inline editing, by removing the 'readonly' attribute and display the save button */
            const editCategories = document.querySelectorAll('.edit-category-link');
            editCategories.forEach(button => {
                button.addEventListener('click', function(event) {
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-           /* Save button event listener */
+           /* Save button event listener. Submits the category form that is associated with the save button to get the changes made */
            document.querySelectorAll('.save-link').forEach(saveBtn => {
             saveBtn.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        /* Confirm the deletion action based on the type to be deleted, item, inventory or category */
         document.getElementById('deleteConfirm').addEventListener('click', function() {
             if (deleteItem) {
                 document.getElementById('delete-item-form').action = `/delete_item/${deleteItem}/`;

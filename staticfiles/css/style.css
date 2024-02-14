@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* Background image on landing page */
+
 body  {
     background-image: url('/static/images/test-image.jpg');
     background-repeat: no-repeat;
@@ -12,6 +14,8 @@ body  {
 }
 
 /* Landing page*/
+
+/* Welcome container */
 .welcome-message {
     margin-top: 15%;
     color: black;
@@ -19,6 +23,16 @@ body  {
 
 .semi-transparent {
     background-color: rgba(255, 255, 255, 0.7);
+}
+
+.gray-btn {
+    background: #333333;
+    color:white;
+}
+
+.gray-btn:hover {
+    background: #222121;
+    color:#E37F4D;
 }
 
 /* Navbar links */
@@ -34,21 +48,11 @@ body  {
     color: #E37F4D;
 }
 
-.gray-btn {
-    background: #333333;
-    color:white;
-}
-
-.gray-btn:hover {
-    background: #222121;
-    color:#E37F4D;
-}
-
 .navbar-icon {
     color: white;
 }
 
-/* Remove the white background */
+/* Removes the white background */
 .dropdown-item,
 .dropdown-menu {
     background: #212529;
@@ -113,17 +117,22 @@ ul.social-account-login {
     margin-top: -10%;
 }
 
-.btn.btn-facebook {
-    background: #376bb7;
-    border-color: #376bb7;
-    margin-bottom: -15px;
-}
 
 .btn.btn-google {
     background: #cf4431;
     border-color: #cf4431;
 }
 
+.fa-google {
+    margin-right: 10%;
+}
+
+
+/* Generic form style */
+.card {
+    border: none;
+    background-color: transparent;
+}
 
 /* Inventory page*/
 
@@ -150,6 +159,8 @@ ul.social-account-login {
     max-width: 400px;
 }
 
+
+/* Itemsform */
 .form-signup #add-item {
     background: #28a745;
     border: #28a745;
@@ -180,6 +191,11 @@ ul.social-account-login {
     max-width: fit-content;
     border-radius: 0;
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+.category-container hr {
+    margin-top: 0;
 }
 
 .form-control.category-name {
@@ -187,42 +203,6 @@ ul.social-account-login {
     border: none;
     font-size: 1.5rem;
     color: black;
-}
-
- .form-signup .saved-list p {
-    border-bottom: 1px solid #ccc;
-    padding: 5px 0;
-    color: black;
-}
-
-.saved-list h5 {
-    margin-top: 12%;
-}
-
-.item-row.hide {
-    display: none;
-}
-
-.icons {
-    display: flex;
-    gap: 10px;
-    margin-left: 5%;
-}
-
-.form-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.edit-icon, .delete-icon{
-    cursor: pointer;
-    color: #333333;
-}
-
-.edit-icon:hover,
-.delete-icon:hover {
-    color: #E37F4D;
 }
 
 .edit-category-link i:hover,
@@ -239,6 +219,48 @@ ul.social-account-login {
 button.edit-category-link,
 button.delete-category-link {
     font-size: 1rem;
+}
+
+
+/* Edit/delete form */
+ .form-signup .saved-list p {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    color: black;
+}
+
+.saved-list h5 {
+    margin-top: 12%;
+}
+
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Edit and delete icons */
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+    margin-left: 5%;
+}
+
+.edit-icon, .delete-icon{
+    cursor: pointer;
+    color: #333333;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+    color: #E37F4D;
 }
 
 
@@ -267,6 +289,7 @@ button.edit-link {
     width: fit-content;
     border-radius: 0;
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
 }
 
 .card-text.qr-category {
@@ -295,11 +318,6 @@ button.edit-link {
 }
 
 
-.card {
-    border: none;
-    background-color: transparent;
-}
-
 /* Contact form */
 
 .contact-btn {
@@ -307,25 +325,20 @@ button.edit-link {
     padding: 5px 10%;
 }
 
-
-
+/* Link styles */
 .link {
     text-decoration: none;
-    color: white
+    color: white;
 }
 
 .link:hover,
 .link:active {
     color: #445261;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
+/* Footer */
 
 footer i {
     color: white;
