@@ -75,7 +75,7 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 | Feature 	           | Action    |  Expected Result                         | Pass/Fail |
 |----------------------|-----------|------------------------------------------|-----------|
 | **Icon**             | Click     | User is redirected back to landing page. | Pass      |
-| **"Sign In" Link**     | Click     | User is directed to Login form.        | Pass      |
+| **"Sign In" Link**   | Click     | User is directed to Login form.        | Pass      |
 | **"Sign Up" Link**   | Click 	   | User is directed to Sign Up form.        | Pass      |
 
 

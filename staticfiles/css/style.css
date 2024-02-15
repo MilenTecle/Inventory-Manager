@@ -67,8 +67,12 @@ body  {
     border: none;
 }
 
-#navbarDropdown.dropdown-menu a {
+#navbarDropdown a {
     border: none;
+}
+
+.dropdown-toggle {
+    border:none;
 }
 
 
@@ -107,6 +111,12 @@ body  {
     display: none
 }
 
+/* Sign in form */
+
+button.btn.btn-primary.sign-in {
+    margin-top: 5px;
+}
+
 /* Social account login styles */
 .social-account-login li {
     list-style-type: none;
@@ -114,7 +124,7 @@ body  {
 
 ul.social-account-login {
     padding-right: 10%;
-    margin-top: -10%;
+    margin-top: -12%;
 }
 
 
@@ -219,7 +229,6 @@ ul.social-account-login {
 button.edit-category-link,
 button.delete-category-link {
     font-size: 1rem;
-    color:black;
 }
 
 
