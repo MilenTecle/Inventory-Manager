@@ -67,8 +67,12 @@ body  {
     border: none;
 }
 
-#navbarDropdown {
+#navbarDropdown a {
     border: none;
+}
+
+.dropdown-toggle {
+    border:none;
 }
 
 

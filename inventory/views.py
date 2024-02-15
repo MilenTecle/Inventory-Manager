@@ -39,13 +39,14 @@ def add_category(request):
         category_form = CategoryForm(request.POST)
 
         if category_form.is_valid():
-            category = category_form.save(commit=False)
-            category.user = request.user
-            category.save()
-            messages.success(request, "Category added successfully")
-            return redirect("add_category")
-        else:
-            messages.error(request, "The category couldn't be added")
+            try:
+                category = category_form.save(commit=False)
+                category.user = request.user
+                category.save()
+                messages.success(request, "Category added successfully")
+                return redirect("add_category")
+            except IntegrityError:
+                messages.error(request, "A category with that name already exists. Please choose a different name.")
     else:
         category_form = CategoryForm()
 
