@@ -137,7 +137,7 @@ upon success or re-renders pages if errors.
 def inventory_detail(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
-    inventory_form = InventoryForm(request.POST, instance=inventory)
+    inventory_form = InventoryForm(request.POST, instance=inventory, user=request.user)
     category_dropdown = True
 
     if request.method == 'POST':
@@ -167,7 +167,7 @@ def inventory_detail(request, pk):
 
     else:
         formset = ItemFormset(instance=inventory)
-        inventory_form = InventoryForm(instance=inventory)
+        inventory_form = InventoryForm(instance=inventory, user=request.user)
 
     return render(request, 'inventory/inventory_detail.html', {
         'inventory': inventory,
@@ -226,7 +226,7 @@ def clone_list(request, item_id):
 
     if request.method == 'POST':
         formset = ItemFormset(request.POST, instance=inventory)
-        inventory_form = InventoryForm(request.POST, instance=inventory)
+        inventory_form = InventoryForm(request.POST, instance=inventory, user=request.user)
         if inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
             cloned_inventory_name = f"{inventory.name} cloned"
@@ -253,7 +253,7 @@ def clone_list(request, item_id):
             print(formset.errors)
     else:
         formset = ItemFormset(instance=inventory)
-        inventory_form = InventoryForm(instance=inventory)
+        inventory_form = InventoryForm(instance=inventory, user=request.user)
 
     return render(request, 'inventory/inventory_clone.html', {
         'inventory': inventory,

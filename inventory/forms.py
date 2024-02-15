@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import inlineformset_factory
+from django.db.models import Q
 from .models import Inventory, Items, Category
 
 
@@ -16,7 +17,8 @@ class CategoryForm(forms.ModelForm):
 """
 A form for creating and editing Inventories. The form is associated with the Inventory Model.
 It allow users to specify the name of the inventory list and its category using a dropdown menu, including
-a placeholder.
+a placeholder. A "General" category is also provided to the user so the user quickly can create a list,
+and then change and/or add a category as desired.
 """
 class InventoryForm(forms.ModelForm):
 
@@ -32,13 +34,10 @@ class InventoryForm(forms.ModelForm):
     def  __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-        default_category = Category.objects.get_or_create(name='General', user=None)[0]
         if user:
-            self.fields['category'].queryset = Category.objects.filter(user=user)
+            self.fields['category'].queryset = Category.objects.filter(Q(user=user) | Q(user=None))
             self.fields['category'].empty_label = "--Select category--"
-            self.fields['category'].initial = default_category
-        else:
-            self.fields['category'].initial = default_category
+
 
 
 """
