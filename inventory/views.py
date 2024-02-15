@@ -104,11 +104,11 @@ re-renders with an error message.
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
     inventories = Inventory.objects.filter(user=request.user).order_by('name')
-    inventory_form = InventoryForm()
+    inventory_form = InventoryForm(user=request.user)
 
 
     if request.method == 'POST':
-        inventory_form = InventoryForm(data=request.POST)
+        inventory_form = InventoryForm(data=request.POST, user=request.user)
         if inventory_form.is_valid():
             try:
                 # Create the inventory list and link to the category

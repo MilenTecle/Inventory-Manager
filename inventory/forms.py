@@ -30,8 +30,15 @@ class InventoryForm(forms.ModelForm):
 
 
     def  __init__(self, *args, **kwargs):
-            super(InventoryForm, self).__init__(*args, **kwargs)
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        default_category = Category.objects.get_or_create(name='General', user=None)[0]
+        if user:
+            self.fields['category'].queryset = Category.objects.filter(user=user)
             self.fields['category'].empty_label = "--Select category--"
+            self.fields['category'].initial = default_category
+        else:
+            self.fields['category'].initial = default_category
 
 
 """
