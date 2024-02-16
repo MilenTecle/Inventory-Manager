@@ -5,21 +5,26 @@ from .models import Inventory, Items, Category
 
 
 """
-A form for creating and editing Categories. The form is linked to the Category model
-and allows users to specify the name of a category.
+A form for creating and editing Categories. The form is linked to the
+Category model and allows users to specify the name of a category.
 """
+
+
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields =['name']
+        fields = ['name']
 
 
 """
-A form for creating and editing Inventories. The form is associated with the Inventory Model.
-It allow users to specify the name of the inventory list and its category using a dropdown menu, including
-a placeholder. A "General" category is also provided to the user so the user quickly can create a list,
+A form for creating and editing Inventories. The form is associated with the
+Inventory Model. It allow users to specify the name of the inventory list and
+its category using a dropdown menu, including a placeholder. A "General"
+category is also provided to the user so the user quickly can create a list,
 and then change and/or add a category as desired.
 """
+
+
 class InventoryForm(forms.ModelForm):
 
     class Meta:
@@ -30,21 +35,22 @@ class InventoryForm(forms.ModelForm):
             'category': 'Category'
         }
 
-
-    def  __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
         if user:
-            self.fields['category'].queryset = Category.objects.filter(Q(user=user) | Q(user=None))
+            self.fields['category'].queryset = Category.objects.filter(
+                Q(user=user) | Q(user=None))
             self.fields['category'].empty_label = "--Select category--"
-
 
 
 """
 A form for creating and editing Items.
-The form is linked to the Items model and allows users to add the name of an item. The name
-field is set to read-only once an item already exist.
+The form is linked to the Items model and allows users to add the name of an
+item. The name field is set to read-only once an item already exist.
 """
+
+
 class ItemsForm(forms.ModelForm):
 
     class Meta:
@@ -54,7 +60,7 @@ class ItemsForm(forms.ModelForm):
             'name': 'Item'
         }
 
-    def  __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(ItemsForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({'class': 'item-name'})
         if self.instance.pk:
@@ -65,8 +71,8 @@ class ItemsForm(forms.ModelForm):
 
 
 """
-Inline formset factory is used to handle creating multiple items in the inventory
-list at the same time, and adding or editing items.
+Inline formset factory is used to handle creating multiple items in the
+inventory list at the same time, and adding or editing items.
 
 """
 ItemFormset = inlineformset_factory(

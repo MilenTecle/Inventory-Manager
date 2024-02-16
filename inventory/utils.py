@@ -3,9 +3,10 @@ import cloudinary.uploader
 from io import BytesIO
 from django.urls import reverse
 
+
 def generate_qrcode(data):
     # Generate the QR code
-    qr = qrcode.QRCode (
+    qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=4,
@@ -25,7 +26,7 @@ def generate_qrcode(data):
     # Upload image to Cloudinary
     response = cloudinary.uploader.upload(buffer, format='png')
 
-    secure_url = cloudinary.CloudinaryImage(response['public_id']).build_url(secure=True)
+    secure_url = cloudinary.CloudinaryImage(
+        response['public_id']).build_url(secure=True)
 
     return secure_url
-

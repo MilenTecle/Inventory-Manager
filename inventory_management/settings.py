@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com',
-                'inventory-manager-milen-aa94458871b4.herokuapp.com',]
+                 'inventory-manager-milen-aa94458871b4.herokuapp.com', ]
 
 
 # Application definition
@@ -104,7 +104,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 
-
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'EMAIL_AUTHENTICATION': True,
@@ -112,8 +111,8 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': os.environ.get('GOOGLE_ID'),
             'secret': os.environ.get('GOOGLE_SECRET'),
             'key': ''
-    },
-     'SCOPE': [
+        },
+        'SCOPE': [
             'profile',
             'email'
         ],
@@ -121,7 +120,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     },
-  'facebook': {
+    'facebook': {
         'SCOPE': ['email', 'public_profile'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'APP': {
@@ -132,7 +131,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -178,7 +177,7 @@ WSGI_APPLICATION = 'inventory_management.wsgi.application'
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -195,22 +194,21 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 

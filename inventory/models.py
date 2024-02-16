@@ -6,10 +6,12 @@ from cloudinary.models import CloudinaryField
 from .utils import generate_qrcode
 from django.urls import reverse
 
-# Create your models here.
+
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -20,9 +22,14 @@ class Category(models.Model):
 
 
 class Inventory(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True)
     qr_code = models.URLField(max_length=500, blank=True, null=True)
 
     def save(self, *args, **kwargs):
@@ -40,7 +47,9 @@ class Inventory(models.Model):
     def get_url(self):
         domain = get_current_site(None).domain
         inventory_id = self.id
-        return '{domain}{path}'.format(domain=domain, path=reverse('saved_list', args=[str(inventory_id)]))
+        return '{domain}{path}'.format(
+            domain=domain,
+            path=reverse('saved_list', args=[str(inventory_id)]))
 
     def __str__(self):
         return self.name
@@ -48,14 +57,13 @@ class Inventory(models.Model):
 
 class Items(models.Model):
     name = models.CharField(max_length=255)
-    inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE, related_name='items')
+    inventory = models.ForeignKey(
+        Inventory,
+        on_delete=models.CASCADE,
+        related_name='items')
 
     class Meta:
         verbose_name_plural = 'Items'
 
     def __str__(self):
         return self.name
-
-
-
-

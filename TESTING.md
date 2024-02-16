@@ -44,10 +44,23 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 
 
 ### CSS
+No errors were found when passing my CSS file through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 
+<details>
+  <summary>CSS</summary>
+
+  ![Jshint](docs/readme_images/css_validation.png)
+</details>
 
 
 ### JavaScript
+No errors were found when passing the javascript code through [Jshint](https://jshint.com).
+
+<details>
+  <summary>Jshint</summary>
+
+  ![Jshint](docs/readme_images/jshint_validation.png)
+</details>
 
 ### Python
 

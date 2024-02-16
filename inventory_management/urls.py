@@ -19,7 +19,6 @@ from django.urls import path, include
 from inventory.views import *
 
 
-
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
@@ -34,8 +33,9 @@ urlpatterns = [
     path('delete_item/<int:item_id>/', delete_item, name="delete_item"),
     path('inventory/<int:inventory_id>/saved/', saved_list, name="saved_list"),
     path('delete_list/<int:pk>/', delete_list, name="delete_list"),
-    path('delete_category/<int:category_id>/', delete_category, name="delete_category"),
-    path('edit_category/<int:category_id>/', edit_category, name="edit_category"),
+    path('delete_category/<int:category_id>/', delete_category,
+         name="delete_category"),
+    path('edit_category/<int:category_id>/', edit_category,
+         name="edit_category"),
     path('privacy_policy/', privacy_policy, name='privacy_policy'),
-
 ]
