@@ -13,6 +13,10 @@ body  {
     height: 100vh;
 }
 
+.no-bg-image {
+    background-image: none;
+}
+
 /* Landing page*/
 
 /* Welcome container */
@@ -229,7 +233,6 @@ ul.social-account-login {
 button.edit-category-link,
 button.delete-category-link {
     font-size: 1rem;
-    color: black;
 }
 
 

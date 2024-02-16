@@ -30,18 +30,18 @@ into the validator. The results are listed in below table.
 
 | Page                  | Result     |
 |---------------------- |------------|
-| base.html             |  No errors |
-| categories.html       |            |
-| contact.html          |            |
+| base.html             | No errors  |
+| categories.html       | No errors  |
+| contact.html          | No errors  |
 | inventory_clone.html  |    	       |
 | inventory_detail.html | 	         |
 | inventory.html        |            |
 | landing_page.html     | No errors  |
 | login.html  	        |            |
 | logout.html           |            |
-| privace_policy.html   |            |
-| saved_list.html       | 	         |
-| signup.html  	        |            |
+| privace_policy.html   | No errors  |
+| saved_list.html       | No errors	 |
+| signup.html  	        | No errors  |
 
 
 
