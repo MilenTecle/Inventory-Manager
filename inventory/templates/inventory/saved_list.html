@@ -2,17 +2,13 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block body_class %}no-bg-image{% endblock %}
 {% block content %}
 
 <form id="delete-list-form" method="POST" class="hide">
     {% csrf_token %}
 </form>
 
-<style>
-    body {
-        background-image:none; /* Override the background image */
-    }
-</style>
 
 <div class="container mt-5">
     <div class="row justify-content-center">

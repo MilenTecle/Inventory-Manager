@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <title>Inventory Manager</title>
     </head>
-    <body class="d-flex flex-column main-bg bg-image">
+    <body class="d-flex flex-column main-bg bg-image {% block body_class %}{% endblock %}">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container-fluid">

@@ -23,18 +23,20 @@
 
 ## Validator Testing
 ### HTML
-All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/) by pasting the source code of each page directly into the validator. The results are listed in below table.
+All HTML pages were run through the [W3C HTML Validator]
+(https://validator.w3.org/) by pasting the source code of each page directly
+into the validator. The results are listed in below table.
 
 
 | Page                  | Result     |
 |---------------------- |------------|
-| base.html             |            |
+| base.html             |  No errors |
 | categories.html       |            |
 | contact.html          |            |
-| inventory_clone.html  |    	     |
+| inventory_clone.html  |    	       |
 | inventory_detail.html | 	         |
 | inventory.html        |            |
-| landing_page.html     |            |
+| landing_page.html     | No errors  |
 | login.html  	        |            |
 | logout.html           |            |
 | privace_policy.html   |            |
@@ -44,7 +46,8 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 
 
 ### CSS
-No errors were found when passing my CSS file through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+No errors were found when passing my CSS file through
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 
 <details>
   <summary>CSS</summary>
@@ -54,7 +57,8 @@ No errors were found when passing my CSS file through [W3C CSS Validator](https:
 
 
 ### JavaScript
-No errors were found when passing the javascript code through [Jshint](https://jshint.com).
+No errors were found when passing the javascript code through
+[Jshint](https://jshint.com).
 
 <details>
   <summary>Jshint</summary>
@@ -63,6 +67,30 @@ No errors were found when passing the javascript code through [Jshint](https://j
 </details>
 
 ### Python
+All Python files were run through Pep8. A lot of errors were
+returned. The errors involved too long lines, whitespaces, trailing
+whitespaces, blank lines and "continuation line under-indented for visaul
+indent. I resolved the trailing whitespace issue by enabling "Trim Trailing
+Whitespace" in file -> preferences -> settings, under the section file here
+in Gitpod. I also added a ruler in settings (settings.json) set to 78 to make
+sure that the lines I needed to correct wouldn't exceed that line. I resolved
+all the errors and ran the code through Pep8 again and no errors were returned.
+
+
+<details>
+  <summary>Pep8 errors</summary>
+
+  ![Python Pep8](docs/readme_images/pep8_validation_errors.png)
+  ![Python Pep8](docs/readme_images/pep8_validation_errors2.png)
+</details>
+
+<details>
+  <summary>Pep8 all clear</summary>
+
+   ![Python Pep8](docs/readme_images/pep8_validation_clear.png)
+</details>
+
+
 
 ### Lighthouse
 

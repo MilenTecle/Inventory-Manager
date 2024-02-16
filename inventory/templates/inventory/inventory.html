@@ -1,13 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block content %}
 
-<style>
-    body {
-        background-image:none; /* Override the background image */
-    }
-</style>
+{% block body_class %}no-bg-image{% endblock %}
+{% block content %}
 
 
 <div class="container get-started">

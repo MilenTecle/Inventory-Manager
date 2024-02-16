@@ -2,19 +2,13 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block body_class %}no-bg-image{% endblock %}
 {% block content %}
 
 <form id="delete-item-form" method="POST" class="hide">
     {% csrf_token %}
     <input type="hidden" name="item_id" id="delete-item-id">
 </form>
-
-<style>
-    body {
-        background-image:none; /* Override the background image */
-    }
-</style>
-
 
 
 <div class="container mt-5">
