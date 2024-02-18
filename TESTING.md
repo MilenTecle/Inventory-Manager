@@ -96,8 +96,18 @@ all the errors and ran the code through Pep8 again and no errors were returned.
 
 
 ## Browser Testing
+ - The Website was tested on Microsoft Edge, Google Chrome, Firefox and Safari browsers and no issues were noted.
 
-## Device Testing
+
+### Device Testing
+  - The website was tested and on different devices such as: Iphone 8, Iphone mini 12 and Pro, Samsung Galaxy S21, Samsung Galaxy Tab S6 lite, Ipad Mini, Laptop and Desktop to see that the website is responsive on different devices. Chrome developer tools was used to test and to check the responsivness on multiple devices.
+  - I also used the following websites to test the responsivness:
+  - [Responsinator]()
+  - [Am I responsive]()
+
+
+  ## Friends and Family
+   - Family members and friends were asked to test the website for bugs and overall experience.
 
 ## Manual Testing
 
@@ -132,6 +142,11 @@ all the errors and ran the code through Pep8 again and no errors were returned.
 | **Contact us**       | Click     | User is directed to Contact page.                                                | Pass      |
 | **"Log out" Link**   | Click 	   | User is directed Log out page.                                                   | Pass      |
 
+
+### Links Testing
+ - All navigation links on the site has been tested manually to ensure that they are working, and takes the user to the right page.
+ - All the buttons were tested to ensure that the the links are working correctly.
+ - The social media links were tested separately to make sure they function, and opens in a new tab.
 
 
 

@@ -185,7 +185,7 @@ def inventory_detail(request, pk):
                 if new_item_count > item_count:
                     messages.success(request, "Item added successfully!")
                 else:
-                    messages.error(request, "No item added.")
+                    messages.error(request, "No item was added.")
                 return redirect('inventory_detail', pk=inventory.pk)
             elif 'save' in request.POST:
                 if not inventory.items.exists():
@@ -286,6 +286,11 @@ def clone_list(request, item_id):
 
             if not item_list and 'add_item' in request.POST:
                 messages.error(request, "No new item was added.")
+                return redirect('clone_list', item_id=item_id)
+
+            if item_list:
+                formset.save()
+                messages.success(request, "Item added successfully")
                 return redirect('clone_list', item_id=item_id)
 
             new_inventory = Inventory(

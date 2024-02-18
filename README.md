@@ -275,33 +275,37 @@ The wireframes were produced via Balsamiq.
 </details>
 
 <details>
-  <summary>Scan QR-code</summary>
+  <summary>Scanned QR-code</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Scanned QR-code](docs/readme_images/features/scanned_qr_code_list_owner.png)
+  ![Scanned QR-code](docs/readme_images/features/scanned_qr_code_not_list_owner.png)
 </details>
 
 <details>
   <summary>Download QR-code</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Download QR-code](docs/readme_images/features/download_qr_code.png)
 </details>
 
 <details>
   <summary>Share QR-code</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Share QR-code](docs/readme_images/features/share_qr_code.png)
 </details>
 
 <details>
   <summary>Clone list</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Clone list](docs/readme_images/features/clone_list.png)
+  ![Clone list](docs/readme_images/features/cloned_list_view.png)
 </details>
 
 <details>
   <summary>Edit or delete list</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Edit or delete list](docs/readme_images/features/edit_delete_list.png)
+  ![Edit list](docs/readme_images/features/edit_list.png)
+  ![Delete list](docs/readme_images/features/delete_list.png)
 </details>
 
 ## Categories
@@ -309,13 +313,16 @@ The wireframes were produced via Balsamiq.
 <details>
   <summary>Add Categories</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Add Categories](docs/readme_images/features/add_categories.png)
+  ![Add Categories](docs/readme_images/features/add_categories.2.png)
+  ![Add Categories](docs/readme_images/features/category_added.png)
 </details>
 
 <details>
   <summary>Edit or delete categories</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Edit categories](docs/readme_images/features/edit_category.png)
+  ![Delete categories](docs/readme_images/features/delete_category.png)
 </details>
 
 
@@ -324,13 +331,14 @@ The wireframes were produced via Balsamiq.
 <details>
   <summary>Contact form</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Contact form](docs/readme_images/features/contact_form.png)
 </details>
 
 <details>
   <summary>Automated email</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Automated email to sender](docs/readme_images/features/automated_email_to_sender.png)
+  ![Automated email to admin](docs/readme_images/features/automated_email_to_admin.png)
 </details>
 
 
@@ -369,60 +377,6 @@ The wireframes were produced via Balsamiq.
    - [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
    - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
 
-## Known bugs
-No known bugs.
-
-## Testing
-
-### Validator Testing
- - ### HTML
-    - No errors were returned when running the page of the code through the [W3C Markup Validator](https://validator.w3.org/)
-     - [W3C Markup Validator Results]()
- - ### CSS
-  - No errors were returned when running the CSS through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator)
-     - [W3C CSS Validator Results]()
-
- - ### JS Hint
-  - No errors were returned when running the Javascript code through [JS Hint](https://jshint.com/)
-    - [JS Hint result]()
-
- - ### Accessibility
-  - The site achieved a Lighthouse accessibility score of 100%, a confirmation that the fonts and colours chosen are accessible and easy to read.
-    - [Lighthouse result]()
-
-
-### Testing
- - ###
-    -
-
-  - ###
-
-
-### Links Testing
- - All navigation links on the site has been tested manually to ensure that they are working, and takes the user to the right page.
- - All the buttons were tested to ensure that the the links are working correctly.
- - The social media links were tested separately to make sure they function, and opens in a new tab.
-
-
-### Browser Testing
- - The Website was tested on Microsoft Edge, Google Chrome, Firefox and Safari browsers and no issues were noted.
-
-### Device Testing
-  - The website was tested and on different devices such as: Iphone 8, Iphone mini 12 and Pro, Samsung Galaxy S21, Samsung Galaxy Tab S6 lite, Ipad Mini, Laptop and Desktop to see that the website is responsive on different devices. Chrome developer tools was used to test and to check the responsivness on multiple devices.
-  - I also used the following websites to test the responsivness:
-  - [Responsinator]()
-  - [Am I responsive]()
-
-### User Stories Testing
-   #### First time user
- 1. The home page with the welcome container wil green...
-
-   #### Returning user
- 1. As a returning I am already familiar with th....
-
-
-  ## Friends and Family
-   - Family members and friends were asked to test the website for bugs and overall experience.
 
 ## Deployment
 
