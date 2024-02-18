@@ -151,70 +151,105 @@ The wireframes were produced via Balsamiq.
 ## Features
  ### Navigation
 
-<details>
-  <summary>Navigation Bar</summary>
-- Logo
+- Navbar with icon that on click will redirect not logged in user back to the landing page, and a logged in user back to the inventory page.
+- Different navlinks visible for users that are not logged in and for logged in users.
+- Active link is orange instead of the default white to make it clear to the user where the user is.
+- Collapsible burger menu with drop-down function on small to medium screens.
 
-  ![Navigation Bar](docs/wireframes/logged_in.png)
+  <details>
+  <summary>Navbar not logged in</summary>
+
+  ![My Inventory](docs/readme_images/features/navbar_not_logged_in.png)
+  </details>
+
+  <details>
+  <summary>Navbar logged in</summary>
+
+  ![My Inventory](docs/readme_images/features/navbar_logged_in.png)
+   </details>
+
+   <details>
+   <summary>Burger menu</summary>
+
+  ![My Inventory](docs/readme_images/features/burger_menu.png)
+   </details>
+
 </details>
-
 
 ### The Landing Page
 
+- Welcome text that explains the purpose with the application and invites the user to sign up with a call to action, or if user already has an account, to sign in instead.
+
   <details>
   <summary>Landing Page</summary>
-- The landing page is intuitive and it invites the user....
 
-  ![Landing Page](docs/wireframes/logged_in.png)
+  ![Landing Page](docs/readme_images/features/landing_page.png)
 </details>
 
 
 
  ### Footer
 
+- The footer contains social media links which takes the user to my LinkedIn profile and my Github repo page for the Inventory Manager.
+- The links opens in a new tab which allows for the user to navigate easy.
+- A link to the privacy policy page that opens in a new tab.
+
    <details>
   <summary>Footer</summary>
-   - The footer contains social media links which takes the user to my LinkedIn profile and my Github repo page for the Inventory Manager.
- - The links opens in a new tab which allows for the user to navigate easy.
 
-  ![Landing Page](docs/wireframes/logged_in.png)
+  ![Footer](docs/readme_images/features/footer.png)
 </details>
 
  ### User Account
 
   <details>
   <summary>Sign up</summary>
-   <details>
-   <summary>Email verification</summary>
+
+  ![Sign Up](docs/readme_images/features/sign_up.png)
    </details>
 
+  <details>
+  <summary>Email verification</summary>
 
-  ![Sign Up](docs/wireframes/logged_in.png)
-</details>
+  ![Sign Up](docs/readme_images/features/login.png)
+  </details>
+
+  <details>
+  <summary>Log in</summary>
+
+  ![Sign Up](docs/readme_images/features/login.png)
+  </details>
+
+  <details>
+  <summary>Remember me</summary>
+
+  ![Sign Up](docs/readme_images/features/remember_me.png)
+  </details>
 
  <details>
-  <summary>Log in</summary>
-  <details>
-
   <summary>Password reset</summary>
+
+  ![Sign Up](docs/readme_images/features/password_reset.png)
+  ![Sign Up](docs/readme_images/features/password_reset.2.png)
    </details>
 
-   <details>
-   <summary>Facebook</summary>
-   </details>
 
    <details>
    <summary>Google</summary>
+
+  ![Sign Up](docs/readme_images/features/google_sign_in.png)
+  ![Sign Up](docs/readme_images/features/google_sign_in.2.png)
+
+
    </details>
 
-  ![Log in](docs/wireframes/logged_in.png)
-</details>
+   </details>
+
 
  <details>
   <summary>Log out</summary>
-   -
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Log out](docs/readme_images/features/log_out.png)
 </details>
 
 
@@ -223,13 +258,20 @@ The wireframes were produced via Balsamiq.
 <details>
   <summary>Create Inventory List</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Empty dashboard](docs/readme_images/features/dashboard.1.png)
+  ![Create inventory](docs/readme_images/features/create_inventory.png)
 </details>
 
 <details>
   <summary>Add Items</summary>
 
-  ![Log out](docs/wireframes/logged_in.png)
+  ![Add Items](docs/readme_images/features/add_items.png)
+</details>
+
+<details>
+  <summary>Saved list</summary>
+
+  ![Saved list](docs/readme_images/features/saved_list.png)
 </details>
 
 <details>

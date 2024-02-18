@@ -233,7 +233,7 @@ def delete_item(request, item_id):
 
 
 """
-Deletes an enitre inventory list, including all the items identified by pk.
+Deletes an entire inventory list, including all the items identified by pk.
 Retrieves the inventory by its pk, verifies that user and then deletes the
 inventory list with all associated items. Redirects the user back to the the
 inventory page (the dashboard) with a success message.

@@ -15,37 +15,33 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-5 my5">
             <div class="form-signup card list-items-form inventory-items">
-            <h3>{{ inventory.name}} </h3>
-            {% if not category_dropdown %}
+                <h3>{{ inventory.name}}</h3>
+                {% if not category_dropdown %}
                 <p>Category: {{ inventory.category }}</p>
-            {% endif %}
-            <ul>
-                {% for item in inventory.item.all %}
-                <li>
-                    <p> {{ item.name }}</p>
-                </li>
-                {% endfor %}
+                {% endif %}
+                <ul>
+                    {% for item in inventory.item.all %}
+                    <li>
+                        <p>{{ item.name }}</p>
+                    </li>
+                    {% endfor %}
                 </ul>
                 <form method="POST" action="{% url 'clone_list' item_id=inventory.id %}">
-                    {% csrf_token %}
-                    {% if category_dropdown %}
-                        <input type="hidden" name="name" value="{{ inventory.name}}">
-                        {{ inventory_form.category| as_crispy_field }}
-                    {% endif %}
-                    {{ formset.management_form }}
-                    {% for form in formset %}
-                        <div class="form-row d-flex align-items-center">
+                    {% csrf_token %} {% if category_dropdown %}
+                    <input type="hidden" name="name" value="{{ inventory.name}}" />
+                    {{ inventory_form.category| as_crispy_field }} {% endif %} {{ formset.management_form }} {% for form in formset %}
+                    <div class="form-row d-flex align-items-center">
                         {{ form.id }}
                         <div class="items-input">
-                        {{ form | crispy }}
+                            {{ form | crispy }}
                         </div>
                         <div class="icons ml-auto">
                             {% if form.instance.id %}
-                                <button type="button" class="edit-link"><i class="fa-solid fa-pencil edit-icon"></i></button>
-                                <button type="button" class="delete-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></button>
+                            <button type="button" class="edit-link"><i class="fa-solid fa-pencil edit-icon"></i></button>
+                            <button type="button" class="delete-link" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item-id="{{ form.instance.id }}"><i class="fa-regular fa-trash-can delete-icon"></i></button>
                             {% endif %}
-                            </div>
                         </div>
+                    </div>
                     {% endfor %}
                     <button type="submit" name="add_item" class="btn btn-success" id="add-item">Add item <i class="fa-solid fa-plus"></i></button>
                     <button type="submit" name="save" class="btn btn-danger" id="save">Clone list</button>
