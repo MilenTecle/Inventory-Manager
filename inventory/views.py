@@ -117,7 +117,7 @@ def edit_category(request, category_id):
 The initial form were user creates a new inventory list.
 POST request, it processes the form data to create the new inventory and
 handling validation and uniqueness constraints with appropiate feedback. Upon
-succesful submission,´the user gets redirected to the inventory detail view
+succesful submission, the user gets redirected to the inventory detail view
 for addition of the items, otherwise the page re-renders with an error
 message.
 """

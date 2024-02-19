@@ -384,6 +384,9 @@ The wireframes were produced via Balsamiq.
   an incrementing number, starting from 1 is appended after the word "cloned" to get around this problem.
   - Create a view on the landing page so that non registered users can see a QR code containing an example list. The share and download links are disabled so that the user can see what features are available for a registered user.
   - Let the user choose to have public or private lists so that other users can copy another users list.
+  - Implement a search bar, so the user can search for inventories if there are many inventory lists.
+  - Implement pagination in case of many inventory lists, in particular on mobile view.
+
 
 ## Testing
 Testing and the results can be found [here](/TESTING.md).
@@ -437,13 +440,12 @@ Limits access for non-registred users and permission control so that only the ow
 ### Heroku
 The application was deployed to Heroku using the following steps:
 
-Log in to Heroku
-Create a new app
-Navigate to settings
+1. Log in to Heroku
+2. Create a new app
+3. Navigate to settings
 Navigate to Config Vars and add the following KEY/VALUE pairs:
-CREDS and paste the data from the creds.json file (Only relevant if using google sheets)
-Add buildpacks in the following order:
-Python
+
+
 nodejs
 Allow Heroku to access Github and link the new app to your repository.
 Choose between enabling Automatic deploys(the app will update automatically with every push to Github) or Manual Deploys.
@@ -463,34 +465,95 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 ## Credits
 
 ### Code
- - I used code from here to create the playSound function:
-   - [Stackoverflow play sound on click](https://stackoverflow.com/questions/33663740/play-sound-and-change-play-icon-to-stop-icon-on-click)
 
- - I used some of this code to create a modal box and to make it work accordingly:
-   - [w3schools](https://www.w3schools.com/howto/howto_css_modals.asp)
+#### General
+- I Think, Therefore I Blog - I relied on the instructions and walkthrough to setup my project.
+- [Integrating Cloudinary-storage](https://dev.to/spymonk/integrating-cloudinary-storage-with-django-4ipb)
+- [Django reverse import](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/)
+- [Change display name in django admin](https://forum.djangoproject.com/t/django-admin-page-edit-app-names/14720)
+-[Debug toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html), was used during when buildning the project to further investigate errors.
 
- - I used these as inspiration to better understand how to use existing code when connecting the logic for the difficulty buttons and questions:
+#### Django Authentication System
 
- - I used parts of this code to create the overlay effect:
-   -
- - I used these guides to setup the functionality for EmailJS along with quidance from my mentor:
+- [Django authentication system](https://docs.djangoproject.com/en/5.0/topics/auth/default/)
+
+- [Django allauth installation guide ](https://docs.allauth.org/en/latest/installation/quickstart.html)
+
+- [Using Google](https://medium.com/@infowithkiiru/django-user-registration-with-google-67524cce5ab7)
+- [Django google oauth](https://pylessons.com/django-google-oauth)
+
+#### Django email authentication
+- [Django allauth email](https://florianbgt.com/posts/django_allauth_email_login)
+- [email authentication](https://www.codesnail.com/django-allauth-email-authentication-tutorial/?utm_content=cmp-true)
 
 
-- I used these videos in general to understand the full concept
-   - [Youtube](https://www.youtube.com/watch?v=PBcqGxrr9g8)
-   - [Youtube](https://www.youtube.com/watch?v=riDzcEQbX6k)
+#### QR-code functionality
+
+I used code from here to build the QR-code function:
+
+- [Make a QR-code](https://stackoverflow.com/questions/60404466/can-i-make-a-qrcode-from-a-python-function-with-django)
+- [QR-code in django](https://medium.com/@mbrsagor/use-qr-code-in-django-2b5f4c97896)
+- [How to generate a QR-code](https://studygyaan.com/django/how-to-generate-a-qr-code-in-django?utm_content=cmp-true)
+- [Reading image](https://stackoverflow.com/questions/76900044/issues-reading-image-from-bytesio-object-using-pil)
+
+#### Building the URL
+The QR-code image wouldn't display on the deployed site. I encountered a mixed content warning and after a lot of reasearch I understood that I had to make sure the QR code images were loaded securely.
+
+I used these guides and code to solve that problem:
+- [Absolute url](https://syntaxfix.com/question/48692/how-can-i-get-the-full-absolute-url-with-domain-in-django)
+- [Cloudinary quickstart](https://cloudinary.com/documentation/python_quickstart)
+- [Using Cloudinary for image storage](https://www.topcoder.com/thrive/articles/using-cloudinary-for-image-storage-with-express)
 
 
+#### Using Boostrap delete confirmation
+- [Delete confirmation](https://stackoverflow.com/questions/59566549/how-to-do-delete-confirmation-for-a-table-data-with-bootstrap-modal-in-django)
+
+#### Empty label
+- [Empty label category dropdown](https://stackoverflow.com/questions/37223688/django-empty-label-in-choice-field-no-queryset)
+
+#### Formsets
+I used code from here to implement the inline-factory formset:
+- [Inline formset](https://stackoverflow.com/questions/29758558/inlineformset-factory-create-new-objects-and-edit-objects-after-created)
+- [Django forms](https://docs.djangoproject.com/en/5.0/ref/forms/models/)
+- [Formsets](https://docs.djangoproject.com/en/5.0/topics/forms/formsets/)
+
+### For loop counter
+To number the inventory lists automatically:
+- [For loop counter](https://testdriven.io/tips/f41d2a7e-ee74-4121-bfd5-976f32b9e67a/)
+
+#### Read-only fields
+
+I used code from here to implement the read-only function upon for inline editing:
+- [Readonly-fields](https://www.appsloveworld.com/django/100/22/readonly-fields-in-django-formset#google_vignette)
+- [Make readonly](https://stackoverflow.com/questions/70340853/how-to-make-some-django-inlines-read-only)
+
+
+#### Sending email function
+I used code from here to setup the sending email function using send_email:
+
+- [send_email](https://docs.djangoproject.com/en/5.0/topics/email/)
+- [send_email](https://stackoverflow.com/questions/55156059/how-to-reply-email-from-django-default-admin-to-the-contact)
+- [sending emails with gmail](https://cbi-analytics.nl/sending-emails-with-django-1-configuration-and-basics-of-sending-emails-with-gmail/)
+
+#### Share QR-code via email
+- [Insert line break](https://stackoverflow.com/questions/22765834/insert-a-line-break-in-mailto-body)
+
+#### Tests
+- [Tests](https://testdriven.io/blog/django-custom-user-model/)
+- [Transaction atomic](https://docs.djangoproject.com/en/5.0/topics/db/transactions/)
 
 ### Content
-The contentwere written by the developer.
+The content were written by the developer.
 
 
 ### Media
-Images were taken from:
- - []()
+- The background Image was taken from [iStock](https://www.istockphoto.com/se)
+
+ - I created the logo using [Canva](https://www.canva.com/)
 
 
 ### Acknowledgements
-- Antonio, my mentor, for guiding med throughout the project with important suggestions to improve the quiz and funcionality.
+- Antonio, my mentor, for guiding med throughout the project with important suggestions to improve the applications funcionality.
+- To the slack community for answering my questions and guiding me.
+- To tutor support, for helping me when I got stuck trying to solve problems throughout the project.
 - To my husband and family, for all the support and patience throughout this project.
