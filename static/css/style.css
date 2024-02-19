@@ -7,7 +7,7 @@
 /* Background image on landing page */
 
 body  {
-    background-image: url('/static/images/test-image.jpg');
+    background-image: url('/static/images/background_image.webp');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;

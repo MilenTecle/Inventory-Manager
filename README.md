@@ -10,13 +10,10 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 ## Contents
 
 - [UI/UX](#)
-
+    - [User Stories](#user-stories)
     - [Agile](#)
     - [Site Owner Goals](#site-owner-goals)
     - [5 planes of UX](#)
-    - [User Stories](#user-stories)
-      - [First time user](#first-time-user)
-
     - [Design](#design)
         - [Images](#images)
         - [Colours](#colours)
@@ -35,25 +32,13 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
     - [Database Models](#)
     - [CRUD](#)
 
+- [Testing](#)
+- [Security Features](#)
+
 - [Technologies used](#technologies-used)
 
 - [Languages](#languages)
 - [Frameworks, Libraries and Programs](#frameworks-libraries-programs)
-- [Known bugs](#know-bugs)
-- [Testing](#testing)
-
-- [Validator Testing](#validator-testing)
-  - [HTML](#html)
-  - [CSS](#css)
-  - [Accessibility](#accessibility)
-- [Testing]()
-  - []()
-  - []()
-- [Links Testing](#links-testing)
-- [Browser Testing](#browser-testing)
-- [Device Testing](#device-testing)
-- [User Stories Testing](#user-stories-testing)
-- [Friends and Family](#friends-and-family)
 - [Deployment](#deployment)
     - [Heroku](#)
     - [Github](#)
@@ -66,6 +51,41 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 
 
 ## UX/UI
+## User Stories
+
+### User Profile
+- As a Site User, I can create an account so that I can start managing my inventories.
+- As a Site user, I can verify my account via the verification link sent to my email upon registration.
+- As a Site User, I can login to my account so that I can access my existing inventories.
+- As a Site User, I can login via Google so that I have several login options.
+
+### User Navigation
+- As a Site User I can navigate easily through the site due to a responsive navbar so that I understand where to go and it is always visible to me.
+- As a Site User, I can see my lists in a dropdown list from the navigation bar, so that I can navigate to my lists easily.
+- As a Site User I can click on the social media links so that I can explore the work of the developer and see the developers profile.
+
+### User Feedback
+- As a Site User, I can receive feedback whenever I make an action, so that I know if my action was successful or not.
+
+### Create Inventories
+- As a Site User, I can create unique inventory lists so that I can't create inventory lists with the same name.
+- As a Site User, I can create an inventory list and add multiple items at once, so that I can organize my belongings efficiently.
+
+### Manage Inventories
+- As a Site User, I can generate a QR code for my inventory so that I can identify my belongings easily.
+- As a Site User, I can scan the QR code so that I can see my inventory list immediately.
+- As a Site User, I can share my inventory with others using the generated QR code so that I can provide a visual and efficient view of the contents of my Inventory to others.
+- As a Site User I can clone my lists so that I can reuse a list and just modify it.
+- As a Site User, I can see numbers next to the inventory list name so that I can find boxes with an qr code easily if I have many boxes.
+
+### Contact Form
+- As a Site User, I can make contact through a contact form, so that I can ask questions, report issues or make suggestions.
+
+### Site Administration
+- As a Site owner I can log in to the admin dashboard using my username and password so that I can access the functionalities of the superuser.
+- As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.
+- As a Site Owner I can download the QR codes for each inventory so that I can share the QR codes with team members.
+- As a Site owner I can receive messages submitted through the form so that I can respond to the messages.
 
 
 ## Agile
@@ -97,14 +117,6 @@ The Inventory Manager app is designed for easy navigation with clear interface a
 
 ### Surface
 The visual design of the app prioritizes clarity, accessiblity and an appealing interface. The emphasis is on creating a visually appealing and user-centric experience while maintaining focus on sustainability and awareness.
-
-## User Stories
-- ### First time user
-  - As a first time user I want to.....
-  -
-
-- ### Returning User
-  - As a returning visitor I...
 
 
 ## Design
@@ -201,6 +213,13 @@ The wireframes were produced via Balsamiq.
 </details>
 
  ### User Account
+ - Django allauth was installed and is used for the user authentication functionality:
+  Sign up, Email verification, Log in, Remember me, Password reset, Google and Log out.
+
+  - Success messages informs the user if they have logged in or logged out successfully.
+
+  - I was planning on using Facebook as a login method as well.  I decided not to proceed with the implementation due to the complexity of adding that functionality.
+
 
   <details>
   <summary>Sign up</summary>
@@ -254,7 +273,17 @@ The wireframes were produced via Balsamiq.
 
 
 ## My Inventory
+1. Once logged in, the user can create an inventory list immediately. First by choosing a unique name for the inventory list. If a list name already exists, the user will get an error message. A "General" category is provided for the user, so that the user can get started quickly and add/modify categories further on. The user will then get a success message of the created inventory list, and will be redirected to the Itemsform, to add the items to the list.
 
+2. The user can add several items at once and will recieve a success message upon added items, and error messages if no items are added. The user can't save an empty list. When the user clicks on save list, the user will be redirected to the dashboard with a success message of successful save.
+
+3. The list is now saved and visible on the dashboard with number 1 appended to the list name. The next list will have the number 2 and so on. The lists will alsbo be ordered alfabetically. The QR code-image is rendered when the list is saved, so the user can now scan the QR-code.
+
+4. The user can download the QR-code image, that will open i a new tab. The user can also share the link to the QR-code via email with a prepopulated email.
+
+5. The user can also clone a list by clicking on "clone list". There, the user can edit, delete and add items. When saved, the user will get a success message and be redirected to the dashboard where the cloned list now will be visible.
+
+6. If the user clicks on "view details" the user will get to a view where the user can click on "edit list" or "delete list". If the user clicks on delete list, the user will be prompted to confirm deletion, and a success message will render. The user will be redirected to the Itemsform if user clicks on "edit list".
 <details>
   <summary>Create Inventory List</summary>
 
@@ -309,6 +338,10 @@ The wireframes were produced via Balsamiq.
 </details>
 
 ## Categories
+- The user can create categories, also with unique names to prevent duplicates. The user will get an error message if a category already exists.
+- When saved, the category will be visible on the category page.
+- The user can edit a category by using inline editing so that the user can stay on the page, and a save button will appear. When saved, user will get a success message.
+- The user can delete a category. If the user wants to delete a category the user needs to confirm deletion. The user will get a success message after deletion.
 
 <details>
   <summary>Add Categories</summary>
@@ -327,6 +360,9 @@ The wireframes were produced via Balsamiq.
 
 
 ## Contact
+- All fields in the contact form are mandatory. The user will get a success messages after submitting the form.
+- The user will get an automated email to their email after the submission.
+- Admin will get a notification to their email of a new submission from the sender, so that admin can get a notification without manually needing to log in to the admin panel.
 
 <details>
   <summary>Contact form</summary>
@@ -344,8 +380,25 @@ The wireframes were produced via Balsamiq.
 
 ### Features left to implement
   - When a user shares an inventory list, the user can choose if it's only read permisson or edit and/or delete permission.
+  - When a user wants to clone the orignial list again, the user will get an error message saying "The invenontory has already been cloned". I've added that as a solution to not violate the unique name constraint. In the future, I would like to implement so that
+  an incrementing number, starting from 1 is appended after the word "cloned" to get around this problem.
+  - Create a view on the landing page so that non registered users can see a QR code containing an example list. The share and download links are disabled so that the user can see what features are available for a registered user.
+  - Let the user choose to have public or private lists so that other users can copy another users list.
 
+## Testing
+Testing and the results can be found [here](/TESTING.md).
 
+## Security Features
+
+### Form Validation
+If empty or incorrect data is added to a form, the form won't submit. An error will arise, informing the user what field caused the error.
+
+### User Authentication
+Limits access for non-registred users and permission control so that only the owner of a list can edit and delete a list when shared with others.
+
+### Database Security
+- All passwords, API keys, ID:s and the database url are stored in the env.py file to ensure that sensitive information is not shared, along with env.py being listed in the gitignore file.
+- CSRF tokens are used on all forms throughout the application.
 
 ## Technologies used
 
@@ -375,10 +428,28 @@ The wireframes were produced via Balsamiq.
    - [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
    - [W3C](https://www.w3.org/) - Was used for HTML and CSS Validation.
    - [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
-   - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
+  - [TinyPNG](https://jshint.com/) - .
+  - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
 
 
 ## Deployment
+
+### Heroku
+The application was deployed to Heroku using the following steps:
+
+Log in to Heroku
+Create a new app
+Navigate to settings
+Navigate to Config Vars and add the following KEY/VALUE pairs:
+CREDS and paste the data from the creds.json file (Only relevant if using google sheets)
+Add buildpacks in the following order:
+Python
+nodejs
+Allow Heroku to access Github and link the new app to your repository.
+Choose between enabling Automatic deploys(the app will update automatically with every push to Github) or Manual Deploys.
+Click on Deploy.
+
+### Github
 
 The project was deployed using Github pages with the following steps:
 1. Go to the repository on Github.com.

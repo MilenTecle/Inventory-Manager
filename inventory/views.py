@@ -33,7 +33,7 @@ def landing_page(request):
 Display a form for adding categories and display existing categories.
 POST requests, it attempts to add a new category based on teh submitted data.
 It validates the form and if the form is valid, saves the form and provides
-success or errro feedback to user. Redirects to category page where the
+success or errror feedback to user. Redirects to category page where the
 category along with existing ones will be displayed.
 """
 
@@ -154,10 +154,10 @@ The view where the user can see the specific items in the inventory list,
 including editing and adding items. Shows the details of an inventory,
 identified byt its primary key (pk), and its associated items. The view
 handles the viewing of items and the submission of new or edited items
-(through an inline formset). Depending on the action, 'add_item' och 'save',
+(through an inline formset). Depending on the action, 'add_item' and 'save',
 it validates and saves new items to the inventory, updates existing items and
 provides feedback upon error or success. Redirects to inventory page
-(dashbord) upon success or re-renders pages if errors.
+(dashbord) upon success or re-renders page if errors.
 """
 
 
@@ -273,7 +273,20 @@ def clone_list(request, item_id):
             instance=inventory,
             user=request.user
             )
-        if inventory_form.is_valid() and formset.is_valid():
+
+        if 'add_item' in request.POST:
+            if formset.is_valid():
+                item_list = formset.save(commit=False)
+
+                if not item_list:
+                    messages.error(request, "No new item added.")
+                    return redirect('clone_list', item_id=item_id)
+                else:
+                    formset.save()
+                    messages.success(request, "Item added successfully!")
+                    return redirect('clone_list', item_id=item_id)
+
+        elif inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
             cloned_inventory_name = f"{inventory.name} cloned"
 
@@ -283,15 +296,6 @@ def clone_list(request, item_id):
                 messages.error(request, "This inventory has already "
                                "been cloned.")
                 return redirect('inventory')
-
-            if not item_list and 'add_item' in request.POST:
-                messages.error(request, "No new item was added.")
-                return redirect('clone_list', item_id=item_id)
-
-            if item_list:
-                formset.save()
-                messages.success(request, "Item added successfully")
-                return redirect('clone_list', item_id=item_id)
 
             new_inventory = Inventory(
                 user=request.user,
