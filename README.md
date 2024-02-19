@@ -125,9 +125,7 @@ The visual design of the app prioritizes clarity, accessiblity and an appealing 
 The background image on the site reflects the purpose of the quiz and the appealing image invites the user to further explore the website.
 
 ### Colours
-The colour scheme used for the website blends well with the background image with a consistent look for the user. The dark colour breaks off the orange....
-
-![Colour scheme]()
+The colours used for the website blends well with the background image with a consistent look for the user. The dark colour breaks off the orange....
 
 
 ### Fonts
@@ -499,14 +497,15 @@ I used code from here to build the QR-code function:
 #### Building the URL
 The QR-code image wouldn't display on the deployed site. I encountered a mixed content warning and after a lot of reasearch I understood that I had to make sure the QR code images were loaded securely.
 
+
 I used these guides and code to solve that problem:
 - [Absolute url](https://syntaxfix.com/question/48692/how-can-i-get-the-full-absolute-url-with-domain-in-django)
 - [Cloudinary quickstart](https://cloudinary.com/documentation/python_quickstart)
 - [Using Cloudinary for image storage](https://www.topcoder.com/thrive/articles/using-cloudinary-for-image-storage-with-express)
 
 
-#### Using Boostrap delete confirmation
-- [Delete confirmation](https://stackoverflow.com/questions/59566549/how-to-do-delete-confirmation-for-a-table-data-with-bootstrap-modal-in-django)
+#### Clone list
+Credit to my mentor Antonio who helped me implement the functionality to clone a list.
 
 #### Empty label
 - [Empty label category dropdown](https://stackoverflow.com/questions/37223688/django-empty-label-in-choice-field-no-queryset)
@@ -541,6 +540,10 @@ I used code from here to setup the sending email function using send_email:
 #### Tests
 - [Tests](https://testdriven.io/blog/django-custom-user-model/)
 - [Transaction atomic](https://docs.djangoproject.com/en/5.0/topics/db/transactions/)
+
+#### Using Boostrap delete confirmation
+- [Delete confirmation](https://stackoverflow.com/questions/59566549/how-to-do-delete-confirmation-for-a-table-data-with-bootstrap-modal-in-django)
+
 
 ### Content
 The content were written by the developer.

@@ -336,7 +336,7 @@ button.edit-link {
 /* Contact form */
 
 .contact-btn {
-    margin-top: 5%;
+    margin-bottom: 10%;
     padding: 5px 10%;
 }
 
@@ -362,4 +362,20 @@ footer i {
 
 footer i:hover {
     color: #E37F4D;
+}
+
+/* To make the landing page look good on very small screens */
+
+@media (max-width: 350px) {
+    .welcome-message {
+        font-size: 0.8rem;
+    }
+
+    .welcome-message h4 {
+        font-size: 1rem;
+    }
+
+    .account-btns a {
+        font-size: 0.8rem;
+    }
 }
