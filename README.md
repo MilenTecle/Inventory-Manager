@@ -5,13 +5,13 @@ app provides a user-friendly interface for creating, organizing and sharing list
 
 The live link can be found here - [Inventory Manager](https://inventory-manager-milen-aa94458871b4.herokuapp.com/)
 
-![Inventory Manager Am I Responsive Image]()
+![Inventory Manager Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
 ## Contents
 
 - [UI/UX](#)
     - [User Stories](#user-stories)
-    - [Agile](#)
+    - [Agile](#agile)
     - [Site Owner Goals](#site-owner-goals)
     - [5 planes of UX](#)
     - [Design](#design)
@@ -22,26 +22,24 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 
 - [Features](#features)
   - [Navigation](#navigation)
-  - [The Landing Page]()
+  - [The Landing Page](#the-landing-page)
   - [Footer](#footer)
   - []()
   - []()
   - [Features left to implement](#features-left-to-implement)
 
-- [Database design](#)
-    - [Database Models](#)
-    - [CRUD](#)
+- [Database design](#database-design)
+    - [Database Models](#database-models)
 
-- [Testing](#)
-- [Security Features](#)
+- [Testing](#testing)
+- [Security Features](#security-features)
 
 - [Technologies used](#technologies-used)
 
 - [Languages](#languages)
 - [Frameworks, Libraries and Programs](#frameworks-libraries-programs)
 - [Deployment](#deployment)
-    - [Heroku](#)
-    - [Github](#)
+    - [Heroku](#heroku)
 - [Credits](#credits)
   - [Code](#code)
   - [Content](#content)
@@ -386,6 +384,44 @@ The wireframes were produced via Balsamiq.
   - Implement pagination in case of many inventory lists, in particular on mobile view.
 
 
+## Database Design
+
+### Database Models
+The entity relationship diagram provided is the first draft and does not include all the fields and models in the final database.
+
+<details>
+  <summary>Database schema</summary>
+
+  ![Database schema](docs/readme_images/database_schema.png)
+</details>
+
+#### User Model (AllAuth)
+Django AllAuth was used for the user authentication. The user model handles authentication and representes users in the system. Its function is to store information about users, allowing them to log in and manage their data.
+
+Relationship:
+
+One-to-may relationship with the Inventory Model: One user can have multiple inventories.
+
+#### Inventory Model
+The inventory model is managing collections of items. Its function is to organize and store information about inventories created by users. Each inventory is associated with a specific user and can include multiple items. The QR-code image is associated with the inventory.
+
+Relationships:
+
+Many-to-one relationship with the User Model: Many inventories can belong to one user.
+
+One-to-many relationship with the Items Model: One inventory can have multiple items.
+
+Many-to-one relationship with the Category Model: Many inventories can belong to one category.
+
+#### Category Model
+Its function is to categorize the inventories. The category model also includes a user field. Categories that was added by other users would be seen by everyone, and that's why I hade to add a user field to link the category to the user. I also choose not to delete the inventory list if a category is deleted. That gives the user the option to change category or delete a list by them self.
+
+Relationship:
+
+Many-to-one relationsship with the Inventory Model: Once category can be associated with multiple inventories.
+
+
+
 ## Testing
 Testing and the results can be found [here](/TESTING.md).
 
@@ -424,6 +460,7 @@ Limits access for non-registred users and permission control so that only the ow
    - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
    - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
    - [Google Fonts](https://fonts.google.com/) - Was used to import fonts to the page.
+  - [Heroku](/) - The cloud based platform to deploy the site on.
   -  [Lucid charts]() - Was used to create the ERD diagrams.
    - [PEP-8]() - Was used for Python Validation.
    - [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
@@ -438,10 +475,21 @@ Limits access for non-registred users and permission control so that only the ow
 ### Heroku
 The application was deployed to Heroku using the following steps:
 
+#### Create the Heroku App
 1. Log in to Heroku
-2. Create a new app
-3. Navigate to settings
-Navigate to Config Vars and add the following KEY/VALUE pairs:
+2. Click on New and select Create new app from the drop-down menu.
+3. Enter a unique and appropiate app name.
+4. Select you region.
+5. Click on "Create App"
+
+#### Create the PostgreSQL database using ElephantSQL
+1. Log in to ElephantSQL and navigate to Dashboard.
+2. Click on "Create New Instance".
+3. Provide a project name and choose "Tiny Turtle", the free plan.
+4. Click on "Select Region" and choose Data center.
+5. Review all the details and click on "Create Instance".
+6. Return to the Dashboard and click on the newly created instance and coyp the database URL.
+
 
 
 nodejs
