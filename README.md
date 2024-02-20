@@ -13,7 +13,7 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
     - [User Stories](#user-stories)
     - [Agile](#agile)
     - [Site Owner Goals](#site-owner-goals)
-    - [5 planes of UX](#)
+    - [5 planes of UX](#5-planes-of-ux)
     - [Design](#design)
         - [Images](#images)
         - [Colours](#colours)
@@ -24,9 +24,12 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
   - [Navigation](#navigation)
   - [The Landing Page](#the-landing-page)
   - [Footer](#footer)
-  - []()
-  - []()
+  - [User Account](#user-account)
+  - [My Inventory](#my-inventory)
+  - [Categories](#categories)
+  - [Contact](#contact)
   - [Features left to implement](#features-left-to-implement)
+- [CRUD](#crud)
 
 - [Database design](#database-design)
     - [Database Models](#database-models)
@@ -384,6 +387,18 @@ The wireframes were produced via Balsamiq.
   - Implement pagination in case of many inventory lists, in particular on mobile view.
 
 
+## CRUD
+CRUD functionality is included in the above features.
+
+**Create**: An authenticated user can create and save an inventory list, items and categories.
+
+**Read**: A user can read the content of their own inventory lists.
+
+**Update** n authenticated user can edit and update their inventory lists as well as categories.
+
+**Delete**: An authenticated user can delete their own items, categories and inventory lists.
+
+
 ## Database Design
 
 ### Database Models
@@ -490,21 +505,58 @@ The application was deployed to Heroku using the following steps:
 5. Review all the details and click on "Create Instance".
 6. Return to the Dashboard and click on the newly created instance and coyp the database URL.
 
+#### Create and prepare files
+
+- Create requirements.txt file
+- Create a "Procfile" in the main directory and add: web: gunicorn project-name.wsgi
+
+  ##### Env.py file
+  - Create an env.py file in the main directory in your Gitpod worksapce.
+  - Add the DATABASE_URL and SECRET_KEY to the env.py file.
+  - Add the Cloudinary URL to env.py.
+
+  ##### Settings.py file
+  - Update the settings.py file to import the env.py file.
+  - Add the SECRET_KEY and DATABASE_URL file paths.
+  - Comment out the default database configuration.
+  - Add Cloudinary to the list of installed apps.
+  - Add the settings for STATIC files:
+    - The URL
+    - Directory path
+    - Rooth path
+    - Storage path
+    - Media URL
+    - Default file storage path
+  - Link the file to the templates directory in Heroku
+  - Change the templates directory to TEMPLATES_DIR
+  - Add Heroku to the ALLOWED_HOSTS list
+
+  #### Heroku Config Vars
+  Add these Config Vars in Heroku:
+  - SECRET_KEY value
+  - CLOUDINARY_URL
+  - DISABLE_COLLECTSTATIC = 1
+
+### Deploy
+  - DEBUG in settings.py needs to be set to False before deploying.
+  - Navigate to the deploy tab on Heroku and connect to Github and choose your repository.
+  - Click on "Enable Automatic Deploys" for automatic deploys or "Deploy Branch" for manual deploys.
+  - Click on view or open app to view the deployed site.
+
+### Fork
+- Navigate to the repository [Inventory Manager](https://github.com/MilenTecle/Inventory-Manager/tree/main).
+- On the right side of the page, at the top of the repository, select "Fork".
+- A copy of the repository is now created.
+
+### Clone
+1. Navigate to the repository [Inventory Manager](https://github.com/MilenTecle/Inventory-Manager/tree/main).
+2. Click on the **'Code'** dropdown menu above the list of files and choose a method to copy the URL, via HTTPS, SSH or GitHub CLI.
+3. Open **Terminal**, change the current working directory to the desired location of the cloned directory.
+4. Type **'git clone'** and paste the URL copied form GitHub.
+5. Type **'Enter'** to create the local clone.
 
 
-nodejs
-Allow Heroku to access Github and link the new app to your repository.
-Choose between enabling Automatic deploys(the app will update automatically with every push to Github) or Manual Deploys.
-Click on Deploy.
 
-### Github
-
-The project was deployed using Github pages with the following steps:
-1. Go to the repository on Github.com.
-2. Select 'Settings' towards the top of the page.
-3. Select 'Pages' from the left menu bar.
-4. Under 'Source', choose the preselected 'Branch' from the dropdown menu and then select the main branch.
-5. Deployment is confirmed after a couple of minutes by the following message "Your site is published at" and there is a link to the web address.
 
 The live link can be found here - [Inventory Manager](https://inventory-manager-milen-aa94458871b4.herokuapp.com/)
 
