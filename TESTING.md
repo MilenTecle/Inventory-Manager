@@ -38,8 +38,8 @@ into the validator. The results are listed in below table.
 | inventory_detail.html | Errors fixed |
 | inventory.html        | Errors fixed |
 | landing_page.html     | No errors    |
-| login.html  	        |              |
-| logout.html           |              |
+| login.html  	        | Errors fixed |
+| logout.html           | Errors fixed |
 | privace_policy.html   | No errors    |
 | saved_list.html       | No errors	   |
 | signup.html  	        | No errors    |
@@ -71,6 +71,20 @@ into the validator. The results are listed in below table.
 
   ![Inventory clone page](docs/readme_images/inventory_clone_errors.png)
   ![Inventory clone page](docs/readme_images/inventory_clone_no_errors.png)
+</details>
+
+<details>
+  <summary>Log In page</summary>
+
+  ![Log In page](docs/readme_images/login_page_errors.png)
+  ![Log In page](docs/readme_images/login_page_no_errors.png)
+</details>
+
+<details>
+  <summary>Log out page</summary>
+
+  ![Log out page](docs/readme_images/log_out_page_errors.png)
+  ![Log out page](docs/readme_images/logut_page_no_errors.png)
 </details>
 
 ### CSS
@@ -121,10 +135,31 @@ all the errors and ran the code through Pep8 again and no errors were returned.
 
 
 ### Lighthouse
+Ligthouse testing was carried out in Incognito mode to achieve best results.
+<details>
+  <summary>Lighthouse results desktop</summary>
 
+   ![Lighthouse desktop](docs/readme_images/lighthouse_desktop.png)
+</details>
+
+<details>
+  <summary>Lighthouse results mobile</summary>
+
+   ![Lighthouse mobile](docs/readme_images/lighthouse_mobile.png)
+</details>
 
 ## Browser Testing
- - The Website was tested on Microsoft Edge, Google Chrome, Firefox and Safari browsers and no issues were noted.
+
+Inventory Manager was tested on Microsoft Edge, Google Chrome, Firefox and Safari browsers and no issues were noted.
+
+| Browser               | Functionality| Layout  |
+|---------------------- |--------------|---------|
+| Chrome                |              |         |
+| Edge                  |              |         |
+| Firefox               |              |         |
+| Safari                |              |         |
+
+
 
 
 ### Device Testing
@@ -158,6 +193,23 @@ all the errors and ran the code through Pep8 again and no errors were returned.
 | **"Sign Up" Link**   | Click 	   | User is directed to Sign Up form.        | Pass      |
 
 
+### Sign up form
+| Feature            | Action  | Expected Result                                                                                                                                                     | Pass/Fail |
+|--------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| **Sign up form**   | Display | Renders the following input fields: Email, username, password and password confirm.                                                                                 | Pass      |
+| **Submit** | Click | User is redirected to the dashboard upon successful login, with a self-closing success message with the username. The navbar now displays the links for authenticated users.  | Pass      |
+|**Form incomplete** | Display | Incorrect or incomplete fields will be displayed with the relevant error and the user will remain on the page. | Pass |
+
+### Login form
+| Feature               | Action  | Expected Result                       | Pass/Fail |
+|-----------------------|---------|---------------------------------------|-----------|
+| **'Sign Up' Button**  | Click   | User is directed to Sign up form      | Pass      |
+| **'Sign In' Button**  | Click   | User is directed to the Sign in form  | Pass      |
+
+
+
+
+
 #### Signed In
 
  The navigation links and the icon, can be found in the navbar or in the drop-down menu on smaller screens.
@@ -165,10 +217,14 @@ all the errors and ran the code through Pep8 again and no errors were returned.
 | Feature 	           | Action    |  Expected Result                                                                 | Pass/Fail |
 |----------------------|-----------|----------------------------------------------------------------------------------|-----------|
 | **Icon**             | Click     | User is redirected back to Inventory page.                                       | Pass      |
-| **Dashboard**        | Display   | User is on the dashboard page with dashboard beign displayed as the active link. | Pass      |
+| **Dashboard**        | Display   | User is on the dashboard page with dashboard being displayed as the active link. | Pass      |
 | **Categories**       | Click 	   | User is directed to Categories page.                                             | Pass      |
 | **Contact us**       | Click     | User is directed to Contact page.                                                | Pass      |
 | **"Log out" Link**   | Click 	   | User is directed Log out page.                                                   | Pass      |
+
+
+
+
 
 
 ### Links Testing

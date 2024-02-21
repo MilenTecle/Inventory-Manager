@@ -52,6 +52,11 @@ body  {
     color: #E37F4D;
 }
 
+.nav-link:focus, .dropdown-menu:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .navbar-icon {
     color: white;
 }
@@ -69,14 +74,6 @@ body  {
     background: #212529;
     color: #E37F4D;
     border: none;
-}
-
-#navbarDropdown a {
-    border: none;
-}
-
-.dropdown-toggle {
-    border:none;
 }
 
 
