@@ -33,13 +33,13 @@
                     <h6 class="card-title text-center">{{ forloop.counter }}. {{ inventory.name }}</h6>
                     <p class="card-text text-center qr-category">Category: {{ inventory.category }} </p>
                     <div class="qr-code-image">
-                <img src="{{ inventory.qr_code}}" class="card-img-top qr-img" alt="QR code for {{ inventory.name }}" />
+                <img src="{{ inventory.qr_code}}" class="card-img-top qr-img" alt="QR code for {{ inventory.name }}">
                     </div>
                 <div class="card-body download-share">
                     <a class="link" href="{{ inventory.qr_code }}" target="_blank" download>Download <i class="fa-solid fa-download"></i></a>
 
                     <!--Share via Email-->
-                    <a class="link" href="mailto:?subject=Check out my QR code&body=Here's my QR code that I want to share:%0D{{ inventory.qr_code }}" target="_blank" >Share
+                    <a class="link" href="mailto:?subject=Check%20out%20my%20QR%20code&body=Here's%20my%20QR%20code%20that%20I%20want%20to%20share:%20%0D{{ inventory.qr_code }}" target="_blank" >Share
                         <i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>

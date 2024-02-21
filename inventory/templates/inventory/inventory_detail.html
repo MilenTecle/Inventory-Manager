@@ -35,7 +35,6 @@
                     {{ formset.management_form }}
                     {% for form in formset %}
                         <div class="form-row d-flex align-items-center">
-                        {{ form.id }}
                         <div class="items-input">
                         {{ form | crispy }}
                         </div>

@@ -28,22 +28,50 @@ All HTML pages were run through the [W3C HTML Validator]
 into the validator. The results are listed in below table.
 
 
-| Page                  | Result     |
-|---------------------- |------------|
-| base.html             | No errors  |
-| categories.html       | No errors  |
-| contact.html          | No errors  |
-| inventory_clone.html  |    	       |
-| inventory_detail.html | 	         |
-| inventory.html        |            |
-| landing_page.html     | No errors  |
-| login.html  	        |            |
-| logout.html           |            |
-| privace_policy.html   | No errors  |
-| saved_list.html       | No errors	 |
-| signup.html  	        | No errors  |
+
+| Page                  | Result       |
+|---------------------- |--------------|
+| base.html             | No errors    |
+| categories.html       | No errors    |
+| contact.html          | No errors    |
+| inventory_clone.html  | Errors fixed |
+| inventory_detail.html | Errors fixed |
+| inventory.html        | Errors fixed |
+| landing_page.html     | No errors    |
+| login.html  	        |              |
+| logout.html           |              |
+| privace_policy.html   | No errors    |
+| saved_list.html       | No errors	   |
+| signup.html  	        | No errors    |
 
 
+<br>
+
+**Fixed errors**
+
+
+<details>
+  <summary>Inventory page</summary>
+
+  ![Inventory page](docs/readme_images/inventory_page_errors.png)
+  ![Inventory page](docs/readme_images/inventory_page_no_errors.png)
+</details>
+
+
+<details>
+  <summary>Inventory detail page</summary>
+
+  ![Inventory detail page](docs/readme_images/inventory_detail_error.png)
+  ![Inventory detail page](docs/readme_images/inventory_detail_no_errors.png)
+</details>
+
+
+<details>
+  <summary>Inventory clone page</summary>
+
+  ![Inventory clone page](docs/readme_images/inventory_clone_errors.png)
+  ![Inventory clone page](docs/readme_images/inventory_clone_no_errors.png)
+</details>
 
 ### CSS
 No errors were found when passing my CSS file through

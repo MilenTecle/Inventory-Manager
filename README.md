@@ -229,13 +229,14 @@ The wireframes were produced via Balsamiq.
   <details>
   <summary>Email verification</summary>
 
-  ![Sign Up](docs/readme_images/features/login.png)
+  ![Email verification](docs/readme_images/features/email_verification.png)
+  ![Confirm email](docs/readme_images/features/confirm_email.png)
   </details>
 
   <details>
   <summary>Log in</summary>
 
-  ![Sign Up](docs/readme_images/features/login.png)
+  ![Log in](docs/readme_images/features/login.png)
   </details>
 
   <details>
@@ -452,37 +453,53 @@ Limits access for non-registred users and permission control so that only the ow
 - All passwords, API keys, ID:s and the database url are stored in the env.py file to ensure that sensitive information is not shared, along with env.py being listed in the gitignore file.
 - CSRF tokens are used on all forms throughout the application.
 
-## Technologies used
+## Technologies & Languages used
 
-## Languages
   - HTML5
   - CSS
   - Javascript
   - Python
 
-  ## Frameworks, Libraries and Programs
-   - [Am I Responsive](https://ui.dev/amiresponsive) - Was used to ensure that the website is responsive on diffrerent devices.
-   - [Balsamiq](https://balsamiq.com/) - Was used to create the wireframes before starting the project.
-   - [Boostrap 5]() - Was used to style the app and make it responsive.
-   - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Was used on a daily basis throughout the project to make changes and to test the responsivness.
-  -  [Cloudinary]() - Used to upload the QR-code images.
-   - [Django]() - Main python framwork for development of this project.
-   - [Django-allauth]() - Authentication library used to create the user accounts.
-   - [Django-crispy-forms]() - Used to render the forms.
-   - [ElephantSQL]() - PostgreSQL database hosting for this project.
-   - [Font Awesome](https://fontawesome.com/) - Was used for Social Media icons in footer and for Contact information on the contact page.
-   - [Gitpod](https://gitpod.io/) - Was the Codespace used for this project.
-   - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
-   - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
-   - [Google Fonts](https://fonts.google.com/) - Was used to import fonts to the page.
+  - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Was used throughout the project to make changes and to test the responsivness.
+  - [Django](https://docs.djangoproject.com/en/5.0/) - Main python framework for development of this project.
+  - [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database hosting for this project.
+  - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
+  - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
+  - [Gitpod](https://gitpod.io/) - Was the Codespace used for this project.
   - [Heroku](/) - The cloud based platform to deploy the site on.
-  -  [Lucid charts]() - Was used to create the ERD diagrams.
-   - [PEP-8]() - Was used for Python Validation.
-   - [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
-   - [W3C](https://www.w3.org/) - Was used for HTML and CSS Validation.
-   - [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
-  - [TinyPNG](https://jshint.com/) - .
-  - [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
+
+  ## Libraries & Frameworks
+  - [Boostrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Was used to style the app and make it responsive.
+  - [Cloudinary](https://cloudinary.com/) - Used to upload the QR-code images.
+  - [Crispy-boostrap5](https://pypi.org/project/crispy-bootstrap5/) - To render Django forms in a Boostrap 5 style.
+  - [Django-allauth](https://docs.allauth.org/en/latest/) - Authentication library used to create the user accounts.
+  - [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Used to render the forms.
+  - [Django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/) - Was used for debugging.
+  - [Gunicorn](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) - Python HTTP server for WSGI applications.
+  - [Psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for Python.
+  - [QRcode](https://django-qr-code.readthedocs.io/en/latest/) -  Used to generate QR codes.
+  - [Whitenoise](https://whitenoise.readthedocs.io/en/latest/) - To serve static files directly from Django.
+
+  Additional information is available in the [requirements.txt file](requirements.txt)
+
+
+
+   ## Tools & Programs
+- [Am I Responsive](https://ui.dev/amiresponsive) - Was used to ensure that the website is responsive on diffrerent devices.
+- [Balsamiq](https://balsamiq.com/) - Was used to create the wireframes before starting the project.
+- [Font Awesome](https://fontawesome.com/) - Was used for Social Media icons in footer and other icons throughout the application.
+- [Google Fonts](https://fonts.google.com/) - Was used to import fonts to the page.
+
+- [JS-hint](https://jshint.com/) - Was used for Javascript Validation.
+- [Lucid charts]() - Was used to create the ERD diagrams.
+- [PEP-8]() - Was used for Python Validation.
+- [Responsinator](http://www.responsinator.com/) - Was also used to ensure that the website is responsive on diffrerent devices.
+- [W3C](https://www.w3.org/) - Was used for HTML and CSS Validation.
+- [Web Formatter](https://webformatter.com/html) - Was used to make sure the format looks good.
+- [WEBP Converter](https://cloudconvert.com/webp-to-png)- Also used to reduce the file size and keep the image quality.
+- [TinyPNG](https://jshint.com/) - Was used to reduce the file size and keep the image quality of the background image.
+
+
 
 
 ## Deployment

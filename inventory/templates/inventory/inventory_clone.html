@@ -28,10 +28,9 @@
                 </ul>
                 <form method="POST" action="{% url 'clone_list' item_id=inventory.id %}">
                     {% csrf_token %} {% if category_dropdown %}
-                    <input type="hidden" name="name" value="{{ inventory.name}}" />
+                    <input type="hidden" name="name" value="{{ inventory.name}}">
                     {{ inventory_form.category| as_crispy_field }} {% endif %} {{ formset.management_form }} {% for form in formset %}
                     <div class="form-row d-flex align-items-center">
-                        {{ form.id }}
                         <div class="items-input">
                             {{ form | crispy }}
                         </div>
