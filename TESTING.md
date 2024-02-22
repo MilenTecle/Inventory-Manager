@@ -34,6 +34,68 @@
 
 ## User Story Testing
 
+### User Profile
+
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User, I can create an account so that I can start managing my inventories.| Sign up page exists, with a form where the user can fill out the required fields and submit the form.| ✅
+|As a Site user, I can verify my account via the verification link sent to my email upon registration.| The user will recieve a verification link to email used when signing up. When clicked on link user can confirm email address and then login.| ✅
+|As a Site User, I can login to my account so that I can access my existing inventories.| Login page exists, where user can enter username and password to login and user will login to the dashboard.| ✅
+|As a Site User, I can login via Google so that I have several login options.| A google button in the login page exists, which allows the user to login using Google. The user will login to the dashboard.| ✅
+
+### User Navigation
+
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User I can navigate easily through the site due to a responsive navbar so that I understand where to go and it is always visible to me.| The navigation bar is responsive by using Bootstrap and on small screens a hamburger dropdown is displayed. The logo takes user back to landing page/dashboard.| ✅
+|As a Site User, I can see my lists in a dropdown list from the navigation bar, so that I can navigate to my lists easily.| When a logged in user creates and saves an inventory list, the list is automatically added to the dropdown menu.| ✅
+|As a Site User I can click on the social media links so that I can explore the work of the developer and see the developers profile.| User can click on the the social media icons, LinkedIn and Github that will open in a new tab.| ✅
+
+
+### User Feedback
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User, I can receive feedback whenever I make an action, so that I know if my action was successful or not.| The user will see a success message whenever an action is successful. If not, an error message will display telling the user about the errror. The messages are self-closing.| ✅
+
+### Create Inventories
+
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User, I can create unique inventory lists so that I can't create inventory lists with the same name.| If the user tries to create an inventory list with a name that already exists, the user will get a self-closing error message.|  ✅
+|As a Site User, I can create an inventory list and add multiple items at once, so that I can organize my belongings efficiently.| Inventory form where the list name and category exists and when saved, let's user add multiple items at once. User can also edit and delete the items.| ✅
+|As a Site User, I can login to my account so that I can access my existing inventories.| Login page exists, where user can enter username and password to login and user will login to the dashboard.| ✅
+|As a Site User, I can login via Google so that I have several login options.| A google button in the login page exists, which allows the user to login using Google. The user will login to the dashboard.| ✅
+
+
+### Manage Inventories
+
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User, I can generate a QR code for my inventory so that I can identify my belongings easily.| The QR-code image associated with the inventory will be generated when the inventory list is saved and displayed on the dashboard.|  ✅
+|As a Site User, I can scan the QR code so that I can see my inventory list immediately.| As the list owner I can see the items in the list and edit and/or delete the list when the QR-code is scanned. When shared, the edit and delete buttons will not be visible.| ✅
+|As a Site User, I can share my inventory with others using the generated QR code so that I can provide a visual and efficient view of the contents of my Inventory to others.| A "Share" link exists where user can share the QR-code via email with a pre-populated message and the url-link inlcuded| ✅
+|As a Site User I can clone my lists so that I can reuse a list and just modify it.| A "Clone list" button exists where user can clone a lists with its items and also add more items, delete or edit.| ✅
+|As a Site User, I can see numbers next to the inventory list name so that I can find boxes with an qr code easily if I have many boxes.| When the user creates and saves a list, a number, starting from 1 is automatically added next to the list name| ✅
+
+
+
+### Contact Form
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site User, I can make contact through a contact form, so that I can ask questions, report issues or make suggestions.| A contact form exists, where the user can submit a message. A succes message will display when sent.|✅
+
+
+### Site Administration
+
+**User Story**|**Test**|**Result**
+:------|:------|:----:
+|As a Site owner I can log in to the admin dashboard using my username and password so that I can access the functionalities of the superuser.| Created a superuser, using Django AllAuth to acces the admin panel.| ✅
+|As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.| The models are registred in the admin panel which allows admin to add new items and add, edit, delete items/inventories/categories. ✅
+|As a Site Owner I can download the QR codes for each inventory so that I can share the QR codes with team members.| The QR-code URL field is included in the admin panel so admin can access the QR-code url.| ✅
+|As a Site owner I can receive messages submitted through the form so that I can respond to the messages.| Functionality in place so the user gets an automated email confirming that the message has been recieved and admin gets the users submitted message to the email.|✅
+
+
+
 
 ## Validator Testing
 ### HTML
@@ -177,15 +239,15 @@ Inventory Manager was tested on Microsoft Edge, Google Chrome, Firefox and Safar
   The website was tested on different devices to ensure responsiveness on various screen sizes. Chrome developer tools was used to test and to check the responsivness on multiple devices. I also used the [Am I responsive](https://ui.dev/amiresponsive) to test the responsivness.
 
 
-| Device                | Functionality| Layout |
-|---------------------- |-------------|---------|
-| Iphone 8              |       ✔     |     ✔  |
-| Ihone mini 12         |       ✔     |     ✔  |
-| Iphone 13 Pro         |       ✔     |     ✔  |
-| Samsung Galaxy S21    |       ✔     |     ✔  |
-| Samsung Galaxy Tab S6 lite    |       ✔     |     ✔  |
-| Laptop                |       ✔     |     ✔  |
-| Desktop               |       ✔     |     ✔  |
+| Device                      | Functionality| Layout |
+|---------------------------- |--------------|--------|
+| Iphone 8                    |       ✔     |     ✔  |
+| Ihone mini 12               |       ✔     |     ✔  |
+| Iphone 13 Pro               |       ✔     |     ✔  |
+| Samsung Galaxy S21          |       ✔     |     ✔  |
+| Samsung Galaxy Tab S6 lite  |       ✔     |     ✔  |
+| Laptop                      |       ✔     |     ✔  |
+| Desktop                     |       ✔     |     ✔  |
 
 
   ## Friends and Family
