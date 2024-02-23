@@ -290,7 +290,7 @@ def clone_list(request, item_id):
                 item_list = formset.save(commit=False)
 
                 if not item_list:
-                    messages.error(request, "No new item added.")
+                    messages.error(request, "No new item was added.")
                     return redirect('clone_list', item_id=item_id)
                 else:
                     formset.save()
