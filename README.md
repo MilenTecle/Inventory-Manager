@@ -586,7 +586,8 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 - [Integrating Cloudinary-storage](https://dev.to/spymonk/integrating-cloudinary-storage-with-django-4ipb)
 - [Django reverse import](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/)
 - [Change display name in django admin](https://forum.djangoproject.com/t/django-admin-page-edit-app-names/14720)
--[Debug toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html), was used during when buildning the project to further investigate errors.
+- [Debug toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html) - Was used during when buildning the project to further investigate errors.
+- [Style the login and signup form](https://github.com/danihodovic/django-allauth-ui) - Style concept was taken from here.
 
 #### Django Authentication System
 

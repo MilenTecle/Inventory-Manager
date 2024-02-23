@@ -453,6 +453,17 @@ The footer remains the same for authenticated and unauthenticated users.
  - The social media links were tested separately to make sure they function, and opens in a new tab.
 
 
+## Bugs
+
+**Bug** | **Description** | **Actions to Resolve** | **Result** |
+|:-----|:------|:------|:-----|
+|Items didn't get added in the database.|When setting up the inventory form, addition and deletion of items where also handled there. But the items view was empty, the items didn't get added.|Solution: I changed approach and set up a separate form for addition of items.| Resolved
+|Migration History Error.| InconsistentMigrationHistory. This error occured when I installed the 'django.contrib.sites' framework to add the social account login.| Debugging and deleting records so the order would be correct since that was the cause of the error.| Resolved
+|As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.| The models are registred in the admin panel which allows admin to add new items and add, edit, delete items/inventories/categories. ✅
+|As a Site Owner I can download the QR codes for each inventory so that I can share the QR codes with team members.| The QR-code URL field is included in the admin panel so admin can access the QR-code url.| ✅
+
+
+
 
 
 ## Automated Testing

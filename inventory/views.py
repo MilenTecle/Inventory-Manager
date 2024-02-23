@@ -264,7 +264,17 @@ redireted to the dashboard.
 @login_required
 def clone_list(request, item_id):
     inventory = get_object_or_404(Inventory, pk=item_id, user=request.user)
+    cloned_inventory_name = f"{inventory.name} cloned"
     category_dropdown = True
+
+    """ Checks if the inventory has already been cloned before processing the
+    form
+    """
+    if Inventory.objects.filter(
+            user=request.user,
+            name=cloned_inventory_name).exists():
+        messages.error(request, "This inventory has already been cloned.")
+        return redirect('inventory')
 
     if request.method == 'POST':
         formset = ItemFormset(request.POST, instance=inventory)
@@ -274,6 +284,7 @@ def clone_list(request, item_id):
             user=request.user
             )
 
+        # Checks if an item was added or not
         if 'add_item' in request.POST:
             if formset.is_valid():
                 item_list = formset.save(commit=False)
@@ -288,14 +299,6 @@ def clone_list(request, item_id):
 
         elif inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
-            cloned_inventory_name = f"{inventory.name} cloned"
-
-            if Inventory.objects.filter(
-                user=request.user,
-                    name=cloned_inventory_name).exists():
-                messages.error(request, "This inventory has already "
-                               "been cloned.")
-                return redirect('inventory')
 
             new_inventory = Inventory(
                 user=request.user,
@@ -323,6 +326,7 @@ def clone_list(request, item_id):
         'inventory_form': inventory_form,
         'category_dropdown': category_dropdown,
     })
+
 
 
 """
