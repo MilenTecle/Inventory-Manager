@@ -3,6 +3,12 @@ from django.test import TestCase, Client
 from django.db.utils import IntegrityError
 from inventory.models import Inventory, Items, Category
 
+"""
+Use a database transaction so that if any part of the inventory
+creation or inventory deletion fails, the changes will be rolled back
+to prevent partial changes from affecting state of the database.
+"""
+
 
 class TestInventoryView(TestCase):
     def setUp(self):
@@ -21,6 +27,7 @@ class TestInventoryView(TestCase):
         self.category = Category.objects.create(name="Category test")
 
         inventory_name = "Test Inventory"
+        # Attempt to create a test inventory tied to the user and category
         try:
             with transaction.atomic():
                 self.inventory = Inventory.objects.create(
@@ -47,23 +54,6 @@ class TestInventoryView(TestCase):
         self.assertTrue(
             Inventory.objects.filter(name='New Inventory').exists()
             )
-
-    """
-    Set up the name and category for the new inventory list
-    After successful creation, checks for status code for redirection
-    Checks that the new inventory list was successfully created in the
-    database
-    """
-    def test_save_list(self):
-        new_list = "New list"
-        new_list_category = self.category.id
-        response = self.client.post(
-            '/inventory/',
-            {'name': new_list,
-             'category': new_list_category}
-             )
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(Inventory.objects.filter(name=new_list).exists())
 
     """
     Create a uniqe inventory specifically for this test

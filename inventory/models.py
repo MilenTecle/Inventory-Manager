@@ -47,6 +47,7 @@ class Inventory(models.Model):
     def get_url(self):
         domain = get_current_site(None).domain
         inventory_id = self.id
+        # Ensures that the URL is absolute
         return '{domain}{path}'.format(
             domain=domain,
             path=reverse('saved_list', args=[str(inventory_id)]))

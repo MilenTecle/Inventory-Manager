@@ -24,6 +24,7 @@ unauthenticated or logged out users.
 
 
 def landing_page(request):
+    # Check if the user is authenticated.
     if request.user.is_authenticated:
         return redirect('inventory')
     return render(request, 'landing_page.html')
@@ -31,7 +32,7 @@ def landing_page(request):
 
 """
 Display a form for adding categories and display existing categories.
-POST requests, it attempts to add a new category based on teh submitted data.
+POST requests, it attempts to add a new category based on the submitted data.
 It validates the form and if the form is valid, saves the form and provides
 success or errror feedback to user. Redirects to category page where the
 category along with existing ones will be displayed.
@@ -40,7 +41,9 @@ category along with existing ones will be displayed.
 
 @login_required(login_url='/accounts/login/')
 def add_category(request):
+    # Initialize an empty category form.
     category_form = CategoryForm()
+    # Fetch all categories belonging to the current user, ordered by name.
     categories = Category.objects.filter(user=request.user).order_by('name')
 
     if request.method == 'POST':
@@ -48,6 +51,7 @@ def add_category(request):
 
         if category_form.is_valid():
             try:
+                # Prepare the the category instance but not save it yet.
                 category = category_form.save(commit=False)
                 category.user = request.user
                 category.save()
@@ -76,6 +80,7 @@ message will be displayed.
 
 @login_required
 def delete_category(request, category_id):
+    # Retrieve the category to be deleted or show 404 if not found.
     category = get_object_or_404(Category, id=category_id)
     if request.method == 'POST':
         category.delete()
@@ -99,6 +104,7 @@ Upon successful update, it redirects user back to the category page.
 def edit_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     if request.method == 'POST':
+        # Populate the form with POST data and the instance to be updated.
         form = CategoryForm(data=request.POST, instance=category)
         if form.is_valid():
             try:
@@ -125,6 +131,7 @@ message.
 
 @login_required(login_url='/accounts/login/')
 def inventory_page(request):
+    # Fetch all inventories owned by the user, sorted by name.
     inventories = Inventory.objects.filter(user=request.user).order_by('name')
     inventory_form = InventoryForm(user=request.user)
 
@@ -132,7 +139,7 @@ def inventory_page(request):
         inventory_form = InventoryForm(data=request.POST, user=request.user)
         if inventory_form.is_valid():
             try:
-                # Create the inventory list and link to the category
+                # Inventory instance is prepared but not saved.
                 inventory_list = inventory_form.save(commit=False)
                 inventory_list.user = request.user
 
@@ -162,6 +169,7 @@ provides feedback upon error or success. Redirects to inventory page
 
 
 def inventory_detail(request, pk):
+    # Retrieve the specific inventory instance by pk or return a 404
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     formset = ItemFormset(request.POST, instance=inventory)
     inventory_form = InventoryForm(
@@ -172,16 +180,19 @@ def inventory_detail(request, pk):
     category_dropdown = True
 
     if request.method == 'POST':
+        # Check if inventory form and formset are valid.
         if inventory_form.is_valid():
             inventory_form.save()
-
+        # Track the initial count of items to compare after updates
         item_count = inventory.items.count()
 
         if formset.is_valid():
             instances = formset.save()
 
             if 'add_item' in request.POST:
+                # Recount items if added
                 new_item_count = inventory.items.count()
+                # Check if new items were added
                 if new_item_count > item_count:
                     messages.success(request, "Item added successfully!")
                 else:
@@ -218,6 +229,7 @@ user back to the inventory detail page with a success message.
 @login_required
 def delete_item(request, item_id):
     if request.method == 'POST':
+        # Retrieve the item to be deleted & ensure it belongs to current user
         item = get_object_or_404(
             Items,
             id=item_id,
@@ -270,6 +282,7 @@ def clone_list(request, item_id):
     """ Checks if the inventory has already been cloned before processing the
     form
     """
+    # Prevents cloning if a clone with the same name already exists
     if Inventory.objects.filter(
             user=request.user,
             name=cloned_inventory_name).exists():
@@ -299,7 +312,7 @@ def clone_list(request, item_id):
 
         elif inventory_form.is_valid() and formset.is_valid():
             item_list = formset.save(commit=False)
-
+            # Create a new inventory instance for the cloned inventory
             new_inventory = Inventory(
                 user=request.user,
                 name=cloned_inventory_name,
@@ -328,7 +341,6 @@ def clone_list(request, item_id):
     })
 
 
-
 """
 Displays a static view of a specific inventory list with its items for
 sharing. Includes the option to click on delete och edit list but only for
@@ -339,6 +351,7 @@ of the items, excluding the edit and delete functionality when shared.
 
 def saved_list(request, inventory_id):
     inventory = get_object_or_404(Inventory, id=inventory_id)
+    # Check if the current user is the owner of the inventory
     is_owner = request.user == inventory.user
     context = {
         'inventory': inventory,

@@ -8,8 +8,8 @@
     - [Python](#python)
     - [Lighthouse](#lighthouse)
 
-- [Browser Testing](#features)
-- [Device Testing](#features-left-to-implement)
+- [Browser Testing](#browser-testing)
+- [Device Testing](#device-testing)
 
 - [Manual Testing](#manual-testing)
     - [Landing page](#landing-page)
@@ -26,8 +26,8 @@
     - [Footer](#footer)
 
 
-- [Automated Testing](#)
-- [Bugs](#)
+- [Automated Testing](#python-automated-testing)
+- [Bugs](#bugs)
 
 
 
@@ -63,9 +63,6 @@
 :------|:------|:----:
 |As a Site User, I can create unique inventory lists so that I can't create inventory lists with the same name.| If the user tries to create an inventory list with a name that already exists, the user will get a self-closing error message.|  ✅
 |As a Site User, I can create an inventory list and add multiple items at once, so that I can organize my belongings efficiently.| Inventory form where the list name and category exists and when saved, let's user add multiple items at once. User can also edit and delete the items.| ✅
-|As a Site User, I can login to my account so that I can access my existing inventories.| Login page exists, where user can enter username and password to login and user will login to the dashboard.| ✅
-|As a Site User, I can login via Google so that I have several login options.| A google button in the login page exists, which allows the user to login using Google. The user will login to the dashboard.| ✅
-
 
 ### Manage Inventories
 
@@ -466,6 +463,7 @@ The bugs listed below are bugs that I spent a longer amount of time to resolve o
 |A user could see other users categories|During the test phase I discovered that other users' categories would be visible in my category dropdown menu.|Solution: Since the categories are supposed to be personal, and connected to the user, I had to add a user field in my category model to connect the category to the specific user.| Resolved
 |A user can create another "General" category.|A "General" category is provided to the user so that the user can choose that category and create a list instantly. A category is unique, same as the inventory name and duplicates can't be created.|Since a "General" category already is provided, the user doesn't have to create that specific category. But in this specific case, the user can create another General category. Due to time constraints and the fact that is not that likey that the user will create another "General" category if one already exists, I choose to leave this issue unresolved for now.| Unresolved
 |Duplicate social login buttons|When I added the social media providers in the admin panel, the social login buttons were suddenly duplicated.|Solution: I looked through the relevant templates, debugged and removed code to try and find the source of the problem. Eventually, when I removed the sites, except for the live site,  I had added in the admin panel the duplicate buttons issue disappeared.| Resolved
+|Scanned QR-code was leading to a relative path|When the QR code was scanned it would only display this path, not leading anywhere: /inventory/153/saved/. When scanned, the saved list view for that specific inventory was supposed to display|Solution: I did a lot of research and found that Django's reverse function generated a relative path into the QR code instead of the full absolut URL. I modified the method in my Inventory model to return the full absolute URL.| Resolved
 |Migration History Error.| InconsistentMigrationHistory. This error occured when I installed the 'django.contrib.sites' framework to add the social account login.| Debugging and deleting records so the order would be correct since that was the cause of the error.| Resolved
 |Unique constraint error| Can't clone the original list again due to the uniqe name constraint. To clone a cloned list is working by appending "cloned" to the list name, but if user tried to clone the original list again, an error would occur.|Solution: I added error handling so an error message renders if user tries to clone the original list again.| Resolved
 |Mixed content warning| After deployment, the QR-code image wouldn't display and a mixed content warning would appear in the console.|Solution: After a lot of research it became cleare that the issue was about images loaded over HTTP and not HTTPS so I needed to add secure_url to ensure that the image was delivered over HTTPS and that resolved the mixed content warning.| Resolved
@@ -480,5 +478,7 @@ Automated testing was conducted on specific components of the application, focus
 |:-----|:------|:------|
 |test_inventory_form_valid| Verifies that the "InventoryForm" is validated when provided with a valid category and name. This test ensures that the form's validation logic properly accepts correct input.| Passed
 |test_inventory_form_invalid| Tests the "InventoryForm" for correct handling of invalid submissions, specifically when mandatory fields are missing. This test is to confirm that the form's logic handles incomple och incorrect submissions correctly.| Passed
-
-
+|test_items_form_valid| Verifies that the "ItemsForm" validates correctly when provided with valid data. This test ensures that the form properly handles valid user inputs for item creation.| Passed
+|test_items_form_invalid| Test the form handling for invalid submissions, such as when item name is missing.  This test is to confirm that the form's logic handles incomple och incorrect submissions correctly to prevent data integrity issues.| Passed
+|test_create_inventory| Tests the functionality of creating a new inventory list through a POST request, verifying that the list is correcetly added to the database and that the user is redirected correctly.| Passed
+|test_delete_list| Tests the functionality of deleting a an inventory list, verifying that after deletion, the list is deleted from the database and the user redirected correctly.| Passed

@@ -19,7 +19,6 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
         - [Colours](#colours)
         - [Fonts](#fonts)
         - [Wireframes](#wireframes)
-
 - [Features](#features)
   - [Navigation](#navigation)
   - [The Landing Page](#the-landing-page)
@@ -30,17 +29,13 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
   - [Contact](#contact)
   - [Features left to implement](#features-left-to-implement)
 - [CRUD](#crud)
-
 - [Database design](#database-design)
     - [Database Models](#database-models)
-
 - [Testing](#testing)
 - [Security Features](#security-features)
-
-- [Technologies used](#technologies-used)
-
-- [Languages](#languages)
-- [Frameworks, Libraries and Programs](#frameworks-libraries-programs)
+- [Technologies & Languages used](#technologies--languages-used)
+- [Libraries & Frameworks](#libraries--frameworks)
+- [Tools & Programs](#tools--programs)
 - [Deployment](#deployment)
     - [Heroku](#heroku)
 - [Credits](#credits)
@@ -85,7 +80,7 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 ### Site Administration
 - As a Site owner I can log in to the admin dashboard using my username and password so that I can access the functionalities of the superuser.
 - As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.
-- As a Site Owner I can download the QR codes for each inventory so that I can share the QR codes with team members.
+- As a Site Owner I can download the QR codes for each inventory so that I can share the QR code with team members.
 - As a Site owner I can receive messages submitted through the form so that I can respond to the messages.
 
 
@@ -96,7 +91,7 @@ associated tasks, please see link to the project board [here](https://github.com
 
 ### Site Owner Goals
 The primary goals of the Inventory Manager app are to provide users with an efficient and user-friendly platform for organizing and managing their belongings.
-The Inventory Manager app is also intended to promote awarness of possesions to encourage suistanable and mindful consumption.
+The Inventory Manager app is also intended to promote awareness of possesions to encourage suistanable and mindful consumption.
 Main goals include optimizing inventory management, user engagement and integrating QR code functionality. Through a visually appealing and accessible interface,
 delivering a high level of user satisfaction. Using QR codes to share inventories is designed to simplify daily life and encourage sharing or exchanging of items left unused. These goals aim to create a reliable and simple application with focus usability, security and innovation.
 
@@ -123,10 +118,10 @@ The visual design of the app prioritizes clarity, accessiblity and an appealing 
 ## Design
 
 ### Images
-The background image on the site reflects the purpose of the quiz and the appealing image invites the user to further explore the website.
+The background image on the landing page has graphic elements of various abstract shapes, which contributes to the theme of organization and categorization, aligning with the application's purpose.
 
 ### Colours
-The colours used for the website blends well with the background image with a consistent look for the user. The dark colour breaks off the orange....
+The colours used for the website consists of a vibrant orange colour,same colour as the background image, giving the user a sense of energy and enthusiasm along with a modern website. The dark colour breaks off the orange and creates a balance throughout the website.
 
 
 ### Fonts
@@ -159,6 +154,13 @@ The wireframes were produced via Balsamiq.
   ![Contact Form](docs/wireframes/contact_form.png)
 </details>
 
+
+<details>
+  <summary>Mobile</summary>
+
+  ![Contact Form](docs/wireframes/mobile.png)
+</details>
+
 ## Features
  ### Navigation
 
@@ -167,19 +169,19 @@ The wireframes were produced via Balsamiq.
 - Active link is orange instead of the default white to make it clear to the user where the user is.
 - Collapsible burger menu with drop-down function on small to medium screens.
 
-  <details>
+  <details open>
   <summary>Navbar not logged in</summary>
 
   ![My Inventory](docs/readme_images/features/navbar_not_logged_in.png)
   </details>
 
-  <details>
-  <summary>Navbar logged in</summary>
+  <details open>
+  <summary>Navbar logged in </summary>
 
   ![My Inventory](docs/readme_images/features/navbar_logged_in.png)
    </details>
 
-   <details>
+   <details open>
    <summary>Burger menu</summary>
 
   ![My Inventory](docs/readme_images/features/burger_menu.png)
@@ -191,7 +193,7 @@ The wireframes were produced via Balsamiq.
 
 - Welcome text that explains the purpose with the application and invites the user to sign up with a call to action, or if user already has an account, to sign in instead.
 
-  <details>
+  <details open>
   <summary>Landing Page</summary>
 
   ![Landing Page](docs/readme_images/features/landing_page.png)
@@ -205,7 +207,7 @@ The wireframes were produced via Balsamiq.
 - The links opens in a new tab which allows for the user to navigate easy.
 - A link to the privacy policy page that opens in a new tab.
 
-   <details>
+   <details open>
   <summary>Footer</summary>
 
   ![Footer](docs/readme_images/features/footer.png)
@@ -220,32 +222,32 @@ The wireframes were produced via Balsamiq.
   - I was planning on using Facebook as a login method as well.  I decided not to proceed with the implementation due to the complexity of adding that functionality.
 
 
-  <details>
+  <details open>
   <summary>Sign up</summary>
 
   ![Sign Up](docs/readme_images/features/sign_up.png)
    </details>
 
-  <details>
+  <details open>
   <summary>Email verification</summary>
 
   ![Email verification](docs/readme_images/features/email_verification.png)
   ![Confirm email](docs/readme_images/features/confirm_email.png)
   </details>
 
-  <details>
+  <details open>
   <summary>Log in</summary>
 
   ![Log in](docs/readme_images/features/login.png)
   </details>
 
-  <details>
+  <details open>
   <summary>Remember me</summary>
 
   ![Sign Up](docs/readme_images/features/remember_me.png)
   </details>
 
- <details>
+ <details open>
   <summary>Password reset</summary>
 
   ![Sign Up](docs/readme_images/features/password_reset.png)
@@ -253,7 +255,7 @@ The wireframes were produced via Balsamiq.
    </details>
 
 
-   <details>
+   <details open>
    <summary>Google</summary>
 
   ![Sign Up](docs/readme_images/features/google_sign_in.png)
@@ -265,7 +267,7 @@ The wireframes were produced via Balsamiq.
    </details>
 
 
- <details>
+ <details open>
   <summary>Log out</summary>
 
   ![Log out](docs/readme_images/features/log_out.png)
@@ -273,63 +275,63 @@ The wireframes were produced via Balsamiq.
 
 
 ## My Inventory
-1. Once logged in, the user can create an inventory list immediately. First by choosing a unique name for the inventory list. If a list name already exists, the user will get an error message. A "General" category is provided for the user, so that the user can get started quickly and add/modify categories further on. The user will then get a success message of the created inventory list, and will be redirected to the Itemsform, to add the items to the list.
+1. Once logged in, the user can create an inventory list immediately. First by choosing a unique name for the inventory list. If a list name already exists, the user will get an error message. A "General" category is provided to the user, so that the user can get started quickly and add/modify categories further on. The user will then get a success message of the created inventory list, and will be redirected to the Itemsform, to add the items to the list.
 
 2. The user can add several items at once and will recieve a success message upon added items, and error messages if no items are added. The user can't save an empty list. When the user clicks on save list, the user will be redirected to the dashboard with a success message of successful save.
 
-3. The list is now saved and visible on the dashboard with number 1 appended to the list name. The next list will have the number 2 and so on. The lists will alsbo be ordered alfabetically. The QR code-image is rendered when the list is saved, so the user can now scan the QR-code.
+3. The list is now saved and visible on the dashboard with number 1 appended to the list name. The next list will have the number 2 and so on. The lists will also be ordered alfabetically. The QR code-image is rendered when the list is saved, so the user can now scan the QR-code.
 
 4. The user can download the QR-code image, that will open i a new tab. The user can also share the link to the QR-code via email with a prepopulated email.
 
 5. The user can also clone a list by clicking on "clone list". There, the user can edit, delete and add items. When saved, the user will get a success message and be redirected to the dashboard where the cloned list now will be visible.
 
 6. If the user clicks on "view details" the user will get to a view where the user can click on "edit list" or "delete list". If the user clicks on delete list, the user will be prompted to confirm deletion, and a success message will render. The user will be redirected to the Itemsform if user clicks on "edit list".
-<details>
+<details open>
   <summary>Create Inventory List</summary>
 
   ![Empty dashboard](docs/readme_images/features/dashboard.1.png)
   ![Create inventory](docs/readme_images/features/create_inventory.png)
 </details>
 
-<details>
+<details open>
   <summary>Add Items</summary>
 
   ![Add Items](docs/readme_images/features/add_items.png)
 </details>
 
-<details>
+<details open>
   <summary>Saved list</summary>
 
   ![Saved list](docs/readme_images/features/saved_list.png)
 </details>
 
-<details>
+<details open>
   <summary>Scanned QR-code</summary>
 
   ![Scanned QR-code](docs/readme_images/features/scanned_qr_code_list_owner.png)
   ![Scanned QR-code](docs/readme_images/features/scanned_qr_code_not_list_owner.png)
 </details>
 
-<details>
+<details open>
   <summary>Download QR-code</summary>
 
   ![Download QR-code](docs/readme_images/features/download_qr_code.png)
 </details>
 
-<details>
+<details open>
   <summary>Share QR-code</summary>
 
   ![Share QR-code](docs/readme_images/features/share_qr_code.png)
 </details>
 
-<details>
+<details open>
   <summary>Clone list</summary>
 
   ![Clone list](docs/readme_images/features/clone_list.png)
   ![Clone list](docs/readme_images/features/cloned_list_view.png)
 </details>
 
-<details>
+<details open>
   <summary>Edit or delete list</summary>
 
   ![Edit or delete list](docs/readme_images/features/edit_delete_list.png)
@@ -343,7 +345,7 @@ The wireframes were produced via Balsamiq.
 - The user can edit a category by using inline editing so that the user can stay on the page, and a save button will appear. When saved, user will get a success message.
 - The user can delete a category. If the user wants to delete a category the user needs to confirm deletion. The user will get a success message after deletion.
 
-<details>
+<details open>
   <summary>Add Categories</summary>
 
   ![Add Categories](docs/readme_images/features/add_categories.png)
@@ -351,7 +353,7 @@ The wireframes were produced via Balsamiq.
   ![Add Categories](docs/readme_images/features/category_added.png)
 </details>
 
-<details>
+<details open>
   <summary>Edit or delete categories</summary>
 
   ![Edit categories](docs/readme_images/features/edit_category.png)
@@ -364,13 +366,13 @@ The wireframes were produced via Balsamiq.
 - The user will get an automated email to their email after the submission.
 - Admin will get a notification to their email of a new submission from the sender, so that admin can get a notification without manually needing to log in to the admin panel.
 
-<details>
+<details open>
   <summary>Contact form</summary>
 
   ![Contact form](docs/readme_images/features/contact_form.png)
 </details>
 
-<details>
+<details open>
   <summary>Automated email</summary>
 
   ![Automated email to sender](docs/readme_images/features/automated_email_to_sender.png)
@@ -379,13 +381,14 @@ The wireframes were produced via Balsamiq.
 
 
 ### Features left to implement
-  - When a user shares an inventory list, the user can choose if it's only read permisson or edit and/or delete permission.
+  - When a user shares an inventory list, the user can choose to share permission, only read permisson or edit and/or delete permission.
   - When a user wants to clone the orignial list again, the user will get an error message saying "The invenontory has already been cloned". I've added that as a solution to not violate the unique name constraint. In the future, I would like to implement so that
   an incrementing number, starting from 1 is appended after the word "cloned" to get around this problem.
   - Create a view on the landing page so that non registered users can see a QR code containing an example list. The share and download links are disabled so that the user can see what features are available for a registered user.
   - Let the user choose to have public or private lists so that other users can copy another users list.
   - Implement a search bar, so the user can search for inventories if there are many inventory lists.
   - Implement pagination in case of many inventory lists, in particular on mobile view.
+  - To change my emailaddress to a more generic emailaddress in the application.
 
 
 ## CRUD
@@ -395,7 +398,7 @@ CRUD functionality is included in the above features.
 
 **Read**: A user can read the content of their own inventory lists.
 
-**Update** n authenticated user can edit and update their inventory lists as well as categories.
+**Update** An authenticated user can edit and update their inventory lists as well as categories.
 
 **Delete**: An authenticated user can delete their own items, categories and inventory lists.
 
@@ -405,7 +408,7 @@ CRUD functionality is included in the above features.
 ### Database Models
 The entity relationship diagram provided is the first draft and does not include all the fields and models in the final database.
 
-<details>
+<details open>
   <summary>Database schema</summary>
 
   ![Database schema](docs/readme_images/database_schema.png)
@@ -466,7 +469,7 @@ Limits access for non-registred users and permission control so that only the ow
   - [Git](https://git-scm.com/) - Git was used for version control by using the Gitpod terminal to commit and then push to Github.
   - [Github](https://github.com/) - Is where the projects code is stored after being pushed.
   - [Gitpod](https://gitpod.io/) - Was the Codespace used for this project.
-  - [Heroku](/) - The cloud based platform to deploy the site on.
+  - [Heroku](https://www.heroku.com) - The cloud based platform to deploy the site on.
 
   ## Libraries & Frameworks
   - [Boostrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Was used to style the app and make it responsive.
@@ -474,7 +477,7 @@ Limits access for non-registred users and permission control so that only the ow
   - [Crispy-boostrap5](https://pypi.org/project/crispy-bootstrap5/) - To render Django forms in a Boostrap 5 style.
   - [Django-allauth](https://docs.allauth.org/en/latest/) - Authentication library used to create the user accounts.
   - [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Used to render the forms.
-  - [Django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/) - Was used for debugging.
+  - [Django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/) - Was used for debugging during the project.
   - [Gunicorn](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) - Python HTTP server for WSGI applications.
   - [Psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for Python.
   - [QRcode](https://django-qr-code.readthedocs.io/en/latest/) -  Used to generate QR codes.
@@ -500,8 +503,6 @@ Limits access for non-registred users and permission control so that only the ow
 - [TinyPNG](https://jshint.com/) - Was used to reduce the file size and keep the image quality of the background image.
 
 
-
-
 ## Deployment
 
 ### Heroku
@@ -520,7 +521,7 @@ The application was deployed to Heroku using the following steps:
 3. Provide a project name and choose "Tiny Turtle", the free plan.
 4. Click on "Select Region" and choose Data center.
 5. Review all the details and click on "Create Instance".
-6. Return to the Dashboard and click on the newly created instance and coyp the database URL.
+6. Return to the Dashboard and click on the newly created instance and copy the database URL.
 
 #### Create and prepare files
 
@@ -528,7 +529,7 @@ The application was deployed to Heroku using the following steps:
 - Create a "Procfile" in the main directory and add: web: gunicorn project-name.wsgi
 
   ##### Env.py file
-  - Create an env.py file in the main directory in your Gitpod worksapce.
+  - Create an env.py file in the main directory in your Gitpod workspace and ensure it's included in the .gitignore file.
   - Add the DATABASE_URL and SECRET_KEY to the env.py file.
   - Add the Cloudinary URL to env.py.
 
@@ -550,8 +551,9 @@ The application was deployed to Heroku using the following steps:
 
   #### Heroku Config Vars
   Add these Config Vars in Heroku:
-  - SECRET_KEY value
+  - SECRET_KEY and value
   - CLOUDINARY_URL
+  - PORT: 8000
   - DISABLE_COLLECTSTATIC = 1
 
 ### Deploy
@@ -586,7 +588,7 @@ The live link can be found here - [Inventory Manager](https://inventory-manager-
 - [Integrating Cloudinary-storage](https://dev.to/spymonk/integrating-cloudinary-storage-with-django-4ipb)
 - [Django reverse import](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/)
 - [Change display name in django admin](https://forum.djangoproject.com/t/django-admin-page-edit-app-names/14720)
-- [Debug toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html) - Was used during when buildning the project to further investigate errors.
+- [Debug toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html) - Was used when building the project to further investigate errors.
 - [Style the login and signup form](https://github.com/danihodovic/django-allauth-ui) - Style concept was taken from here.
 
 #### Django Authentication System
@@ -664,7 +666,7 @@ I used code from here to setup the sending email function using send_email:
 
 
 ### Content
-The content were written by the developer.
+The content is written by the developer.
 
 
 ### Media
