@@ -237,7 +237,7 @@ def delete_item(request, item_id):
             )
         inventory_id = item.inventory.pk
         item.delete()
-        messages.success(request, "Item deleted successfully")
+        messages.success(request, "Item deleted successfully!")
         return redirect('inventory_detail', pk=inventory_id)
     else:
         messages.error(request, "Could not delete item.")
@@ -257,7 +257,7 @@ def delete_list(request, pk):
     inventory = get_object_or_404(Inventory, pk=pk, user=request.user)
     if request.method == 'POST':
         inventory.delete()
-        messages.success(request, "Inventory list deleted successfully")
+        messages.success(request, "Inventory list deleted successfully!")
         return redirect('inventory')
 
 

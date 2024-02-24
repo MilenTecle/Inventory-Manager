@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 /* Background image on landing page */
 
 body  {
@@ -11,11 +12,18 @@ body  {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 .no-bg-image {
     background-image: none;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
 
 /* Landing page*/
 

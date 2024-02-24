@@ -121,11 +121,12 @@ The visual design of the app prioritizes clarity, accessiblity and an appealing 
 The background image on the landing page has graphic elements of various abstract shapes, which contributes to the theme of organization and categorization, aligning with the application's purpose.
 
 ### Colours
-The colours used for the website consists of a vibrant orange colour,same colour as the background image, giving the user a sense of energy and enthusiasm along with a modern website. The dark colour breaks off the orange and creates a balance throughout the website.
+The colours used for the website consists of a vibrant orange colour, same colour as the background image, giving the user a sense of energy and enthusiasm along with a modern website. The dark colour breaks off the orange and creates a balance throughout the website.
 
 
 ### Fonts
-The is the font used on the website. The font was imported via [Google Fonts](https//:fonts.google.com). is the backup font....
+Roboto is the main font used for the body of the application and Lato used for the headings. Sans Serif is the backup font. The fonts were imported via
+[Google Fonts](https//:fonts.google.com).
 
 ## Wireframes
 The wireframes were produced via Balsamiq.
