@@ -87,7 +87,7 @@
 **User Story**|**Test**|**Result**
 :------|:------|:----:
 |As a Site owner I can log in to the admin dashboard using my username and password so that I can access the functionalities of the superuser.| Created a superuser, using Django AllAuth to acces the admin panel.| ✅
-|As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.| The models are registred in the admin panel which allows admin to add new items and add, edit, delete items/inventories/categories. ✅
+|As a Site owner I can view a list of all inventory items so that I can edit, delete or add items, inventories and categories.| The models are registred in the admin panel which allows admin to add new items and add, edit, delete items/inventories/categories.| ✅
 |As a Site Owner I can download the QR codes for each inventory so that I can share the QR codes with team members.| The QR-code URL field is included in the admin panel so admin can access the QR-code url.| ✅
 |As a Site owner I can receive messages submitted through the form so that I can respond to the messages.| Functionality in place so the user gets an automated email confirming that the message has been recieved and admin gets the user's submitted message to the email.|✅
 
@@ -232,7 +232,7 @@ Inventory Manager was tested on Microsoft Edge, Google Chrome, Firefox and Safar
 
 
 
-### Device Testing
+## Device Testing
   The website was tested on different devices to ensure responsiveness on various screen sizes. Chrome developer tools was used to test and to check the responsivness on multiple devices. I also used [Am I responsive](https://ui.dev/amiresponsive) to test the responsivness.
 
 
@@ -341,7 +341,7 @@ Authenticated users can add items to their inventory lists as well as edit and d
 | **Submit**           | Click| User is redirected to the Dashboard upon successful login, with a self-closing success message.   | Pass      |
 
 
-## Dashboard
+### Dashboard
 Authenticated users can see their inventory lists on the dashboard along with functionalities such as: scan QR-code, download QR-code, share QR-code, clone list and view list details (where the user can edit and delete a list.).
 
 ### Numbered list in alphabetical order
@@ -384,7 +384,7 @@ Authenticated users can clone a list, so the user can reuse and/or adapt an exis
 
 
 
-## Saved inventory list
+### Saved inventory list
 
 Authenticated users will see the inventory list and edit and delete list functionality. Only list owner will see the view with the edit and delete option when QR-code is scanned.
 
@@ -396,7 +396,7 @@ Authenticated users will see the inventory list and edit and delete list functio
 | **'Delete list' button'**  | Click   |  When clicked, a confirm delete modal will display. If confirmed, a self-closing success message will display and user will be re-directed to the dashboard. | Pass      |
 
 
-## Categories
+### Categories
 
 Authenticated users can create unique categories, edit and delete.
 
@@ -411,7 +411,7 @@ Authenticated users can create unique categories, edit and delete.
  **Delete icon**   | Click   | When clicked, a confirm delete modal will display. If confirmed, a self-closing success message will display and user will remain on the page.           | Pass      |
 
 
-## Contact Form
+### Contact Form
 Authenticated users can submit a message using the contact form.
 
 | Feature              | Action  | Expected Result                                            | Pass/Fail |
@@ -421,8 +421,6 @@ Authenticated users can submit a message using the contact form.
 | **Submit**           | Click   | A success message with a self-closing success message will display and user stays on the page. | Pass      |
 | **Incomplete form**  | Display | Incorrect or incomplete field will be displayed with the relevant error and the user will remain on the page.                         | Pass      |
 | **Email confirmation**| Display| User will get an email confirmation of the recieved message.                        | Pass      |
-
-
 
 
 ### Log out
