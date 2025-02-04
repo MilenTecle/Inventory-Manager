@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com',
-                 'https://inventory-manager-3vk0.onrender.com', ]
+                 'inventory-manager-3vk0.onrender.com', ]
 
 
 # Application definition

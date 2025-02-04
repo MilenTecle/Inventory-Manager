@@ -3,7 +3,7 @@
 The Inventory Manager app is built using Django and is designed to help users efficiently manage their inventories and promote sustainable living. The Inventory Manager
 app provides a user-friendly interface for creating, organizing and sharing lists of items. Each list is associated with a unique QR code for easy access and sharing.
 
-The live link can be found here - [Inventory Manager](https://inventory-manager-milen-aa94458871b4.herokuapp.com/)
+The live link can be found here - [Inventory Manager](https://inventory-manager-3vk0.onrender.com/)
 
 ![Inventory Manager Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
@@ -578,7 +578,7 @@ The application was deployed to Heroku using the following steps:
 
 
 
-The live link can be found here - [Inventory Manager](https://inventory-manager-milen-aa94458871b4.herokuapp.com/)
+The live link can be found here - [Inventory Manager](https://inventory-manager-3vk0.onrender.com/)
 
 ## Credits
 
