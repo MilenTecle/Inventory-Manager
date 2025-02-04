@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com',
-                 'inventory-manager-milen-aa94458871b4.herokuapp.com', ]
+                 'https://inventory-manager-3vk0.onrender.com', ]
 
 
 # Application definition
@@ -191,6 +191,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
     "https://*.gitpod.io",
+    "https://*.render.com"
 ]
 
 
