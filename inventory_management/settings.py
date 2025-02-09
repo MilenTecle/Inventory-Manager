@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 import sys
 from django.contrib.messages import constants as messages
 import dj_database_url
-if os.path.isfile('env.py'):
-    import env
+if os.path.isfile('.env'):
+    load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com',
-                 'inventory-manager-3vk0.onrender.com', ]
+                 'inventory-manager-3vk0.onrender.com','127.0.0.1', 'localhost' ]
 
 
 # Application definition
